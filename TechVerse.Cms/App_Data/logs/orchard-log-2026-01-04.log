@@ -1,0 +1,7 @@
+2026-01-04 00:03:43.7724|Default|00-4ea5d69c8a95da86e1463c37e6123c0b-9fe3a4c9e9bf3457-00||OrchardCore.Media.Controllers.AdminController|ERROR|An error occurred while uploading a media OrchardCore.FileStorage.FileStoreException: Cannot create file 'Article/Knowledge/1763193046691830d65545f_.jpg' because it already exists.
+   at OrchardCore.FileStorage.FileSystem.FileSystemStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Core.DefaultMediaFileStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Controllers.AdminController.<>c__DisplayClass19_0.<<Upload>b__1>d.MoveNext()    at OrchardCore.FileStorage.FileSystem.FileSystemStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Core.DefaultMediaFileStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Controllers.AdminController.<>c__DisplayClass19_0.<<Upload>b__1>d.MoveNext()
+2026-01-04 01:21:13.2713||||Microsoft.Hosting.Lifetime|INFO|Application is shutting down... 

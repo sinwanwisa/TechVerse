@@ -6,3 +6,29 @@
 2026-01-03 15:58:32.3929||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
 2026-01-03 15:58:32.3929||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
 2026-01-03 16:40:42.7131||||Microsoft.Hosting.Lifetime|INFO|Application is shutting down... 
+2026-01-03 16:41:57.0349|||8|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|WARN|The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert. 
+2026-01-03 16:41:57.0974|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: https://localhost:5001 
+2026-01-03 16:41:57.0974|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: http://localhost:5000 
+2026-01-03 16:41:57.0974||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-03 16:41:57.0974||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-03 16:41:57.0974||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-03 17:41:16.4294||||Microsoft.Hosting.Lifetime|INFO|Application is shutting down... 
+2026-01-03 20:25:36.7675|||8|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|WARN|The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert. 
+2026-01-03 20:25:36.8354|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: https://localhost:5001 
+2026-01-03 20:25:36.8354|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: http://localhost:5000 
+2026-01-03 20:25:36.8354||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-03 20:25:36.8354||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-03 20:25:36.8354||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-03 20:48:19.6327|Default|00-c9cc5bd0d273bef2bd0cf2b739ee077c-34614f4b8bf6dfe8-00||OrchardCore.Media.Controllers.AdminController|ERROR|An error occurred while uploading a media OrchardCore.FileStorage.FileStoreException: Cannot create file 'Product/onikuma-gaming-headset-gt808-4-square_medium.jpg' because it already exists.
+   at OrchardCore.FileStorage.FileSystem.FileSystemStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Core.DefaultMediaFileStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Controllers.AdminController.<>c__DisplayClass19_0.<<Upload>b__1>d.MoveNext()    at OrchardCore.FileStorage.FileSystem.FileSystemStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Core.DefaultMediaFileStore.CreateFileFromStreamAsync(String path, Stream inputStream, Boolean overwrite)
+   at OrchardCore.Media.Controllers.AdminController.<>c__DisplayClass19_0.<<Upload>b__1>d.MoveNext()
+2026-01-03 21:59:00.2757||||Microsoft.Hosting.Lifetime|INFO|Application is shutting down... 
+2026-01-03 22:54:20.1684|||8|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|WARN|The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert. 
+2026-01-03 22:54:20.2442|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: https://localhost:5001 
+2026-01-03 22:54:20.2442|||14|Microsoft.Hosting.Lifetime|INFO|Now listening on: http://localhost:5000 
+2026-01-03 22:54:20.2442||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-03 22:54:20.2442||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-03 22:54:20.2442||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
