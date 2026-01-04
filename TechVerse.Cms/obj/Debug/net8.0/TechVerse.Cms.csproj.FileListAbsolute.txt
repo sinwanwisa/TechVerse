@@ -471,3 +471,6 @@ C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVer
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.genruntimeconfig.cache
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\ref\TechVerse.Cms.dll
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.sourcelink.json
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.RazorAssemblyInfo.cache
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.RazorAssemblyInfo.cs

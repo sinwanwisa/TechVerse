@@ -1,0 +1,62 @@
+﻿
+@model TechVerse.Cms.Pages.Widgets.Partials._PromotionWidgetModel
+@inject OrchardCore.IOrchardHelper Orchard
+@using OrchardCore
+@using OrchardCore.ContentManagement
+@using OrchardCore.ContentManagement.Metadata
+@{
+    var widget = Model?.ContentItem;
+    var promotionIds = widget.Content.PromotionWidget?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>() as string[] ?? Array.Empty<string>();
+    var hasPromotions = promotionIds.Any();
+}
+<div class="promotion-container">
+    <h3 class="mb-4">@widget?.DisplayText</h3>
+
+    @if (promotionIds.Any())
+    {
+        <div class="row">
+            @foreach (var id in promotionIds)
+            {
+        
+                var promoItem = await Orchard.GetContentItemByIdAsync(id);
+
+                if (promoItem != null)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="promo-card shadow-sm p-3 border rounded">
+
+                         
+                            @{
+                         
+                                var imagePaths = promoItem.Content.Promotion?.Image?.Paths
+                                ?? promoItem.Content.PromotionWidget?.Image?.Paths; // 
+                            }
+
+                            @if (imagePaths != null && imagePaths.Count > 0)
+                            {
+                                @foreach (var path in imagePaths)
+                                {
+                                    <div class="promo-image-item mb-2">
+                                        <img src="@Orchard.AssetUrl((string)path)"
+                                             alt="@promoItem.DisplayText"
+                                             class="img-fluid rounded"
+                                             style="width: 100%; object-fit: cover;" />
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="no-image bg-light text-center py-5 rounded mb-2">
+                                    <span class="text-muted">ไม่มีรูปภาพ (Field: Image)</span>
+                                </div>
+                            }
+
+                            <h4 class="mt-2">@promoItem.DisplayText</h4>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+
+</div>
