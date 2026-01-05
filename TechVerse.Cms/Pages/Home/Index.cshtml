@@ -1,6 +1,7 @@
 ﻿@page
 @model TechVerse.Cms.Pages.Home.IndexModel
 @inject OrchardCore.IOrchardHelper Orchard
+@using TechVerse.Cms.Pages.Widgets
 @using TechVerse.Cms.Pages.Widgets.Partials
 @using OrchardCore
 @using OrchardCore.ContentManagement
@@ -9,19 +10,33 @@
 
 @{
     // 1. ดึงข้อมูล Content Item จาก CMS (ใช้ Alias ที่คุณตั้งใน Admin)
-    var widgetItem = await Orchard.GetContentItemByHandleAsync("alias:homepage-promotion");
+    var Promotion= await Orchard.GetContentItemByHandleAsync("alias:homepage-promotion");
+    var ProductHighlight = await Orchard.GetContentItemByHandleAsync("alias:homepage-product-highlight");
+
 
     // 2. ตรวจสอบว่าดึงข้อมูลมาได้ไหม
-    if (widgetItem != null)
+    if (Promotion != null)
     {
         // 3. เตรียม Model สำหรับส่งให้ Partial
-        var promoWidgetModel = new _PromotionWidgetModel
+        var promotionWidgetModel = new _PromotionWidgetModel
         {
-            ContentItem = widgetItem
+            ContentItem = Promotion
         };
 
         // 4. เรียกใช้ Partial View
-        @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", promoWidgetModel)
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", promotionWidgetModel)
+    }
+    // 2. ตรวจสอบว่าดึงข้อมูลมาได้ไหม
+    if (ProductHighlight != null)
+    {
+        // 3. เตรียม Model สำหรับส่งให้ Partial
+        var productHighlightModel = new _ProductHighlightModel
+        {
+            ContentItem = ProductHighlight
+        };
+
+        // 4. เรียกใช้ Partial View
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_ProductHighlight.cshtml", productHighlightModel)
     }
     else
     {

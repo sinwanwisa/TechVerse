@@ -1,0 +1,98 @@
+﻿@model TechVerse.Cms.Pages.Widgets.Partials._ProductHighlightModel
+@using System.Linq
+@using System.Collections.Generic
+@using OrchardCore
+@using OrchardCore.ContentManagement
+@using OrchardCore.Queries
+@using System.Text.Json.Nodes 
+
+@inject OrchardCore.IOrchardHelper Orchard
+@inject IQueryManager QueryManager
+@inject IContentManager ContentManager
+
+@{
+
+    // ==============================
+    var widget = Model?.ContentItem;
+    var title = widget?.DisplayText ?? "Product Highlight";
+
+    var products = new List<ContentItem>();
+
+    var query = await QueryManager.GetQueryAsync("ProductHighlight");
+
+    if (query != null)
+    {
+       
+        var queryResult = await QueryManager.ExecuteQueryAsync(query, new Dictionary<string, object>());
+
+        if (queryResult?.Items != null)
+        {
+         
+            var productIds = queryResult.Items
+                .Select(x => (x as JsonObject)?["ContentItemId"]?.ToString())
+                .Where(id => !string.IsNullOrEmpty(id))
+                .ToArray();
+
+            if (productIds.Any())
+            {
+               
+                var contentItems = await ContentManager.GetAsync(productIds);
+                products = contentItems.ToList();
+            }
+        }
+    }
+}
+
+<div class="product-highlight-container">
+    <h3 class="mb-4">@title</h3>
+
+    @if (products.Any())
+    {
+        <div class="row">
+            @foreach (var product in products)
+            {
+                var imagePaths = product.Content.Product?.Image?.Paths;
+
+                <div class="col-md-3 mb-4">
+                    <div class="product-card shadow-sm p-3 border rounded h-100">
+
+                        @if (imagePaths != null && imagePaths.Count > 0)
+                        {
+                            <div class="product-image mb-2">
+                             
+                                <img src="@Orchard.AssetUrl((string)imagePaths[0])"
+                                     alt="@product.DisplayText"
+                                     class="img-fluid rounded"
+                                     style="width:100%; height:200px; object-fit:contain;" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="no-image bg-light d-flex align-items-center justify-content-center rounded mb-2" style="height:200px;">
+                                <span class="text-muted">ไม่มีรูปภาพ</span>
+                            </div>
+                        }
+
+                        <h5 class="mt-2" style="font-size: 1rem; font-weight: bold;">@product.DisplayText</h5>
+
+                        @{
+                            var price = product.Content.Product?.Price?.Value;
+                        }
+                        @if (price != null)
+                        {
+                            <p class="text-primary fw-bold">
+                                @(((double)price).ToString("N0")) บาท
+                            </p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            ไม่พบสินค้าที่ติ๊ก Highlight (Query: ProductHighlight)
+        </div>
+    }
+</div>
