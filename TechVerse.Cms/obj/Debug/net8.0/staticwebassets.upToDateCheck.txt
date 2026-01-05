@@ -1,4 +1,5 @@
 wwwroot\.placeholder
+wwwroot\css\Style.css
 wwwroot\Default\is-cache\0\0\6\0\d\1\8\a\6\2\f\1\0060d18a62f1.jpg
 wwwroot\Default\is-cache\0\0\6\0\d\1\8\a\6\2\f\1\0060d18a62f1.meta
 wwwroot\Default\is-cache\0\1\0\c\a\2\0\6\d\e\e\3\010ca206dee3.jpg
@@ -427,3 +428,4 @@ wwwroot\Default\is-cache\f\a\9\9\f\f\e\8\1\c\3\3\fa99ffe81c33.jpg
 wwwroot\Default\is-cache\f\a\9\9\f\f\e\8\1\c\3\3\fa99ffe81c33.meta
 wwwroot\Default\is-cache\f\f\7\6\c\c\b\1\d\4\7\0\ff76ccb1d470.jpg
 wwwroot\Default\is-cache\f\f\7\6\c\c\b\1\d\4\7\0\ff76ccb1d470.meta
+wwwroot\js\promo-slider.css

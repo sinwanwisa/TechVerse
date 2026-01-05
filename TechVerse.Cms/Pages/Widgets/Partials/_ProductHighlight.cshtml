@@ -8,52 +8,205 @@
     var products = await Orchard.ContentQueryAsync("ProductHighlight");
 }
 
-<div class="product-highlight-container">
-    <h3 class="mb-4">@title</h3>
+<div class="product-highlight-widget container my-5">
+    <h3 class="widget-title mb-4">@title</h3>
 
     @if (products != null && products.Any())
     {
-        <div class="row">
-            @foreach (var product in products)
-            {
-                var imagePath = (string)product.Content.Product?.Image?.Paths[0];
-                var price = product.Content.Product?.Price?.Value;
+        <!-- 🔴 พื้นหลังสีแดง ขอบมน ครอบทั้งหมด -->
+        <div class="product-bg">
+            <div class="product-scroll-container">
 
-                <div class="col-md-3 mb-4">
-                    <div class="product-card shadow-sm p-3 border rounded h-100">
+                <!-- ปุ่มซ้าย -->
+                <button class="scroll-btn left" onclick="scrollProducts(-1)">‹</button>
 
-                        @if (!string.IsNullOrEmpty(imagePath))
+                <!-- ⭐ ตัวที่ scroll จริง -->
+                <div class="product-scroll-wrapper" id="productScrollWrapper">
+                    <div class="product-scroll">
+                        @foreach (var product in products)
                         {
-                            <div class="product-image mb-2">
-                                <img src="@Orchard.AssetUrl(imagePath)" alt="@product.DisplayText"
-                                     class="img-fluid rounded"
-                                     style="width:100%; height:200px; object-fit:contain;" />
+                            var imagePath = (string)product.Content.Product?.Image?.Paths[0];
+                            var price = product.Content.Product?.Price?.Value;
+
+                            <div class="product-card">
+                                <div class="product-image">
+                                    @if (!string.IsNullOrEmpty(imagePath))
+                                    {
+                                        <img src="@Orchard.AssetUrl(imagePath)"
+                                             alt="@product.DisplayText" />
+                                    }
+                                    else
+                                    {
+                                        <div class="no-image">ไม่มีรูปภาพ</div>
+                                    }
+                                </div>
+
+                                <div class="product-info">
+                                    <h5 class="product-title">@product.DisplayText</h5>
+
+                                    @if (price != null)
+                                    {
+                                        <div class="product-price">
+                                            @(((double)price).ToString("N0")) บาท
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        }
-                        else
-                        {
-                            <div class="no-image bg-light d-flex align-items-center justify-content-center rounded mb-2" style="height:200px;">
-                                <span class="text-muted">ไม่มีรูปภาพ</span>
-                            </div>
-                        }
-
-                        <h5 class="mt-2" style="font-size: 1rem; font-weight: bold;">@product.DisplayText</h5>
-
-                        @if (price != null)
-                        {
-                            <p class="text-primary fw-bold">
-                                @(((double)price).ToString("N0")) บาท
-                            </p>
                         }
                     </div>
                 </div>
-            }
+
+                <!-- ปุ่มขวา -->
+                <button class="scroll-btn right" onclick="scrollProducts(1)">›</button>
+
+            </div>
         </div>
     }
     else
     {
-        <div class="alert alert-info">
-            ไม่พบสินค้าที่ติ๊ก Highlight (Query: ProductHighlight)
+        <div class="alert alert-info text-center">
+            ไม่พบสินค้าที่ติ๊ก Highlight
         </div>
     }
 </div>
+
+<style>
+    /* ---------------- Widget ---------------- */
+    .product-highlight-widget {
+        max-width: 1200px;
+    }
+
+    .widget-title {
+        font-weight: 700;
+    }
+
+    /* ---------------- พื้นหลังสีแดง ---------------- */
+    .product-bg {
+        background: #d32f2f; /* 🔴 สีแดง */
+        border-radius: 24px; /* ขอบมน */
+        padding: 2rem 1rem; /* ระยะด้านใน */
+    }
+
+    /* ---------------- Scroll Layout ---------------- */
+    .product-scroll-container {
+        position: relative;
+    }
+
+    .product-scroll-wrapper {
+        overflow-x: auto;
+        padding-bottom: 12px;
+    }
+
+    .product-scroll {
+        display: flex;
+        gap: 2rem;
+        padding: 0 3.5rem; /* เว้นที่ให้ปุ่ม */
+        scroll-behavior: smooth;
+    }
+
+    /* ---------------- Card ---------------- */
+    .product-card {
+        flex: 0 0 240px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        overflow: hidden;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+
+    /* ---------------- Image ---------------- */
+    .product-image {
+        height: 180px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+    .no-image {
+        color: #aaa;
+        font-size: .9rem;
+    }
+
+    /* ---------------- Info ---------------- */
+    .product-info {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .product-title {
+        font-size: .95rem;
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+
+    .product-price {
+        color: #d32f2f; /* ให้เข้ากับพื้นหลัง */
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    /* ---------------- Scroll Buttons ---------------- */
+    .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0,0,0,0.7);
+        color: #fff;
+        font-size: 26px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+        .scroll-btn.left {
+            left: 0;
+        }
+
+        .scroll-btn.right {
+            right: 0;
+        }
+
+    /* ---------------- Scrollbar ---------------- */
+    .product-scroll-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .product-scroll-wrapper::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.5);
+        border-radius: 10px;
+    }
+
+    /* ---------------- Mobile ---------------- */
+  
+</style>
+
+<script>
+    function scrollProducts(direction) {
+        const wrapper = document.getElementById('productScrollWrapper');
+        if (!wrapper) return;
+
+        const card = wrapper.querySelector('.product-card');
+        const cardWidth = card ? card.offsetWidth : 260;
+        const gap = 32; // 2rem
+
+        wrapper.scrollBy({
+            left: direction * (cardWidth + gap),
+            behavior: 'smooth'
+        });
+    }
+</script>

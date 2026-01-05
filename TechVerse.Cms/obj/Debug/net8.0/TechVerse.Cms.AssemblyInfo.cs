@@ -109,7 +109,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechVerse.Cms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbed1bf2b02bf8c2a0bea0c16b1ef2df41ac8d12")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+529bbf7669d15e3d7880f9748d8649746e9fcb7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechVerse.Cms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechVerse.Cms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

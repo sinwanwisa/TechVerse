@@ -1,5 +1,4 @@
-﻿
-@model TechVerse.Cms.Pages.Widgets.Partials._PromotionWidgetModel
+﻿@model TechVerse.Cms.Pages.Widgets.Partials._PromotionWidgetModel
 @inject OrchardCore.IOrchardHelper Orchard
 @using OrchardCore
 @using OrchardCore.ContentManagement
@@ -7,56 +6,120 @@
 @{
     var widget = Model?.ContentItem;
     var promotionIds = widget.Content.PromotionWidget?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>() as string[] ?? Array.Empty<string>();
-    var hasPromotions = promotionIds.Any();
 }
-<div class="promotion-container">
-    <h3 class="mb-4">@widget?.DisplayText</h3>
+<div class="promotion-banner-container position-relative">
+    <h3 class="mb-3 text-center">@widget?.DisplayText</h3>
 
     @if (promotionIds.Any())
     {
-        <div class="row">
-            @foreach (var id in promotionIds)
-            {
-        
-                var promoItem = await Orchard.GetContentItemByIdAsync(id);
-
-                if (promoItem != null)
+        <div class="banner-slider overflow-hidden position-relative" style="max-width:1920px; margin:0 auto;">
+            <div class="banner-track d-flex transition-slide" id="bannerTrack" style="width:@(promotionIds.Length * 100)%">
+                @foreach (var id in promotionIds)
                 {
-                    <div class="col-md-4 mb-4">
-                        <div class="promo-card shadow-sm p-3 border rounded">
+                    var promoItem = await Orchard.GetContentItemByIdAsync(id);
+                    if (promoItem != null)
+                    {
+                        var imagePaths = promoItem.Content.Promotion?.Image?.Paths
+                        ?? promoItem.Content.PromotionWidget?.Image?.Paths;
 
-                         
-                            @{
-                         
-                                var imagePaths = promoItem.Content.Promotion?.Image?.Paths
-                                ?? promoItem.Content.PromotionWidget?.Image?.Paths; 
-                            }
-
+                        <div class="banner-item flex-shrink-0">
                             @if (imagePaths != null && imagePaths.Count > 0)
                             {
-                                @foreach (var path in imagePaths)
-                                {
-                                    <div class="promo-image-item mb-2">
-                                        <img src="@Orchard.AssetUrl((string)path)"
-                                             alt="@promoItem.DisplayText"
-                                             class="img-fluid rounded"
-                                             style="width: 100%; object-fit: cover;" />
-                                    </div>
-                                }
+                                <img src="@Orchard.AssetUrl((string)imagePaths[0])"
+                                     alt="@promoItem.DisplayText"
+                                     />
+        
                             }
                             else
                             {
-                                <div class="no-image bg-light text-center py-5 rounded mb-2">
-                                    <span class="text-muted">ไม่มีรูปภาพ (Field: Image)</span>
+                                <div class="no-image bg-light text-center" style="height: 600px; display:flex; align-items:center; justify-content:center;">
+                                    <span class="text-muted">ไม่มีรูปภาพ</span>
                                 </div>
                             }
-
-                            <h4 class="mt-2">@promoItem.DisplayText</h4>
                         </div>
-                    </div>
+                    }
                 }
-            }
+            </div>
+
+            <!-- ปุ่มซ้าย/ขวา -->
+            <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(-1)">&#10094;</button>
+            <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(1)">&#10095;</button>
         </div>
     }
-
 </div>
+
+<style>
+    .promotion-banner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .banner-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 1200px; /* กลางหน้า + ไม่กว้างเกิน */
+        height: 500px; /* ทุก banner สูงเท่ากัน */
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 18px; /* ขอบมน */
+        background: #000;
+    }
+
+    .banner-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.5s ease;
+    }
+    .banner-item {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden; /* ⭐ แก้จอดำ */
+        background: #FFFFFF;
+    }
+        .banner-item img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+
+
+    .banner-prev, .banner-next {
+        z-index: 10;
+        opacity: 0.7;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+        .banner-prev:hover, .banner-next:hover {
+            opacity: 1;
+        }
+</style>
+
+<script>
+    var currentIndex = 0;
+    var totalSlides = @promotionIds.Length;
+
+    function updateBanner() {
+        var track = document.getElementById('bannerTrack');
+        if (!track) return;
+
+        track.style.transform = 'translateX(-' + (100 * currentIndex) + '%)';
+    }
+
+    function slideBanner(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = totalSlides - 1;
+        if (currentIndex >= totalSlides) currentIndex = 0;
+        updateBanner();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateBanner(); // ⭐ สำคัญมาก
+    });
+</script>

@@ -1107,3 +1107,218 @@
 2026-01-05 17:18:27.7386||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
 2026-01-05 17:18:27.7761||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
 2026-01-05 17:18:27.7825||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 17:26:17.1353||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 17:26:17.1740||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 17:26:17.1740||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 17:42:12.3546||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 17:42:12.4000||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 17:42:12.4066||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 17:42:29.5783|Default|00-ac24b20f72984688f42bc5e19eeaa9d6-32bb310027f49c39-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. System.MissingMethodException: Method 'System.Text.Json.Nodes.JsonArray.FirstOrDefault' not found.
+   at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+   at System.Type.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args)
+   at System.Text.Json.Dynamic.JsonDynamicArray.TryInvokeMember(InvokeMemberBinder binder, Object[] args, Object& result)
+   at CallSite.Target(Closure, CallSite, Object)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at AspNetCoreGeneratedDocument.Pages_Widgets_Partials__PromotionWidget.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Widgets\Partials\_PromotionWidget.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCoreGeneratedDocument.Pages_Home_Index.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Home\Index.cshtml:line 19
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+   at System.Type.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args)
+   at System.Text.Json.Dynamic.JsonDynamicArray.TryInvokeMember(InvokeMemberBinder binder, Object[] args, Object& result)
+   at CallSite.Target(Closure, CallSite, Object)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at AspNetCoreGeneratedDocument.Pages_Widgets_Partials__PromotionWidget.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Widgets\Partials\_PromotionWidget.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCoreGeneratedDocument.Pages_Home_Index.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Home\Index.cshtml:line 19
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-05 17:42:29.8271|Default|00-e317069996e0896e3a61249a6af605af-bd3e82d6455acf69-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. System.MissingMethodException: Method 'System.Text.Json.Nodes.JsonArray.FirstOrDefault' not found.
+   at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+   at System.Type.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args)
+   at System.Text.Json.Dynamic.JsonDynamicArray.TryInvokeMember(InvokeMemberBinder binder, Object[] args, Object& result)
+   at CallSite.Target(Closure, CallSite, Object)
+   at AspNetCoreGeneratedDocument.Pages_Widgets_Partials__PromotionWidget.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Widgets\Partials\_PromotionWidget.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCoreGeneratedDocument.Pages_Home_Index.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Home\Index.cshtml:line 19
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at System.RuntimeType.InvokeMember(String name, BindingFlags bindingFlags, Binder binder, Object target, Object[] providedArgs, ParameterModifier[] modifiers, CultureInfo culture, String[] namedParams)
+   at System.Type.InvokeMember(String name, BindingFlags invokeAttr, Binder binder, Object target, Object[] args)
+   at System.Text.Json.Dynamic.JsonDynamicArray.TryInvokeMember(InvokeMemberBinder binder, Object[] args, Object& result)
+   at CallSite.Target(Closure, CallSite, Object)
+   at AspNetCoreGeneratedDocument.Pages_Widgets_Partials__PromotionWidget.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Widgets\Partials\_PromotionWidget.cshtml:line 25
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCoreGeneratedDocument.Pages_Home_Index.ExecuteAsync() in C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\Pages\Home\Index.cshtml:line 19
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeResultFilters>g__Awaited|28_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-05 17:55:20.0721||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 17:55:20.1285||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 17:55:20.1285||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 18:05:29.0989||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 18:05:29.1418||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 18:05:29.1418||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 22:38:08.5525||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 22:38:08.5968||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 22:38:08.5968||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 22:47:46.0045||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 22:47:46.0682||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 22:47:46.0744||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 23:47:26.7565||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 23:47:26.7963||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 23:47:26.7963||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
