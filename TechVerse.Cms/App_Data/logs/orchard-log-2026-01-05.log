@@ -1028,3 +1028,82 @@
 2026-01-05 15:40:52.0126||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
 2026-01-05 15:40:52.0624||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
 2026-01-05 15:40:52.0687||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 15:46:18.6324||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 15:46:18.6763||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 15:46:18.6763||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 16:06:16.5188|Default|00-477732667df47906cbc965232fd9bb9b-04f79042165a6715-00||OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator|ERROR|IContentFieldDisplayDriver thrown from OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver by UriFormatException System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)    at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)
+2026-01-05 16:06:17.7767|Default|00-3157acec0d7b8d9e89217211d45fe510-66bec002d61adb5c-00||OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator|ERROR|IContentFieldDisplayDriver thrown from OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver by UriFormatException System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)    at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)
+2026-01-05 16:06:28.3954|Default|00-227e909ca86a04ec3b0583f5e609f3bf-f85a30434ea5ef00-00||OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator|ERROR|IContentFieldDisplayDriver thrown from OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver by UriFormatException System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)    at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)
+2026-01-05 16:06:28.3954|Default|00-6f3fc3acac705be073aa200098b0baed-7dc17f0800836eec-00||OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator|ERROR|IContentFieldDisplayDriver thrown from OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver by UriFormatException System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)    at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)
+2026-01-05 16:06:31.8725|Default|00-6c7c86c24484569e0a1881ed2c0f88df-40fad78fb870f2d5-00||OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator|ERROR|IContentFieldDisplayDriver thrown from OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver by UriFormatException System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)    at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind, UriCreationOptions& creationOptions)
+   at System.Uri..ctor(String uriString)
+   at OrchardCore.ContentFields.Drivers.YoutubeFieldDisplayDriver.UpdateAsync(YoutubeField field, UpdateFieldEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentDisplay.ContentFieldDisplayDriver`1.OrchardCore.ContentManagement.Display.ContentDisplay.IContentFieldDisplayDriver.UpdateEditorAsync(ContentPart contentPart, ContentPartFieldDefinition partFieldDefinition, ContentTypePartDefinition typePartDefinition, UpdateEditorContext context)
+   at OrchardCore.ContentManagement.Display.ContentItemDisplayCoordinator.<>c.<<UpdateEditorAsync>b__9_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.InvokeExtensions.InvokeAsync[TEvents,T1,T2,T3,T4](IEnumerable`1 events, Func`6 dispatch, T1 arg1, T2 arg2, T3 arg3, T4 arg4, ILogger logger)
+2026-01-05 16:44:07.8147||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 16:44:07.9231||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 16:44:07.9231||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-05 17:18:27.7386||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-05 17:18:27.7761||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-05 17:18:27.7825||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 

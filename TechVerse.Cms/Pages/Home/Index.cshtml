@@ -12,8 +12,7 @@
     var Promotion= await Orchard.GetContentItemByHandleAsync("alias:homepage-promotion");
     var ProductHighlight = await Orchard.GetContentItemByHandleAsync("alias:homepage-product-highlight");
     var NewsActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-news-active");
-
-
+    var VideoReviewActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-video-review-active");
 
     if (Promotion != null)
     {
@@ -40,6 +39,14 @@
             ContentItem = NewsActive
         };
         @await Html.PartialAsync("/Pages/Widgets/Partials/_NewsWidget.cshtml", newsWidgetModel)
+    }
+    if (VideoReviewActive != null)
+    {
+        var videoReviewWidgetModel = new _VideoReviewWidgetModel
+        {
+            ContentItem = VideoReviewActive
+        };
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_VideoReviewWidget.cshtml", videoReviewWidgetModel)
     }
     else
     {

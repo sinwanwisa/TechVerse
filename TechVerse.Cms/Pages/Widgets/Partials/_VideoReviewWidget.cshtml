@@ -1,0 +1,44 @@
+﻿@model TechVerse.Cms.Pages.Widgets.Partials._VideoReviewWidgetModel
+@inject OrchardCore.IOrchardHelper Orchard
+@using OrchardCore
+@using OrchardCore.ContentManagement
+@using OrchardCore.ContentManagement.Metadata
+@{
+    var widget = Model?.ContentItem;
+    var title = widget?.DisplayText ?? "Reviews";
+    var Reviews = await Orchard.ContentQueryAsync("VideoReviewActive");
+}
+<section class="video-review-section">
+    <h2>@title</h2>
+
+    <div class="row">
+        @foreach (var item in Reviews)
+        {
+            // เข้าถึงก้อนข้อมูล VideoReview จาก ContentItem
+            var videoPart = item.Content.VideoReview;
+            var youtubeLink = videoPart.YouTubeLink;
+            
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    @if (youtubeLink != null && !string.IsNullOrEmpty(youtubeLink.EmbeddedAddress.ToString()))
+                    {
+                        <div class="ratio ratio-16x9">
+                            <iframe 
+                                src="@youtubeLink.EmbeddedAddress" 
+                                title="@item.DisplayText" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    }
+
+                    <div class="card-body">
+                        <h5 class="card-title">@item.DisplayText</h5>
+                  
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
