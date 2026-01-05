@@ -9,34 +9,37 @@
 
 
 @{
-    // 1. ดึงข้อมูล Content Item จาก CMS (ใช้ Alias ที่คุณตั้งใน Admin)
     var Promotion= await Orchard.GetContentItemByHandleAsync("alias:homepage-promotion");
     var ProductHighlight = await Orchard.GetContentItemByHandleAsync("alias:homepage-product-highlight");
+    var NewsActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-news-active");
 
 
-    // 2. ตรวจสอบว่าดึงข้อมูลมาได้ไหม
+
     if (Promotion != null)
     {
-        // 3. เตรียม Model สำหรับส่งให้ Partial
         var promotionWidgetModel = new _PromotionWidgetModel
         {
             ContentItem = Promotion
         };
 
-        // 4. เรียกใช้ Partial View
         @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", promotionWidgetModel)
     }
-    // 2. ตรวจสอบว่าดึงข้อมูลมาได้ไหม
     if (ProductHighlight != null)
     {
-        // 3. เตรียม Model สำหรับส่งให้ Partial
         var productHighlightModel = new _ProductHighlightModel
         {
             ContentItem = ProductHighlight
         };
 
-        // 4. เรียกใช้ Partial View
         @await Html.PartialAsync("/Pages/Widgets/Partials/_ProductHighlight.cshtml", productHighlightModel)
+    }
+    if (NewsActive != null)
+    {
+        var newsWidgetModel = new _NewsWidgetModel
+        {
+            ContentItem = NewsActive
+        };
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_NewsWidget.cshtml", newsWidgetModel)
     }
     else
     {

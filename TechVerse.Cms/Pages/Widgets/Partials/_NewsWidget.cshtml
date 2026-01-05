@@ -1,0 +1,63 @@
+﻿@model TechVerse.Cms.Pages.Widgets.Partials._NewsWidgetModel
+@using OrchardCore.ContentManagement
+@inject OrchardCore.IOrchardHelper Orchard
+
+@{
+    var widget = Model?.ContentItem;
+    var title = widget?.DisplayText ?? "News";
+    var News = await Orchard.ContentQueryAsync("NewsActive");
+}
+<div class="news-widget-container">
+    <h3 class="mb-4">@title</h3>
+
+    @if (News != null && News.Any())
+    {
+        <div class="row">
+            @foreach (var item in News)
+            {
+                var imagePath = (string)item.Content.News?.Image?.Paths[0];
+
+                var slug = (string)item.Content.AutoroutePart?.Path;
+
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+
+                        @if (!string.IsNullOrEmpty(imagePath))
+                        {
+                            <img src="@Orchard.AssetUrl(imagePath)"
+                                 class="card-img-top"
+                                 alt="@item.DisplayText"
+                                 style="height: 200px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <span class="text-muted">No Image</span>
+                            </div>
+                        }
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 1.1rem; line-height: 1.5;">
+                            @item.DisplayText
+                        </h5>
+
+                        <a href="~/@slug" class="btn btn-outline-primary btn-sm mt-2">
+                            อ่านต่อ
+                        </a>
+                    </div>
+
+                    <div class="card-footer text-muted small">
+                        @(item.PublishedUtc.HasValue
+                                            ? item.PublishedUtc.Value.ToString("dd MMM yyyy")
+                                            : "")
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-light">ไม่พบข่าวสารในขณะนี้</div>
+    }
+</div>
