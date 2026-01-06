@@ -1,0 +1,157 @@
+﻿@page "/Product"
+@model TechVerse.Cms.Pages.Product.IndexModel
+@using OrchardCore.ContentManagement
+@using System.Linq
+@inject OrchardCore.IOrchardHelper Orchard
+@{
+    var item = Model?.ContentItem;
+    var products = await Orchard.ContentQueryAsync("AllProductList");
+
+}
+<div class="product-page-container">
+<div class="product-list-grid">
+    @foreach (var product in products)
+    {
+        var imagePath = (string)product.Content.Product?.Image?.Paths[0];
+        var price = product.Content.Product?.Price?.Value;
+        var detail = product.Content.MarkdownBodyPart?.Markdown?.ToString();
+            var path = product.Content.AutoroutePart?.Path;
+            <div class="product-card">
+            <div class="product-image">
+                @if (!string.IsNullOrEmpty(imagePath))
+                {
+                    <img src="@Orchard.AssetUrl(imagePath)"
+                         alt="@product.DisplayText" />
+                }
+                else
+                {
+                    <div class="no-image">ไม่มีรูปภาพ</div>
+                }
+            </div>
+
+            <div class="product-info">
+                <h5 class="product-title">@product.DisplayText</h5>
+
+                @if (price != null)
+                {
+                    <div class="product-price">
+                        @(((double)price).ToString("N0")) บาท
+                    </div>
+                }
+
+                <div class="product-detail">
+                    @Html.Raw(detail)
+                </div>
+
+                    <a href="/@product.Content.AutoroutePart.Path"
+                    class="btn btn-outline-dark btn-sm mt-3 w-100">
+                    ดูรายละเอียด
+                </a>
+            </div>
+        </div>
+    }
+</div>
+</div>
+<style>
+    /* ===== GRID 6 คอลัมน์ ===== */
+    .product-list-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px;
+        padding: 12px 0;
+    }
+
+    /* ===== CARD ===== */
+    .product-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        transition: all .2s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        }
+
+    /* ===== IMAGE ===== */
+    .product-image {
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+    /* ===== INFO ===== */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    /* ชื่อสินค้า 2 บรรทัด */
+    .product-title {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        height: 40px;
+        overflow: hidden;
+    }
+
+    /* ราคา */
+    .product-price {
+        font-size: 15px;
+        font-weight: 700;
+        color: #111827;
+    }
+
+    /* ===== DETAIL (รองรับทั้ง product-detail และ product--detail) ===== */
+    .product-detail{
+        font-size: 12px;
+        color: #6b7280;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: 4px;
+    }
+
+        /* กัน markdown พัง layout */
+        .product-detail p,
+        .product-detail ul,
+        .product-detail li,
+  
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-detail ul,
+        .product--detail ul {
+            list-style: none;
+        }
+
+    /* ===== BUTTON ===== */
+    .product-card .btn {
+        margin-top: auto;
+        border-radius: 10px;
+    }
+
+    .product-page-container {
+        max-width: 1440px; /* ปรับได้: 1320 / 1440 / 1600 */
+        margin: 0 auto;
+        padding: 0 24px; /* ระยะห่างซ้าย-ขวา */
+    }
+
+</style>
+
+

@@ -26,6 +26,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Product/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_NewsWidget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xfTmV3c1dpZGdldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

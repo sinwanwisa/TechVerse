@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Folder Include="Localization\" />
+    <Folder Include="Pages\Article\" />
+    <Folder Include="Pages\Video\" />
+    <Folder Include="Pages\News\" />
   </ItemGroup>
 
   <!-- Watcher include and excludes -->

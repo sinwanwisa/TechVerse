@@ -4,10 +4,11 @@
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
 @{
-    <link rel="stylesheet" href="~/css/widgets/promotion-banner.css" asp-append-version="true" />
     var widget = Model?.ContentItem;
     var promotionIds = widget.Content.PromotionWidget?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>() as string[] ?? Array.Empty<string>();
 }
+<link rel="stylesheet" href="~/css/widgets/promotion-banner.css" asp-append-version="true" />
+
 <div class="promotion-banner-container position-relative">
     <h3 class="mb-3 text-center">@widget?.DisplayText</h3>
 

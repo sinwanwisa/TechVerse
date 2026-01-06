@@ -14,14 +14,12 @@
 
     @if (products != null && products.Any())
     {
-        <!-- 🔴 พื้นหลังสีแดง ขอบมน ครอบทั้งหมด -->
         <div class="product-bg">
             <div class="product-scroll-container">
 
-                <!-- ปุ่มซ้าย -->
                 <button class="scroll-btn left" onclick="scrollProducts(-1)">‹</button>
 
-                <!-- ⭐ ตัวที่ scroll จริง -->
+              
                 <div class="product-scroll-wrapper" id="productScrollWrapper">
                     <div class="product-scroll">
                         @foreach (var product in products)
