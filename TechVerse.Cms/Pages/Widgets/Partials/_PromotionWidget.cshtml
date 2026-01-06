@@ -4,6 +4,7 @@
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
 @{
+    <link rel="stylesheet" href="~/css/widgets/promotion-banner.css" asp-append-version="true" />
     var widget = Model?.ContentItem;
     var promotionIds = widget.Content.PromotionWidget?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>() as string[] ?? Array.Empty<string>();
 }
@@ -13,7 +14,7 @@
     @if (promotionIds.Any())
     {
         <div class="banner-slider overflow-hidden position-relative" style="max-width:1920px; margin:0 auto;">
-            <div class="banner-track d-flex transition-slide" id="bannerTrack" style="width:@(promotionIds.Length * 100)%">
+            <div class="banner-track d-flex transition-slide" id="bannerTrack" data-total="@promotionIds.Length">
                 @foreach (var id in promotionIds)
                 {
                     var promoItem = await Orchard.GetContentItemByIdAsync(id);
@@ -21,8 +22,9 @@
                     {
                         var imagePaths = promoItem.Content.Promotion?.Image?.Paths
                         ?? promoItem.Content.PromotionWidget?.Image?.Paths;
+                        <div class="banner-item ">
 
-                        <div class="banner-item flex-shrink-0">
+                        <div class="banner-image">
                             @if (imagePaths != null && imagePaths.Count > 0)
                             {
                                 <img src="@Orchard.AssetUrl((string)imagePaths[0])"
@@ -37,89 +39,16 @@
                                 </div>
                             }
                         </div>
+                         </div>
                     }
                 }
             </div>
 
-            <!-- ปุ่มซ้าย/ขวา -->
             <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(-1)">&#10094;</button>
             <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(1)">&#10095;</button>
         </div>
     }
 </div>
-
-<style>
-    .promotion-banner-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .banner-slider {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        max-width: 1200px; /* กลางหน้า + ไม่กว้างเกิน */
-        height: 500px; /* ทุก banner สูงเท่ากัน */
-        margin: 0 auto;
-        overflow: hidden;
-        border-radius: 18px; /* ขอบมน */
-        background: #000;
-    }
-
-    .banner-track {
-        display: flex;
-        height: 100%;
-        transition: transform 0.5s ease;
-    }
-    .banner-item {
-        flex: 0 0 100%;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        overflow: hidden; /* ⭐ แก้จอดำ */
-        background: #FFFFFF;
-    }
-        .banner-item img {
-            max-width: 100%;
-            max-height: 100%;
-            display: block;
-        }
+<script src="~/js/widgets/promotion-banner.js" asp-append-version="true"></script>
 
 
-
-    .banner-prev, .banner-next {
-        z-index: 10;
-        opacity: 0.7;
-        border: none;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-    }
-
-        .banner-prev:hover, .banner-next:hover {
-            opacity: 1;
-        }
-</style>
-
-<script>
-    var currentIndex = 0;
-    var totalSlides = @promotionIds.Length;
-
-    function updateBanner() {
-        var track = document.getElementById('bannerTrack');
-        if (!track) return;
-
-        track.style.transform = 'translateX(-' + (100 * currentIndex) + '%)';
-    }
-
-    function slideBanner(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = totalSlides - 1;
-        if (currentIndex >= totalSlides) currentIndex = 0;
-        updateBanner();
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        updateBanner(); // ⭐ สำคัญมาก
-    });
-</script>

@@ -1,0 +1,118 @@
+﻿/* ---------------- Widget ---------------- */
+.product-highlight-widget {
+    max-width: 1200px;
+}
+
+.widget-title {
+    font-weight: 700;
+}
+
+/* ---------------- พื้นหลังสีแดง ---------------- */
+.product-bg {
+    background: #d32f2f; /* 🔴 สีแดง */
+    border-radius: 24px; /* ขอบมน */
+    padding: 2rem 1rem; /* ระยะด้านใน */
+}
+
+/* ---------------- Scroll Layout ---------------- */
+.product-scroll-container {
+    position: relative;
+}
+
+.product-scroll-wrapper {
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+
+.product-scroll {
+    display: flex;
+    gap: 2rem;
+    padding: 0 3.5rem; /* เว้นที่ให้ปุ่ม */
+    scroll-behavior: smooth;
+}
+
+/* ---------------- Card ---------------- */
+.product-card {
+    flex: 0 0 240px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+/* ---------------- Image ---------------- */
+.product-image {
+    height: 180px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .product-image img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+
+.no-image {
+    color: #aaa;
+    font-size: .9rem;
+}
+
+/* ---------------- Info ---------------- */
+.product-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-title {
+    font-size: .95rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.product-price {
+    color: #d32f2f; /* ให้เข้ากับพื้นหลัง */
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* ---------------- Scroll Buttons ---------------- */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+    .scroll-btn.left {
+        left: 0;
+    }
+
+    .scroll-btn.right {
+        right: 0;
+    }
+
+.product-scroll-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.product-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+}

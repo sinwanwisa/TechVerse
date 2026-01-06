@@ -1,1 +1,2 @@
-C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\wwwroot\Style.css
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\wwwroot\css\Style.css
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\wwwroot\js\promo-slider.css
