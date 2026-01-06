@@ -1,4 +1,5 @@
 wwwroot\.placeholder
+wwwroot\css\pages\product-list.css
 wwwroot\css\widgets\news-widget.css
 wwwroot\css\widgets\product-highlight.css
 wwwroot\css\widgets\promotion-banner.css
