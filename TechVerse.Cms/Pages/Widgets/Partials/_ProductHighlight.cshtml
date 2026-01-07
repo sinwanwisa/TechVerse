@@ -6,12 +6,16 @@
     var widget = Model?.ContentItem;
     var title = widget?.DisplayText ?? "Product Highlight";
     var products = await Orchard.ContentQueryAsync("ProductHighlight");
+
 }
 <link rel="stylesheet" href="~/css/widgets/product-highlight.css" asp-append-version="true" />
 
 <div class="product-highlight-widget container my-5">
     <h3 class="widget-title mb-4">@title</h3>
-
+    <a href="/product"
+       class="btn btn-outline-dark btn-sm mt-3 w-100">
+        เพิ่มเติม
+    </a>
     @if (products != null && products.Any())
     {
         <div class="product-bg">
@@ -26,6 +30,7 @@
                         {
                             var imagePath = (string)product.Content.Product?.Image?.Paths[0];
                             var price = product.Content.Product?.Price?.Value;
+                            var path = product.Content.AutoroutePart?.Path ?? "#";
 
                             <div class="product-card">
                                 <div class="product-image">
@@ -49,6 +54,10 @@
                                             @(((double)price).ToString("N0")) บาท
                                         </div>
                                     }
+                                    <a href="/product/@path"
+                                       class="btn btn-outline-dark btn-sm mt-3 w-100">
+                                        ดูรายละเอียด
+                                    </a>
                                 </div>
                             </div>
                         }

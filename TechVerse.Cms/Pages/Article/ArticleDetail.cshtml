@@ -1,0 +1,85 @@
+﻿@page "/article/{slug}"
+@inject OrchardCore.IOrchardHelper Orchard
+
+@functions {
+    [FromRoute]
+    public string Slug { get; set; }
+}
+@{
+    // 1. ดึงข้อมูลบทความตาม Slug
+    var article = await Orchard.GetContentItemBySlugAsync(Slug);
+
+    if (article == null || article.ContentType != "Article")
+    {
+        // ถ้าไม่พบ ให้แสดง 404
+        Response.StatusCode = 404;
+        return;
+    }
+
+    // 2. ดึงข้อมูลพื้นฐานของบทความ (Cast เป็น string เพื่อความปลอดภัย)
+    var title = article.DisplayText;
+    var mainImage = article.Content.Article?.MainImage?.Paths?[0];
+    var summary = article.Content.Article?.Summary?.Markdown?.ToString();
+
+    // 3. ดึงรายการเนื้อหาจาก BagPart (SectionArticle)
+    var sections = article.Content.BagPart?.ContentItems as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
+}
+
+<link rel="stylesheet" href="~/css/pages/article-detail.css" asp-append-version="true" />
+
+<div class="container mt-5 mb-5">
+    <article class="article-detail-wrapper">
+        @* ส่วนหัวข้อและรูปภาพหลัก *@
+        <header class="article-header mb-4">
+            <h1 class="display-4 fw-bold">@title</h1>
+            <p class="text-muted">เผยแพร่เมื่อ: @article.CreatedUtc?.ToString("dd MMMM yyyy")</p>
+
+            @if (!string.IsNullOrEmpty((string)mainImage))
+            {
+                <div class="main-image-container mb-4">
+                    <img src="@Orchard.AssetUrl((string)mainImage)" class="img-fluid rounded shadow-sm" alt="@title" />
+                </div>
+            }
+        </header>
+
+        @* ส่วนสรุป (Summary) *@
+        @if (!string.IsNullOrEmpty(summary))
+        {
+            <div class="article-summary-box p-4 bg-light rounded mb-5 italic">
+                @Html.Raw(summary)
+            </div>
+        }
+
+        @* วนลูปแสดงเนื้อหาแต่ละ Section จาก BagPart *@
+        <div class="article-sections">
+            @foreach (var section in sections)
+            {
+                var subHeading = section.SectionArticle?.SubHeading?.Text?.ToString();
+                var subBody = section.SectionArticle?.SubBody?.Markdown?.ToString();
+                var subImage = section.SectionArticle?.SubImage?.Paths?[0];
+
+                <section class="mb-5">
+                    @if (!string.IsNullOrEmpty(subHeading))
+                    {
+                        <h2 class="h3 mb-3">@subHeading</h2>
+                    }
+
+                    @if (!string.IsNullOrEmpty((string)subImage))
+                    {
+                        <div class="sub-image mb-3">
+                            <img src="@Orchard.AssetUrl((string)subImage)" class="img-fluid rounded" alt="@subHeading" />
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(subBody))
+                    {
+                        <div class="section-content lead-text">
+                            @* ใช้ Html.Raw เพื่อ Render Markdown/HTML *@
+                            @Html.Raw(subBody)
+                        </div>
+                    }
+                </section>
+            }
+        </div>
+    </article>
+</div>

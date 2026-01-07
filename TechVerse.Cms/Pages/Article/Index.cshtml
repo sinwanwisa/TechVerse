@@ -1,0 +1,60 @@
+﻿@page
+@model TechVerse.Cms.Pages.Article.IndexModel
+@using OrchardCore.ContentManagement
+@using System.Linq
+@inject OrchardCore.IOrchardHelper Orchard
+@{
+    // ดึงข้อมูลบทความทั้งหมดจาก Query "AllArticleList"
+    var articles = await Orchard.ContentQueryAsync("AllArticleList");
+}
+
+<link rel="stylesheet" href="~/css/pages/article-list.css" asp-append-version="true" />
+
+<div class="article-page-container">
+    <h2 class="page-title">บทความและสาระน่ารู้</h2>
+
+    <div class="article-list-grid">
+        @foreach (var article in articles)
+        {
+            // ดึงข้อมูลจากโครงสร้าง JSON ของ Article
+            var mainImage = (string)article.Content.Article?.MainImage?.Paths?[0];
+            var summary = article.Content.Article?.Summary?.Markdown.ToString(); ;
+            var path = article.Content.AutoroutePart?.Path ?? "#";
+            var publishedDate = article.PublishedUtc.HasValue
+            ? article.PublishedUtc.Value.ToString("dd MMM yyyy")
+            : "No date";
+
+            <div class="article-card">
+                <div class="article-image">
+                    @if (!string.IsNullOrEmpty(mainImage))
+                    {
+                        <img src="@Orchard.AssetUrl(mainImage)" alt="@article.DisplayText" />
+                    }
+                    else
+                    {
+                        <div class="no-image">No Image</div>
+                    }
+                </div>
+
+                <div class="article-content">
+                    <span class="publish-date">@publishedDate</span>
+                    <h3 class="article-title">
+                        <a href="/@path">@article.DisplayText</a>
+                    </h3>
+
+                    @if (!string.IsNullOrEmpty(summary))
+                    {
+                        <div class="article-summary">
+                            @* แสดงข้อความสรุปแบบสั้นๆ *@
+                            @(summary.Length > 100 ? summary.Substring(0, 100) + "..." : summary)
+                        </div>
+                    }
+
+                    <a href="/article/@path" class="read-more-link">
+                        อ่านต่อ <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

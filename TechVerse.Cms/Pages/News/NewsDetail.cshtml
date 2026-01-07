@@ -1,0 +1,94 @@
+﻿@page "/news/{slug}"
+@using OrchardCore.ContentManagement
+@inject OrchardCore.IOrchardHelper Orchard
+
+@{
+    // 1. ดึงข้อมูลข่าวตาม Slug
+    var newsItem = await Orchard.GetContentItemBySlugAsync(Slug);
+
+    if (newsItem == null || newsItem.ContentType != "News")
+    {
+        Response.StatusCode = 404;
+        return;
+    }
+
+    // --- MAPPING DATA ---
+    string title = newsItem.DisplayText;
+    string imagePath = newsItem?.Content?.News?.Image?.Paths?[0];
+    // เนื้อหาหลักจาก MarkdownBodyPart
+    string markdownBody = newsItem.Content.MarkdownBodyPart?.Markdown?.ToString();
+
+    // ข้อมูลแหล่งข่าว (Source)
+    string sourceUrl = newsItem.Content.News?.SourceUrl?.Url?.ToString();
+    string sourceText = newsItem.Content.News?.SourceUrl?.Text?.ToString() ?? "เข้าชมเว็บไซต์แหล่งข่าว";
+    string sourceTarget = newsItem.Content.News?.SourceUrl?.Target?.ToString() ?? "_blank";
+
+    // วันที่เผยแพร่
+    var publishDate = newsItem.PublishedUtc?.ToString("dd MMMM yyyy HH:mm");
+}
+<link rel="stylesheet" href="~/css/pages/news-detail.css" asp-append-version="true" />
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+            @* 1. Header Section *@
+            <header class="mb-5 text-center">
+                <h1 class="display-4 fw-bold mb-3">@title</h1>
+                <div class="text-muted">
+                    <i class="bi bi-clock"></i> เผยแพร่เมื่อ: @publishDate
+                    | โดย: @newsItem.Author
+                </div>
+            </header>
+
+            @* 2. Main Banner Image *@
+            @if (!string.IsNullOrEmpty((string)imagePath))
+            {
+                <div class="mb-5 shadow-sm rounded overflow-hidden">
+                    <img src="@Orchard.AssetUrl((string)imagePath)" class="img-fluid w-100" alt="@title" />
+                </div>
+            }
+
+            @* 3. News Content (Markdown) *@
+            <article class="news-content fs-5 lh-lg mb-5">
+                @if (!string.IsNullOrEmpty(markdownBody))
+                {
+                    @* Render Markdown เป็น HTML *@
+                    @Html.Raw(markdownBody)
+                }
+                else
+                {
+                    <p class="text-muted italic">ไม่มีรายละเอียดเนื้อหาข่าว</p>
+                }
+            </article>
+
+            @* 4. Source URL Section (ปุ่มลิงก์ภายนอก) *@
+            @if (!string.IsNullOrEmpty(sourceUrl))
+            {
+                <div class="source-container p-4 bg-light rounded-3 d-flex align-items-center justify-content-between">
+                    <div>
+                        <h5 class="mb-1 fw-bold">แหล่งข้อมูลอ้างอิง</h5>
+                        <p class="text-muted mb-0 small">ติดตามรายละเอียดเพิ่มเติมได้ที่ลิงก์ต้นฉบับ</p>
+                    </div>
+                    <a href="@sourceUrl" target="@sourceTarget" class="btn btn-primary px-4">
+                        <i class="bi bi-box-arrow-up-right me-2"></i> @sourceText
+                    </a>
+                </div>
+            }
+
+            <hr class="my-5" />
+
+            <div class="d-flex justify-content-center">
+                <a href="/news" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> กลับไปหน้ารวมข่าว
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@functions {
+    [FromRoute]
+    public string Slug { get; set; }
+}

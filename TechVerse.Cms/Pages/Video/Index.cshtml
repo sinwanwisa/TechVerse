@@ -1,0 +1,71 @@
+﻿@page
+@model TechVerse.Cms.Pages.Video.IndexModel
+@using OrchardCore.ContentManagement
+@using System.Linq
+@inject OrchardCore.IOrchardHelper Orchard
+@{
+    // ดึงข้อมูลวิดีโอทั้งหมดจาก Query
+    var videoreviews = await Orchard.ContentQueryAsync("AllVideoReviewList");
+}
+
+<link rel="stylesheet" href="~/css/widgets/video-review.css" asp-append-version="true" />
+
+<section class="video-review-section container my-5">
+    <div class="section-header mb-5 text-center">
+        <h2 class="section-title fw-bold">Video Reviews</h2>
+        <p class="text-muted">รีวิวสินค้าและเทคโนโลยีล่าสุดจาก YouTube</p>
+    </div>
+
+    @if (videoreviews != null && videoreviews.Any())
+    {
+        <div class="row g-4">
+            @foreach (var item in videoreviews)
+            {
+                // --- MAPPING DATA (Cast เป็น Type ที่แน่นอนเพื่อป้องกัน Runtime Error) ---
+                var videoPart = item.Content.VideoReview;
+                string embeddedUrl = videoPart?.YouTubeLink?.EmbeddedAddress?.ToString();
+                string title = item.DisplayText;
+                bool isActive = videoPart?.Active?.Value ?? false;
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="video-card h-100 shadow-sm border-0">
+                        @if (!string.IsNullOrEmpty(embeddedUrl))
+                        {
+                            <div class="video-wrapper">
+                                <iframe src="@embeddedUrl"
+                                        title="@title"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="video-placeholder bg-dark d-flex align-items-center justify-content-center text-white" style="aspect-ratio: 16/9;">
+                                <span>ไม่พบลิงก์วิดีโอ</span>
+                            </div>
+                        }
+
+                        <div class="video-card-body p-3 bg-white">
+                            <h5 class="video-title mb-0">@title</h5>
+                            <div class="mt-2">
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i> @item.PublishedUtc?.ToString("dd MMM yyyy")
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-light text-center py-5 border">
+            <i class="bi bi-play-circle d-block mb-3 fs-1 text-muted"></i>
+            ยังไม่มีวิดีโอรีวิวในขณะนี้
+        </div>
+    }
+</section>

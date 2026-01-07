@@ -11,16 +11,19 @@
 
 <div class="news-widget container my-5">
     <h3 class="news-title mb-4">@title</h3>
-
+    <a href="/news"
+       class="btn btn-outline-dark btn-sm mt-3 w-100">
+        เพิ่มเติม
+    </a>
     @if (News != null && News.Any())
     {
         <div class="news-list">
             @foreach (var item in News)
             {
                 var imagePath = (string)item.Content.News?.Image?.Paths[0];
-                var slug = (string)item.Content.AutoroutePart?.Path;
+                var path = (string)item.Content.AutoroutePart?.Path;
 
-                <a href="~/@slug" class="news-item">
+                <a href="/news/@path" class="news-item">
                     <!-- รูป -->
                     <div class="news-thumb">
                         @if (!string.IsNullOrEmpty(imagePath))
@@ -39,6 +42,7 @@
                     <h5 class="news-item-title">
                         @item.DisplayText
                     </h5>
+                   
 
                     <div class="news-meta">
                         @(item.PublishedUtc.HasValue
@@ -47,6 +51,7 @@
                         </div>
 
                         <span class="read-more">อ่านต่อ →</span>
+
                     </div>
                 </a>
             }
