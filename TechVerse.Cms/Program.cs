@@ -1,5 +1,4 @@
-using OrchardCore.Logging;
-
+﻿using OrchardCore.Logging;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseNLogHost();

@@ -57,6 +57,10 @@
             "OrchardCore.Logging.NLog": {
               "target": "Package",
               "version": "[2.2.1, )"
+            },
+            "OrchardCoreContrib.Apis.Swagger": {
+              "target": "Package",
+              "version": "[1.6.0, )"
             }
           },
           "imports": [

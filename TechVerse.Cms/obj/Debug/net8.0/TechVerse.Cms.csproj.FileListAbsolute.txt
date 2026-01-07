@@ -474,3 +474,10 @@ C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVer
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.RazorAssemblyInfo.cache
 C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\obj\Debug\net8.0\TechVerse.Cms.RazorAssemblyInfo.cs
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\OrchardCoreContrib.Abstractions.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\OrchardCoreContrib.Apis.Swagger.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\OrchardCoreContrib.OpenApi.Abstractions.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

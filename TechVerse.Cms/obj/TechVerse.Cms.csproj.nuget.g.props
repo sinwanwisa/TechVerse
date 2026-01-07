@@ -29,6 +29,7 @@
     <Import Project="$(NuGetPackageRoot)theadmin\2.2.1\build\TheAdmin.props" Condition="Exists('$(NuGetPackageRoot)theadmin\2.2.1\build\TheAdmin.props')" />
     <Import Project="$(NuGetPackageRoot)sixlabors.imagesharp.web\3.2.0\build\SixLabors.ImageSharp.Web.props" Condition="Exists('$(NuGetPackageRoot)sixlabors.imagesharp.web\3.2.0\build\SixLabors.ImageSharp.Web.props')" />
     <Import Project="$(NuGetPackageRoot)safemode\2.2.1\build\SafeMode.props" Condition="Exists('$(NuGetPackageRoot)safemode\2.2.1\build\SafeMode.props')" />
+    <Import Project="$(NuGetPackageRoot)orchardcorecontrib.apis.swagger\1.6.0\build\OrchardCoreContrib.Apis.Swagger.props" Condition="Exists('$(NuGetPackageRoot)orchardcorecontrib.apis.swagger\1.6.0\build\OrchardCoreContrib.Apis.Swagger.props')" />
     <Import Project="$(NuGetPackageRoot)orchardcore.xmlrpc\2.2.1\build\OrchardCore.XmlRpc.props" Condition="Exists('$(NuGetPackageRoot)orchardcore.xmlrpc\2.2.1\build\OrchardCore.XmlRpc.props')" />
     <Import Project="$(NuGetPackageRoot)orchardcore.workflows\2.2.1\build\OrchardCore.Workflows.props" Condition="Exists('$(NuGetPackageRoot)orchardcore.workflows\2.2.1\build\OrchardCore.Workflows.props')" />
     <Import Project="$(NuGetPackageRoot)orchardcore.widgets\2.2.1\build\OrchardCore.Widgets.props" Condition="Exists('$(NuGetPackageRoot)orchardcore.widgets\2.2.1\build\OrchardCore.Widgets.props')" />
@@ -137,6 +138,7 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\Wanwi\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgGraphQL_Analyzers Condition=" '$(PkgGraphQL_Analyzers)' == '' ">C:\Users\Wanwi\.nuget\packages\graphql.analyzers\7.9.0</PkgGraphQL_Analyzers>
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\Wanwi\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\Wanwi\.nuget\packages\awssdk.core\4.0.0.21</PkgAWSSDK_Core>
     <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\Wanwi\.nuget\packages\awssdk.s3\4.0.6.4</PkgAWSSDK_S3>
     <PkgLucene_Net Condition=" '$(PkgLucene_Net)' == '' ">C:\Users\Wanwi\.nuget\packages\lucene.net\4.8.0-beta00016</PkgLucene_Net>
