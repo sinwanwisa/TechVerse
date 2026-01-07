@@ -164,7 +164,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-07T08:25:35.257Z",
               "EditorCaption": ""
@@ -172,15 +172,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TechVerse.Cms",
+              "Title": "TechVerse.Cms.csproj",
               "DocumentMoniker": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
               "RelativeDocumentMoniker": "TechVerse.Cms.csproj",
-              "ToolTip": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj*",
-              "RelativeToolTip": "TechVerse.Cms.csproj*",
+              "ToolTip": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
+              "RelativeToolTip": "TechVerse.Cms.csproj",
               "ViewState": "AgIAAAcAAAAAAAAAAAD4vxUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-07T08:24:01.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T08:24:01.965Z"
             },
             {
               "$type": "Document",
@@ -192,8 +191,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T10:13:07.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T10:13:07.765Z"
             },
             {
               "$type": "Document",
@@ -205,8 +203,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T08:14:03.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T08:14:03.079Z"
             },
             {
               "$type": "Document",
@@ -218,8 +215,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
               "ViewState": "AgIAABQAAAAAAAAAAAAqwBAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T07:58:19.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T07:58:19.1Z"
             },
             {
               "$type": "Document",
@@ -231,8 +227,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_VideoReviewWidget.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T10:11:02.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T10:11:02.919Z"
             },
             {
               "$type": "Document",
@@ -244,8 +239,7 @@
               "RelativeToolTip": "Pages\\Product\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T03:45:02.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T03:45:02.012Z"
             },
             {
               "$type": "Document",
@@ -257,8 +251,7 @@
               "RelativeToolTip": "Pages\\Article\\Index.cshtml",
               "ViewState": "AgIAACcAAAAAAAAAAIBJwDQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:07:56.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:07:56.234Z"
             },
             {
               "$type": "Document",
@@ -270,8 +263,7 @@
               "RelativeToolTip": "Pages\\News\\NewsDetail.cshtml",
               "ViewState": "AgIAAEIAAAAAAAAAAIBJwAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:11:45.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T02:11:45.644Z"
             },
             {
               "$type": "Document",
@@ -283,8 +275,7 @@
               "RelativeToolTip": "Pages\\Video\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:12:01.133Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T02:12:01.133Z"
             },
             {
               "$type": "Document",
@@ -296,8 +287,7 @@
               "RelativeToolTip": "Pages\\Product\\ProductDetail.cshtml",
               "ViewState": "AgIAAD8AAAAAAAAAAIBJwFAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-06T04:13:55.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T04:13:55.254Z"
             },
             {
               "$type": "Document",
@@ -309,8 +299,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\video-review.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T04:07:51.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:07:51.329Z"
             },
             {
               "$type": "Document",
@@ -322,8 +311,7 @@
               "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAIBJwBQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:10:51.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T02:10:51.861Z"
             },
             {
               "$type": "Document",
@@ -335,8 +323,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\news-detail.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T04:07:09.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:07:09.394Z"
             },
             {
               "$type": "Document",
@@ -348,8 +335,7 @@
               "RelativeToolTip": "Pages\\News\\Index.cshtml",
               "ViewState": "AgIAAEEAAAAAAAAAAAAqwFIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:09:09.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:09:09.085Z"
             },
             {
               "$type": "Document",
@@ -361,8 +347,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\article-detail.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T04:06:40.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:06:40.544Z"
             },
             {
               "$type": "Document",
@@ -374,8 +359,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\news-list.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T04:06:56.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:06:56.645Z"
             },
             {
               "$type": "Document",
@@ -387,8 +371,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\article-list.css",
               "ViewState": "AgIAABIAAAAAAAAAAIBJwC0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T04:06:22.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:06:22.284Z"
             },
             {
               "$type": "Document",
@@ -400,8 +383,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\product-detail.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-07T03:17:33.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T03:17:33.821Z"
             },
             {
               "$type": "Document",
@@ -413,8 +395,7 @@
               "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T02:21:39.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T02:21:39.49Z"
             },
             {
               "$type": "Document",
@@ -426,8 +407,7 @@
               "RelativeToolTip": "wwwroot\\css\\pages\\product-list.css",
               "ViewState": "AgIAAEAAAAAAAAAAAAAkwE8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-06T09:36:48.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T09:36:48.923Z"
             },
             {
               "$type": "Document",
@@ -439,8 +419,7 @@
               "RelativeToolTip": "Pages\\Product\\Index.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T07:30:28.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T07:30:28.049Z"
             },
             {
               "$type": "Document",
@@ -452,8 +431,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T08:15:24.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T08:15:24.129Z"
             },
             {
               "$type": "Document",
@@ -465,8 +443,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_VideoReviewWidget.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T10:11:47.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T10:11:47.36Z"
             },
             {
               "$type": "Document",
@@ -478,8 +455,7 @@
               "RelativeToolTip": "Pages\\Home\\Index.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T08:17:03.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T08:17:03.96Z"
             },
             {
               "$type": "Document",
@@ -491,8 +467,7 @@
               "RelativeToolTip": "wwwroot\\css\\widgets\\video-review.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-06T03:41:55.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:41:55.175Z"
             },
             {
               "$type": "Document",
@@ -504,8 +479,7 @@
               "RelativeToolTip": "wwwroot\\js\\widgets\\promotion-banner.js",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-06T03:42:30.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:42:30.559Z"
             },
             {
               "$type": "Document",
@@ -517,8 +491,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T03:42:02.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:42:02.365Z"
             },
             {
               "$type": "Document",
@@ -530,8 +503,7 @@
               "RelativeToolTip": "wwwroot\\css\\widgets\\promotion-banner.css",
               "ViewState": "AgIAACUAAAAAAAAAAAAmwDYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-05T10:36:03.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T10:36:03.635Z"
             },
             {
               "$type": "Document",
@@ -543,8 +515,7 @@
               "RelativeToolTip": "wwwroot\\js\\widgets\\product-highlight.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-06T03:46:54.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:46:54.966Z"
             },
             {
               "$type": "Document",
@@ -556,8 +527,7 @@
               "RelativeToolTip": "wwwroot\\css\\widgets\\product-highlight.css",
               "ViewState": "AgIAAF4AAAAAAAAAAIBJwG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-06T03:41:28.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:41:28.216Z"
             },
             {
               "$type": "Document",
@@ -569,8 +539,7 @@
               "RelativeToolTip": "wwwroot\\css\\widgets\\news-widget.css",
               "ViewState": "AgIAAEQAAAAAAAAAAIBJwFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-06T03:40:51.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T03:40:51.57Z"
             },
             {
               "$type": "Document",
@@ -582,8 +551,7 @@
               "RelativeToolTip": "wwwroot\\js\\widgets\\promotion-banner.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-05T10:58:59.9Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T10:58:59.9Z"
             },
             {
               "$type": "Document",
@@ -595,8 +563,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-05T08:15:20.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T08:15:20.86Z"
             }
           ]
         }

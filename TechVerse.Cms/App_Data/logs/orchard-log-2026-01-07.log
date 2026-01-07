@@ -2157,3 +2157,12 @@
 2026-01-07 16:27:50.8803||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
 2026-01-07 16:27:51.7862||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
 2026-01-07 16:27:51.7992||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-07 17:42:38.9054||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-07 17:42:38.9523||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-07 17:42:38.9523||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-07 17:46:24.9158||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-07 17:46:24.9968||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-07 17:46:24.9968||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-07 17:55:13.3092|Default|00-69174fd7097ffbdcd06ae8b9cae8123f-f62f2fbc9c1a9e61-00||OrchardCore.OpenId.Configuration.OpenIdClientConfiguration|WARN|The OpenID client settings are invalid: The authority cannot be null or empty.
+The response type cannot be null or empty.
+The response mode cannot be null or empty. 
