@@ -1,0 +1,108 @@
+﻿@inject OrchardCore.IOrchardHelper Orchard
+@using TechVerse.Cms.Pages.Widgets
+@using TechVerse.Cms.Pages.Widgets.Partials
+@* ตรวจสอบว่ามี using ด้านบนไฟล์หรือยัง *@
+@using OrchardCore.ContentManagement
+
+
+<header class="tv-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold " href="/">
+                Tech<span class="text-red">Verse</span>
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#tvNavbar"
+                    aria-controls="tvNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            
+         
+        </div>
+    </nav>
+</header>
+<style>
+
+
+    .tv-navbar {
+        background: linear-gradient(180deg, #000000, #0b0b0b);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar {
+        padding: 0.9rem 0;
+    }
+
+    .navbar-brand {
+        font-size: 22px;
+        letter-spacing: 0.6px;
+        color: #ffffff;
+        margin-right: 30px;
+    }
+
+        .navbar-brand .text-red {
+            color: #e10600; /* Tech Red */
+        }
+
+    .navbar-nav .nav-link {
+        color: #e0e0e0;
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        padding: 8px 0;
+        transition: color .2s ease;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: #e10600;
+            box-shadow: 0 0 6px rgba(225,6,0,0.6);
+            transition: width .25s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #ffffff;
+        }
+
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+    .navbar-toggler-icon {
+        filter: brightness(1.2);
+    }
+
+    .tv-navbar {
+        backdrop-filter: blur(6px);
+    }
+
+</style>
