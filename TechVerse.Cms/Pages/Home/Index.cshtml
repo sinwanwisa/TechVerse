@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/"
 @model TechVerse.Cms.Pages.Home.IndexModel
 @inject OrchardCore.IOrchardHelper Orchard
 @using TechVerse.Cms.Pages.Widgets
@@ -13,6 +13,16 @@
     var ProductHighlight = await Orchard.GetContentItemByHandleAsync("alias:homepage-product-highlight");
     var NewsActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-news-active");
     var VideoReviewActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-video-review-active");
+    var SearchContent = await Orchard.GetContentItemByHandleAsync("alias:search-widget");
+    
+    if (SearchContent != null)
+    {
+        var searchformModel = new SearchFormModel
+        {
+        };
+
+        @await Html.PartialAsync("/Pages/Widgets/Partials/SearchForm.cshtml", searchformModel)
+    }
 
     if (Promotion != null)
     {
@@ -23,6 +33,9 @@
 
         @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", promotionWidgetModel)
     }
+
+
+  
     if (ProductHighlight != null)
     {
         var productHighlightModel = new _ProductHighlightModel

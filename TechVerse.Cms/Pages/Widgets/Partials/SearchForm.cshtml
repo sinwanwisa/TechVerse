@@ -1,0 +1,15 @@
+﻿@model TechVerse.Cms.Pages.Widgets.Partials.SearchFormModel
+<section class="search-widget">
+    <form action="@Url.Content("~/search")" method="get">
+        <div class="input-group">
+            <input type="text"
+                   name="Terms"
+                   class="form-control"
+                   placeholder="ค้นหาข้อมูล..."
+                   aria-label="Search">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i> ค้นหา
+            </button>
+        </div>
+    </form>
+</section>
