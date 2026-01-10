@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.2.1, )"
             },
+            "OrchardCore.ContentManagement.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "OrchardCore.Logging.NLog": {
               "target": "Package",
               "version": "[2.2.1, )"

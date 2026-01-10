@@ -1,51 +1,78 @@
-﻿@page "/search"
+﻿@page
 @model TechVerse.Cms.Pages.Search.IndexModel
-@{
-    ViewData["Title"] = "ผลการค้นหาสำหรับ " + Model.Terms;
-}
 
 <div class="container my-5">
-    <div class="search-header mb-5">
-        <h1><i class="fa fa-search"></i> ผลการค้นหา</h1>
-        <p class="lead">คุณกำลังค้นหา: <strong>@Model.Terms</strong></p>
-    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <i class="fa fa-filter"></i> ตัวกรอง
+                </div>
+                <div class="card-body">
+                    <form method="get">
+                        @* เก็บค่าค้นหาไว้เมื่อกด Filter *@
+                        <input type="hidden" name="Terms" value="@Model.Terms" />
 
-    @if (Model.Results.Any())
-    {
-        <div class="list-group">
-            @foreach (var contentItem in Model.Results)
+                        <h6>ประเภทเนื้อหา</h6>
+                        @foreach (var type in Model.AvailableTypes)
+                        {
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox"
+                                       name="SelectedTypes"
+                                       value="@type.Name" @* ส่ง Name (Technical Name) ไปยัง Server *@
+                                       id="type-@type.Name"
+                                       @(Model.SelectedTypes.Contains(type.Name) ? "checked" : "")>
+                                <label class="form-check-label" for="type-@type.Name">
+                                    @type.DisplayName @* แสดงชื่อที่เป็นมิตรกับผู้ใช้ *@
+                                </label>
+                            </div>
+                        }
+
+                        <button type="submit" class="btn btn-sm btn-primary w-100 mt-3">
+                            นำไปใช้
+                        </button>
+
+                        @if (Model.SelectedTypes.Any())
+                        {
+                            <a asp-page="./Index" asp-route-Terms="@Model.Terms" class="btn btn-sm btn-link w-100 mt-1 text-decoration-none">ล้างตัวกรอง</a>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h2>ผลการค้นหา: "@Model.Terms"</h2>
+            <p class="text-muted">พบ @Model.Results.Count() รายการ</p>
+            <hr />
+
+            @if (Model.Results.Any())
             {
-                <div class="list-group-item list-group-item-action flex-column align-items-start mb-3 border shadow-sm p-4">
-                    <div class="d-flex w-100 justify-content-between">
-                        @* ลิงก์ไปยังหน้าเนื้อหา *@
-                        <h3 class="mb-1 text-primary">
-                            <a href="@Url.Content("~/" + contentItem.ContentItemId)">
-                                @contentItem.DisplayText
-                            </a>
-                        </h3>
-                        <small class="text-muted">@contentItem.ContentType</small>
+                @foreach (var item in Model.Results)
+                {
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-1">
+                                @* แนะนำให้ใช้ DisplayText และสร้าง Link ไปยัง ContentItem *@
+                                <a href="/Contents/ContentItems/@item.ContentItemId" class="text-decoration-none">
+                                    @item.DisplayText
+                                </a>
+                            </h5>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-secondary me-2">@item.ContentType</span>
+                                <small class="text-muted">ID: @item.ContentItemId</small>
+                            </div>
+                        </div>
                     </div>
-
-                    @* แสดงวันที่แก้ไขล่าสุด *@
-                    <p class="mb-1 text-muted small">
-                        แก้ไขเมื่อ: @contentItem.ModifiedUtc?.ToString("dd MMM yyyy")
-                    </p>
-
-                    @* ปุ่มอ่านต่อ *@
-                    <a href="@Url.Content("~/" + contentItem.ContentItemId)" class="btn btn-sm btn-outline-secondary mt-2">
-                        อ่านต่อ...
-                    </a>
+                }
+            }
+            else
+            {
+                <div class="alert alert-light border shadow-sm text-center py-5">
+                    <i class="fa fa-search fa-3x mb-3 text-muted"></i>
+                    <p>ไม่พบข้อมูลที่ตรงตามเงื่อนไขที่คุณค้นหา</p>
                 </div>
             }
         </div>
-    }
-    else if (!string.IsNullOrEmpty(Model.Terms))
-    {
-        <div class="text-center py-5">
-            <div class="display-1 text-muted mb-3"><i class="fa fa-frown-o"></i></div>
-            <h3>ไม่พบข้อมูลที่ตรงกับ "@Model.Terms"</h3>
-            <p>ลองใช้คำค้นหาอื่นที่ใกล้เคียงกัน</p>
-            <a href="/" class="btn btn-primary mt-3">กลับหน้าหลัก</a>
-        </div>
-    }
+    </div>
 </div>

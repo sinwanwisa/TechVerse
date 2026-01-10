@@ -10,3 +10,356 @@
 2026-01-10 15:59:33.7550||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
 2026-01-10 15:59:33.8190||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
 2026-01-10 15:59:33.8190||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 17:46:32.2223||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 17:46:32.2683||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 17:46:32.2683||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 19:32:19.8521||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 19:32:19.8957||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 19:32:19.8957||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 19:37:49.6973||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 19:37:49.7578||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 19:37:49.7627||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 19:49:45.1593||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 19:49:45.2013||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 19:49:45.2084||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 19:59:56.6016|Default|00-3ce7a6fd6a3e972e797c472cd7efed58-0dacac8a04adf344-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 19:59:57.6726|Default|00-5e63ad940da1f9a7ea4ad11952e9b0f2-107fd2d82efbe139-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:00:01.0409|Default|00-a19282753df2d727d0f27ca87f8629c6-f8628e25a7f6b1b8-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:02:29.1841||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 20:02:29.2267||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 20:02:29.2327||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 20:02:42.4989|Default|00-eaa2816061a3b0f20f1265bdf30c25d4-c0cb3cdbe4bc33b6-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:04:00.2052|Default|00-21dc777484ab271a8642e49b7b07f149-0f698a26f09da260-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:05:15.2874|Default|00-50d1f35600070d0804bdab4e0ded20a3-32bf703a07498ef5-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:05:19.0513|Default|00-0a938a439bdd07ed99b6dbfd5b1b8ecc-761f26fb9ed12e7a-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:05:45.3037||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 20:05:45.3585||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 20:05:45.3762||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
+2026-01-10 20:05:59.1350|Default|00-5125e614e93846a5fe40459fcb5d7b3e-a2c30253084356ed-00||OrchardCore.Search.Lucene.Services.LuceneSearchService|ERROR|Incorrect Lucene search query syntax provided in search. Lucene.Net.QueryParsers.Classic.ParseException: Cannot parse '*': '*' or '?' not allowed as first character in WildcardQuery
+ ---> Lucene.Net.QueryParsers.Classic.ParseException: '*' or '?' not allowed as first character in WildcardQuery
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.MultiFieldQueryParser.GetWildcardQuery(String field, String termStr)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.HandleBareTokenQuery(String qfield, Token term, Token fuzzySlop, Boolean prefix, Boolean wildcard, Boolean fuzzy, Boolean regexp)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Term(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Clause(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.Query(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParser.TopLevelQuery(String field)
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   --- End of inner exception stack trace ---
+   at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)    at Lucene.Net.QueryParsers.Classic.QueryParserBase.Parse(String query)
+   at OrchardCore.Search.Lucene.Services.LuceneSearchService.SearchAsync(String indexName, String term, Int32 start, Int32 size)
+2026-01-10 20:06:02.1928|Default|00-eed07dc27bd8da524234c985d7b57328-d748976f4c681498-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-10 20:06:02.2048|Default|00-eed07dc27bd8da524234c985d7b57328-d748976f4c681498-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-10 20:14:58.3120|Default|00-325f37ff790b99bb0c020473da318afd-80bbdbb65ba1a041-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'TechVerse.Cms.Pages.Search.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-10 20:14:59.6892|Default|00-7bc990d05267013840511159925042bb-c0bdb6fa312e5ca1-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'TechVerse.Cms.Pages.Search.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-10 20:15:07.7281|Default|00-d790b100944a30a513dc7d4311e63d2d-5bb43270568697de-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'TechVerse.Cms.Pages.Search.IndexModel'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelActivatorProvider.CreateActivator(CompiledPageActionDescriptor actionDescriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageModelFactoryProvider.CreateModelFactory(CompiledPageActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.CreateCacheEntry(CompiledPageActionDescriptor compiledActionDescriptor, FilterItem[] cachedFilters)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageActionInvokerCache.GetCachedResult(ActionContext actionContext)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.PageRequestDelegateFactory.<>c__DisplayClass13_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SixLabors.ImageSharp.Web.Middleware.ImageSharpMiddleware.Invoke(HttpContext httpContext, Boolean retry)
+   at OrchardCore.Media.Services.SecureMediaMiddleware.Invoke(HttpContext context, IAuthorizationService authorizationService, IAuthenticationService authenticationService)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Liquid.ScriptsMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<<Configure>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Users.Services.ExternalAuthenticationsStartupFilter.<>c.<<Configure>b__0_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<<Invoke>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-10 20:22:45.3420||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-10 20:22:45.3907||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-10 20:22:45.3907||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms 
