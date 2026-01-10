@@ -1,0 +1,51 @@
+﻿@page "/search"
+@model TechVerse.Cms.Pages.Search.IndexModel
+@{
+    ViewData["Title"] = "ผลการค้นหาสำหรับ " + Model.Terms;
+}
+
+<div class="container my-5">
+    <div class="search-header mb-5">
+        <h1><i class="fa fa-search"></i> ผลการค้นหา</h1>
+        <p class="lead">คุณกำลังค้นหา: <strong>@Model.Terms</strong></p>
+    </div>
+
+    @if (Model.Results.Any())
+    {
+        <div class="list-group">
+            @foreach (var contentItem in Model.Results)
+            {
+                <div class="list-group-item list-group-item-action flex-column align-items-start mb-3 border shadow-sm p-4">
+                    <div class="d-flex w-100 justify-content-between">
+                        @* ลิงก์ไปยังหน้าเนื้อหา *@
+                        <h3 class="mb-1 text-primary">
+                            <a href="@Url.Content("~/" + contentItem.ContentItemId)">
+                                @contentItem.DisplayText
+                            </a>
+                        </h3>
+                        <small class="text-muted">@contentItem.ContentType</small>
+                    </div>
+
+                    @* แสดงวันที่แก้ไขล่าสุด *@
+                    <p class="mb-1 text-muted small">
+                        แก้ไขเมื่อ: @contentItem.ModifiedUtc?.ToString("dd MMM yyyy")
+                    </p>
+
+                    @* ปุ่มอ่านต่อ *@
+                    <a href="@Url.Content("~/" + contentItem.ContentItemId)" class="btn btn-sm btn-outline-secondary mt-2">
+                        อ่านต่อ...
+                    </a>
+                </div>
+            }
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(Model.Terms))
+    {
+        <div class="text-center py-5">
+            <div class="display-1 text-muted mb-3"><i class="fa fa-frown-o"></i></div>
+            <h3>ไม่พบข้อมูลที่ตรงกับ "@Model.Terms"</h3>
+            <p>ลองใช้คำค้นหาอื่นที่ใกล้เคียงกัน</p>
+            <a href="/" class="btn btn-primary mt-3">กลับหน้าหลัก</a>
+        </div>
+    }
+</div>
