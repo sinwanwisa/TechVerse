@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="~/css/pages/product-detail.css" asp-append-version="true" />
 
 @{
-    string images = null;
+    string? images = null;
     decimal? price = null;
-    string brand = null;
-    string detail = null;
+    string? brand = null;
+    string? detail = null;
 
-    var product = await Orchard.GetContentItemBySlugAsync($"slug:{Slug}", latest: true);
+    var product = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
     if (product != null && product.ContentType == "Product")
     {

@@ -1,31 +1,42 @@
-﻿@model TechVerse.Cms.Pages.Widgets.Partials._NewsWidgetModel
+﻿@using OrchardCore
 @using OrchardCore.ContentManagement
+@using OrchardCore.ContentManagement.Metadata
 @inject OrchardCore.IOrchardHelper Orchard
-
+@functions {
+    public class NewsWidgetModel
+    {
+        public ContentItem ContentItem { get; set; }
+    }
+}
 @{
     var widget = Model?.ContentItem;
-    var title = widget?.DisplayText ?? "News";
-    var News = await Orchard.ContentQueryAsync("NewsActive");
+    var title = widget.Content.NewsWidget.Title.Text;
+    var subtitle = widget.Content.NewsWidget.Subtitle?.Markdown;
+
+    var newsIds = (widget?.Content["NewsWidget"]?["News"]?["ContentItemIds"]?.ToObject<string[]>()
+                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
+
+    var newsItems = await Orchard.GetContentItemsByIdAsync(newsIds);
 }
 <link rel="stylesheet" href="~/css/widgets/news-widget.css" asp-append-version="true" />
 
 <div class="news-widget container my-5">
     <h3 class="news-title mb-4">@title</h3>
-    <a href="/news"
-       class="btn btn-outline-dark btn-sm mt-3 w-100">
-        เพิ่มเติม
-    </a>
-    @if (News != null && News.Any())
+
+    @if (newsItems != null && newsItems.Any())
     {
         <div class="news-list">
-            @foreach (var item in News)
+            @foreach (var item in newsItems)
             {
-                var imagePath = (string)item.Content.News?.Image?.Paths[0];
-                var path = (string)item.Content.AutoroutePart?.Path;
+                var imagePaths = item.Content.News?.Image?.Paths;
+                string imagePath = (imagePaths != null && imagePaths.Count > 0)
+                ? (string)imagePaths[0]
+                : null;
+
+                var path = item.Content.AliasPart?.Alias ?? "#" ;
 
                 <a href="/news/@path" class="news-item">
-                    <!-- รูป -->
-                    <div class="news-thumb">
+                <div class="news-thumb">
                         @if (!string.IsNullOrEmpty(imagePath))
                         {
                             <img src="@Orchard.AssetUrl(imagePath)"
@@ -33,25 +44,24 @@
                         }
                         else
                         {
-                            <div class="no-image">No Image</div>
+                            <div class="no-image bg-light text-center py-5">No Image</div>
                         }
-                </div>
+                    </div>
 
-                <!-- เนื้อหา -->
-                <div class="news-content">
-                    <h5 class="news-item-title">
-                        @item.DisplayText
-                    </h5>
-                   
+                    <div class="news-content">
+                        <h5 class="news-item-title">
+                            @item.DisplayText
+                        </h5>
 
-                    <div class="news-meta">
-                        @(item.PublishedUtc.HasValue
-                                            ? item.PublishedUtc.Value.ToString("dd MMM yyyy")
-                                            : "")
+                        <div class="news-meta text-muted small mb-2">
+                            @if (item.PublishedUtc.HasValue)
+                            {
+                                <i class="far fa-calendar-alt"></i>
+                                @item.PublishedUtc.Value.ToString("dd MMM yyyy")
+                            }
                         </div>
 
-                        <span class="read-more">อ่านต่อ →</span>
-
+                        <span class="read-more text-primary" >อ่านต่อ →</span>
                     </div>
                 </a>
             }
@@ -59,6 +69,10 @@
     }
     else
     {
-        <div class="alert alert-light">ไม่พบข่าวสารในขณะนี้</div>
+        <div class="alert alert-light border">ไม่พบข่าวสารในขณะนี้</div>
     }
+
+    <div class="text-center mt-4">
+        <a href="/news" class="btn btn-outline-dark btn-sm px-4">ดูข่าวทั้งหมด</a>
+    </div>
 </div>

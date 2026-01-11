@@ -1,40 +1,54 @@
-﻿@model TechVerse.Cms.Pages.Widgets.Partials._ProductHighlightModel
+﻿@inject OrchardCore.IOrchardHelper Orchard
+@using OrchardCore
 @using OrchardCore.ContentManagement
-@inject OrchardCore.IOrchardHelper Orchard
-
+@using OrchardCore.ContentManagement.Metadata
+@functions {
+    public class ProductHighlightModel
+    {
+        public ContentItem ContentItem { get; set; }
+    }
+}
 @{
     var widget = Model?.ContentItem;
-    var title = widget?.DisplayText ?? "Product Highlight";
-    var products = await Orchard.ContentQueryAsync("ProductHighlight");
+    var title = widget.Content.ProductHighlightWidget.Title.Text;
+    var subtitle = widget.Content.ProductHighlightWidget.Subtitle?.Markdown;
 
+    var productIds = (widget?.Content["ProductHighlightWidget"]?["Product"]?["ContentItemIds"]?.ToObject<string[]>()
+                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
+
+    var productItems = await Orchard.GetContentItemsByIdAsync(productIds);
 }
 <link rel="stylesheet" href="~/css/widgets/product-highlight.css" asp-append-version="true" />
 
 <div class="product-highlight-widget container my-5">
-    <h3 class="widget-title mb-4">@title</h3>
-  
-    @if (products != null && products.Any())
+    <div class="section-header text-center mb-4">
+        <h3 class="widget-title">@title</h3>
+        @if (!string.IsNullOrEmpty(subtitle))
+        {
+            <p class="widget-subtitle">@subtitle</p>
+        }
+    </div>
+
+    @if (productItems.Any())
     {
         <div class="product-bg">
             <div class="product-scroll-container">
-
                 <button class="scroll-btn left" onclick="scrollProducts(-1)">‹</button>
 
-              
                 <div class="product-scroll-wrapper" id="productScrollWrapper">
                     <div class="product-scroll">
-                        @foreach (var product in products)
+                        @foreach (var product in productItems)
                         {
-                            var imagePath = (string)product.Content.Product?.Image?.Paths[0];
+                            var imagePath = product.Content.Product?.MainImage?.Paths[0]
+                            ?? product.Content.ProductHighlightWidget?.MainImage?.Paths[0];
                             var price = product.Content.Product?.Price?.Value;
-                            var path = product.Content.AutoroutePart?.Path ?? "#";
+                            var path = product.Content.AliasPart?.Alias ?? "#";
 
                             <div class="product-card">
                                 <div class="product-image">
-                                    @if (!string.IsNullOrEmpty(imagePath))
+                                    @if (!string.IsNullOrEmpty((string)imagePath))
                                     {
-                                        <img src="@Orchard.AssetUrl(imagePath)"
-                                             alt="@product.DisplayText" />
+                                        <img src="@Orchard.AssetUrl((string)imagePath)" alt="@product.DisplayText" />
                                     }
                                     else
                                     {
@@ -44,7 +58,6 @@
 
                                 <div class="product-info">
                                     <h5 class="product-title">@product.DisplayText</h5>
-
                                     @if (price != null)
                                     {
                                         <div class="product-price">
@@ -61,16 +74,8 @@
                     </div>
                 </div>
 
-                <!-- ปุ่มขวา -->
                 <button class="scroll-btn right" onclick="scrollProducts(1)">›</button>
-
             </div>
-        </div>
-    }
-    else
-    {
-        <div class="alert alert-info text-center">
-            ไม่พบสินค้าที่ติ๊ก Highlight
         </div>
     }
 </div>

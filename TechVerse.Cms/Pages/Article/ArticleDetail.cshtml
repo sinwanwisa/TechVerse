@@ -7,7 +7,7 @@
 }
 @{
     // 1. ดึงข้อมูลบทความตาม Slug
-    var article = await Orchard.GetContentItemBySlugAsync(Slug);
+    var article = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
     if (article == null || article.ContentType != "Article")
     {
@@ -16,12 +16,10 @@
         return;
     }
 
-    // 2. ดึงข้อมูลพื้นฐานของบทความ (Cast เป็น string เพื่อความปลอดภัย)
     var title = article.DisplayText;
     var mainImage = article.Content.Article?.MainImage?.Paths?[0];
     var summary = article.Content.Article?.Summary?.Markdown?.ToString();
 
-    // 3. ดึงรายการเนื้อหาจาก BagPart (SectionArticle)
     var sections = article.Content.BagPart?.ContentItems as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
 }
 
@@ -29,7 +27,6 @@
 
 <div class="container mt-5 mb-5">
     <article class="article-detail-wrapper">
-        @* ส่วนหัวข้อและรูปภาพหลัก *@
         <header class="article-header mb-4">
             <h1 class="display-4 fw-bold">@title</h1>
             <p class="text-muted">เผยแพร่เมื่อ: @article.CreatedUtc?.ToString("dd MMMM yyyy")</p>

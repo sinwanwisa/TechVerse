@@ -1,37 +1,39 @@
-﻿@model TechVerse.Cms.Pages.Widgets.Partials._PromotionWidgetModel
-@inject OrchardCore.IOrchardHelper Orchard
+﻿@inject OrchardCore.IOrchardHelper Orchard
 @using OrchardCore
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
+@functions {
+    public class PromotionWidgetViewModel
+    {
+        public ContentItem ContentItem { get; set; }
+    }
+}
 @{
     var widget = Model?.ContentItem;
-    var promotionIds = widget.Content.PromotionWidget?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>() as string[] ?? Array.Empty<string>();
+    var promotionIds = (widget?.Content["PromotionWidget"]?["SelectedPromotion"]?["ContentItemIds"]?.ToObject<string[]>() as IEnumerable<string>)
+                       ?? Enumerable.Empty<string>();
+    var promoItems = await Orchard.GetContentItemsByIdAsync(promotionIds);
 }
+
 <link rel="stylesheet" href="~/css/widgets/promotion-banner.css" asp-append-version="true" />
 
 <div class="promotion-banner-container position-relative">
-    <h3 class="mb-3 text-center">@widget?.DisplayText</h3>
-
-    @if (promotionIds.Any())
+    @if (promoItems.Any())
     {
         <div class="banner-slider overflow-hidden position-relative" style="max-width:1920px; margin:0 auto;">
-            <div class="banner-track d-flex transition-slide" id="bannerTrack" data-total="@promotionIds.Length">
-                @foreach (var id in promotionIds)
-                {
-                    var promoItem = await Orchard.GetContentItemByIdAsync(id);
-                    if (promoItem != null)
-                    {
-                        var imagePaths = promoItem.Content.Promotion?.Image?.Paths
-                        ?? promoItem.Content.PromotionWidget?.Image?.Paths;
-                        <div class="banner-item ">
+            <div class="banner-track d-flex transition-slide" id="bannerTrack" data-total="@promoItems.Count()">
 
+                @foreach (var promoItem in promoItems)
+                {
+                    var imagePaths = promoItem.Content.Promotion?.Image?.Paths
+                    ?? promoItem.Content.PromotionWidget?.Image?.Paths;
+
+                    <div class="banner-item">
                         <div class="banner-image">
                             @if (imagePaths != null && imagePaths.Count > 0)
                             {
                                 <img src="@Orchard.AssetUrl((string)imagePaths[0])"
-                                     alt="@promoItem.DisplayText"
-                                     />
-        
+                                     alt="@promoItem.DisplayText" />
                             }
                             else
                             {
@@ -40,16 +42,14 @@
                                 </div>
                             }
                         </div>
-                         </div>
-                    }
+                    </div>
                 }
             </div>
 
-            <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(-1)">&#10094;</button>
-            <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(1)">&#10095;</button>
+            <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(-1)">❮</button>
+            <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(1)">❯</button>
         </div>
     }
 </div>
 <script src="~/js/widgets/promotion-banner.js" asp-append-version="true"></script>
-
 

@@ -11,28 +11,23 @@
 <link rel="stylesheet" href="~/css/pages/news-list.css" asp-append-version="true" />
 
 <div class="container py-5">
-    <h2 class="mb-5 border-bottom pb-3">News Feed (Raw Data Mapping)</h2>
+    <h2 class="mb-5 border-bottom pb-3">News</h2>
 
     <div class="row g-4">
         @foreach (var item in newsList)
         {
-            // --- MAPPING ALL DATA FROM JSON ---
             string title = item.DisplayText;
             string imagePath = item.Content.News?.Image?.Paths?[0];
 
-            // ข้อมูลจาก News Part
             var sourceUrl = item.Content.News?.SourceUrl?.Url?.ToString();
             var sourceText = item.Content.News?.SourceUrl?.Text?.ToString() ?? "อ่านต้นฉบับ";
             var target = item.Content.News?.SourceUrl?.Target?.ToString() ?? "_blank";
             bool isActive = item.Content.News?.Active?.Value ?? false;
 
-            // ข้อมูลจาก Taxonomy (หมวดหมู่)
             var categoryIds = item.Content.News?.NewsCategory?.TermContentItemIds;
 
-            // ข้อมูลจาก MarkdownBodyPart
             string markdownContent = item.Content.MarkdownBodyPart?.Markdown?.ToString();
 
-            // ข้อมูลระบบ
             string path = item.Content.AutoroutePart?.Path?.ToString();
             var publishDate = item.PublishedUtc;
 
@@ -53,9 +48,7 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <span class="badge @(isActive ? "bg-success" : "bg-danger") mb-2">
-                                        @(isActive ? "Active" : "Inactive")
-                                    </span>
+                                   
                                     <small class="text-muted">Published: @publishDate?.ToString("dd/MM/yyyy HH:mm")</small>
                                 </div>
 

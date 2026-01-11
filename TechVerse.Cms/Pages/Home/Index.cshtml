@@ -26,40 +26,21 @@
 
     if (Promotion != null)
     {
-        var promotionWidgetModel = new _PromotionWidgetModel
-        {
-            ContentItem = Promotion
-        };
-
-        @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", promotionWidgetModel)
+     @await Html.PartialAsync("/Pages/Widgets/Partials/_PromotionWidget.cshtml", (ContentItem)Promotion)
     }
-
-
-  
     if (ProductHighlight != null)
     {
-        var productHighlightModel = new _ProductHighlightModel
-        {
-            ContentItem = ProductHighlight
-        };
-
-        @await Html.PartialAsync("/Pages/Widgets/Partials/_ProductHighlight.cshtml", productHighlightModel)
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_ProductHighlight.cshtml", (ContentItem)ProductHighlight)
     }
     if (NewsActive != null)
     {
-        var newsWidgetModel = new _NewsWidgetModel
-        {
-            ContentItem = NewsActive
-        };
-        @await Html.PartialAsync("/Pages/Widgets/Partials/_NewsWidget.cshtml", newsWidgetModel)
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_NewsWidget.cshtml", (ContentItem)NewsActive)
     }
+
     if (VideoReviewActive != null)
     {
-        var videoReviewWidgetModel = new _VideoReviewWidgetModel
-        {
-            ContentItem = VideoReviewActive
-        };
-        @await Html.PartialAsync("/Pages/Widgets/Partials/_VideoReviewWidget.cshtml", videoReviewWidgetModel)
+        @await Html.PartialAsync("/Pages/Widgets/Partials/_VideoReviewWidget.cshtml", (ContentItem)VideoReviewActive)
+
     }
     else
     {

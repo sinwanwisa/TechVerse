@@ -1,57 +1,62 @@
-﻿@model TechVerse.Cms.Pages.Widgets.Partials._VideoReviewWidgetModel
-@inject OrchardCore.IOrchardHelper Orchard
+﻿@inject OrchardCore.IOrchardHelper Orchard
+@using OrchardCore
 @using OrchardCore.ContentManagement
+@using OrchardCore.ContentManagement.Metadata
 
+@functions {
+    public class VideoReviewWidgetModel
+    {
+        public ContentItem ContentItem { get; set; }
+    }
+}
 @{
-    var widget = Model?.ContentItem;
-    var title = widget?.DisplayText ?? "Video Reviews";
-    var Reviews = await Orchard.ContentQueryAsync("VideoReviewActive");
+    var widget = Model.ContentItem as ContentItem;
+    var title = widget.Content.VideoReviewWidget.Title.Text;
+    var subtitle = widget.Content.VideoReviewWidget.Subtitle?.Markdown;
+
+    var maxItem = (int?)widget.Content.VideoReviewWidget.MaxItem?.Value ?? 6;
+
+    var videoReviewIds = (widget?.Content["VideoReviewWidget"]?["VideoReview"]?["ContentItemIds"]?.ToObject<string[]>()
+                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
+
+    var videoReviewItems = videoReviewIds.Any()
+            ? (await Orchard.GetContentItemsByIdAsync(videoReviewIds)).Take(maxItem)
+            : Enumerable.Empty<ContentItem>();
 }
 <link rel="stylesheet" href="~/css/widgets/video-review.css" asp-append-version="true" />
+
 <section class="video-review-section container my-5">
     <div class="section-header mb-4 text-center">
         <h2 class="section-title">@title</h2>
-        <a href="/video"
-           class="btn btn-outline-dark btn-sm mt-3 w-100">
-            เพิ่มเติม
-        </a>
-        <p class="section-subtitle">รีวิวสินค้าและเทคโนโลยีจากวิดีโอ</p>
+
+        @if (subtitle != null)
+        {
+            <p class="section-subtitle">@subtitle</p>
+        }
+        else
+        {
+            <p class="section-subtitle">รีวิววิดีโอ</p>
+        }
     </div>
 
-    @if (Reviews != null && Reviews.Any())
+    @if (videoReviewItems.Any())
     {
         <div class="row g-4">
-            @foreach (var item in Reviews)
+            @foreach (var item in videoReviewItems)
             {
-                var videoPart = item.Content.VideoReview;
-                var youtubeLink = videoPart?.YouTubeLink;
+                var embedUrl = item.Content.VideoReview.YouTubeLink.EmbeddedAddress;
 
                 <div class="col-lg-4 col-md-6">
                     <div class="video-card h-100">
-                        @if (youtubeLink != null && !string.IsNullOrEmpty(youtubeLink.EmbeddedAddress?.ToString()))
-                        {
-                            <div class="video-wrapper">
-                                <iframe src="@youtubeLink.EmbeddedAddress"
-                                        title="@item.DisplayText"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                </iframe>
-                            </div>
-                        }
-
-                        <div class="video-card-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="@embedUrl" title="@item.DisplayText" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-card-body mt-2">
                             <h5 class="video-title">@item.DisplayText</h5>
                         </div>
                     </div>
                 </div>
             }
-        </div>
-    }
-    else
-    {
-        <div class="alert alert-light text-center">
-            ยังไม่มีวิดีโอรีวิว
         </div>
     }
 </section>
