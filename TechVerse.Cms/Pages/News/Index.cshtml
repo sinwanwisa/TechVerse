@@ -17,7 +17,7 @@
         @foreach (var item in newsList)
         {
             string title = item.DisplayText;
-            string imagePath = item.Content.News?.Image?.Paths?[0];
+            string imagePath = item.Content.News?.Image?.Paths?[0] ?? "#";
 
             var sourceUrl = item.Content.News?.SourceUrl?.Url?.ToString();
             var sourceText = item.Content.News?.SourceUrl?.Text?.ToString() ?? "อ่านต้นฉบับ";
@@ -26,9 +26,9 @@
 
             var categoryIds = item.Content.News?.NewsCategory?.TermContentItemIds;
 
-            string markdownContent = item.Content.MarkdownBodyPart?.Markdown?.ToString();
+            string markdownContent = item.Content.MarkdownBodyPart?.Markdown?.ToString() ?? "#";
 
-            string path = item.Content.AutoroutePart?.Path?.ToString();
+            string path = item.Content.AliasPart?.Alias ?? "#";
             var publishDate = item.PublishedUtc;
 
             <div class="col-12 mb-4">

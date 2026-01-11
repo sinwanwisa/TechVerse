@@ -12,11 +12,15 @@
     var widget = Model?.ContentItem;
     var title = widget.Content.NewsWidget.Title.Text;
     var subtitle = widget.Content.NewsWidget.Subtitle?.Markdown;
+    var maxItem = (int?)widget.Content.NewsWidget.MaxItem?.Value ?? 4;
 
     var newsIds = (widget?.Content["NewsWidget"]?["News"]?["ContentItemIds"]?.ToObject<string[]>()
                           as IEnumerable<string>) ?? Enumerable.Empty<string>();
 
-    var newsItems = await Orchard.GetContentItemsByIdAsync(newsIds);
+    var newsItems = newsIds.Any()
+         ? (await Orchard.GetContentItemsByIdAsync(newsIds)).Take(maxItem)
+         : Enumerable.Empty<ContentItem>();
+}
 }
 <link rel="stylesheet" href="~/css/widgets/news-widget.css" asp-append-version="true" />
 

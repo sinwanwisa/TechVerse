@@ -16,7 +16,7 @@
         var imagePath = (string)product.Content.Product?.Image?.Paths[0];
         var price = product.Content.Product?.Price?.Value;
         var detail = product.Content.MarkdownBodyPart?.Markdown?.ToString();
-            var path = product.Content.AutoroutePart?.Path ?? "#";
+            var path = product.Content.AliasPart?.Alias ?? "#";
             <div class="product-card">
             <div class="product-image">
                 @if (!string.IsNullOrEmpty(imagePath))

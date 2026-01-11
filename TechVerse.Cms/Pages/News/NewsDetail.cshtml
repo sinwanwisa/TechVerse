@@ -8,20 +8,13 @@
 @{
     var newsItem = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
-    if (newsItem == null || newsItem.ContentType != "News")
-    {
-        Response.StatusCode = 404;
-        return;
-    }
+ 
 
-    // --- MAPPING DATA ---
     string title = newsItem.DisplayText;
-    string imagePath = newsItem?.Content?.News?.Image?.Paths?[0];
-    // เนื้อหาหลักจาก MarkdownBodyPart
-    string markdownBody = newsItem.Content.MarkdownBodyPart?.Markdown?.ToString();
+    string imagePath = newsItem.Content?.News?.Image?.Paths?[0] ?? "#"; ;
+    string markdownBody = newsItem?.Content?.MarkdownBodyPart?.Markdown?.ToString() ?? "#"; ;
 
-    // ข้อมูลแหล่งข่าว (Source)
-    string sourceUrl = newsItem.Content.News?.SourceUrl?.Url?.ToString();
+    string sourceUrl = newsItem?.Content.News?.SourceUrl?.Url?.ToString() ?? "#"; ;
     string sourceText = newsItem.Content.News?.SourceUrl?.Text?.ToString() ?? "เข้าชมเว็บไซต์แหล่งข่าว";
     string sourceTarget = newsItem.Content.News?.SourceUrl?.Target?.ToString() ?? "_blank";
 

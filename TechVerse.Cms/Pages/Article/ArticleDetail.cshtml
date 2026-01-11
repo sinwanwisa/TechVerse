@@ -17,7 +17,7 @@
     }
 
     var title = article.DisplayText;
-    var mainImage = article.Content.Article?.MainImage?.Paths?[0];
+    var mainImage = article.Content.Article?.MainImage?.Paths?[0] ?? "#";
     var summary = article.Content.Article?.Summary?.Markdown?.ToString();
 
     var sections = article.Content.BagPart?.ContentItems as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
@@ -51,9 +51,9 @@
         <div class="article-sections">
             @foreach (var section in sections)
             {
-                var subHeading = section.SectionArticle?.SubHeading?.Text?.ToString();
-                var subBody = section.SectionArticle?.SubBody?.Markdown?.ToString();
-                var subImage = section.SectionArticle?.SubImage?.Paths?[0];
+                var subHeading = section.SectionArticle?.SubHeading?.Text?.ToString() ?? "#";
+                var subBody = section.SectionArticle?.SubBody?.Markdown?.ToString() ?? "#"; ;
+                var subImage = section.SectionArticle?.SubImage?.Paths?[0] ?? "#"; ;
 
                 <section class="mb-5">
                     @if (!string.IsNullOrEmpty(subHeading))
