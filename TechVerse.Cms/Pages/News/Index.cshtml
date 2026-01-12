@@ -26,9 +26,9 @@
 
             var categoryIds = item.Content.News?.NewsCategory?.TermContentItemIds;
 
-            string markdownContent = item.Content.MarkdownBodyPart?.Markdown?.ToString() ?? "#";
+            string markdownContent = item.Content?.MarkdownBodyPart?.Markdown?.ToString() ?? "#";
 
-            string path = item.Content.AliasPart?.Alias ?? "#";
+            string path = item.Content?.AliasPart?.Alias ?? "#";
             var publishDate = item.PublishedUtc;
 
             <div class="col-12 mb-4">

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_producthighlight.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_producthighlight.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_newswidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_newswidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,20 +31,12 @@
       "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_newswidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_newswidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_videoreviewwidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_videoreviewwidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_promotionwidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_promotionwidget.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\widgets\\partials\\_producthighlight.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\widgets\\partials\\_producthighlight.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\news\\newsdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -154,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -163,6 +163,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwBsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T08:25:35.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ArticleDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Article\\ArticleDetail.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
+              "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-07T02:10:51.861Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -178,6 +203,69 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\News\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\Index.cshtml",
+              "RelativeToolTip": "Pages\\News\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwBIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-07T04:09:09.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ProductHighlight.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
+              "RelativeToolTip": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-05T08:14:03.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_PromotionWidget.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
+              "RelativeToolTip": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABwAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-05T10:13:07.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_NewsWidget.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
+              "RelativeToolTip": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-05T07:58:19.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Article\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Article\\Index.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-07T04:07:56.234Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Home\\Index.cshtml",
@@ -190,68 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Article\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Article\\Index.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:07:56.234Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "_PromotionWidget.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
-              "RelativeToolTip": "Pages\\Widgets\\Partials\\_PromotionWidget.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABwAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T10:13:07.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAqwBsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T08:25:35.257Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\News\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\Index.cshtml",
-              "RelativeToolTip": "Pages\\News\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:09:09.085Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ArticleDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Article\\ArticleDetail.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
-              "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:10:51.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "_VideoReviewWidget.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_VideoReviewWidget.cshtml",
               "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_VideoReviewWidget.cshtml",
@@ -263,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Product\\Index.cshtml",
@@ -272,30 +299,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-07T03:45:02.012Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ProductHighlight.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
-              "RelativeToolTip": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAkwFMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T08:14:03.079Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_NewsWidget.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
-              "RelativeToolTip": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T07:58:19.1Z"
             },
             {
               "$type": "Document",

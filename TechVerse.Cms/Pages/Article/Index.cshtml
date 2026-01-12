@@ -19,7 +19,7 @@
             // ดึงข้อมูลจากโครงสร้าง JSON ของ Article
             var mainImage = (string)article.Content.Article?.MainImage?.Paths?[0];
             var summary = article.Content.Article?.Summary?.Markdown.ToString(); ;
-            var path = article.Content.AutoroutePart?.Path ?? "#";
+            var path = article.Content?.AliasPart?.Alias ?? "#";
             var publishedDate = article.PublishedUtc.HasValue
             ? article.PublishedUtc.Value.ToString("dd MMM yyyy")
             : "No date";
