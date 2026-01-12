@@ -154,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -163,18 +163,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "NewsDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\NewsDetail.cshtml",
-              "RelativeDocumentMoniker": "Pages\\News\\NewsDetail.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\NewsDetail.cshtml",
-              "RelativeToolTip": "Pages\\News\\NewsDetail.cshtml",
-              "ViewState": "AgIAABQAAAAAAAAAAAAawA4AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:11:45.644Z"
             },
             {
               "$type": "Document",
@@ -198,8 +186,7 @@
               "RelativeToolTip": "Pages\\Article\\Index.cshtml",
               "ViewState": "AgIAACoAAAAAAAAAAAAAADQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:07:56.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:07:56.234Z"
             },
             {
               "$type": "Document",
@@ -227,6 +214,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArticleDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Article\\ArticleDetail.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
+              "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-07T02:10:51.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NewsDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\NewsDetail.cshtml",
+              "RelativeDocumentMoniker": "Pages\\News\\NewsDetail.cshtml",
+              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\NewsDetail.cshtml",
+              "RelativeToolTip": "Pages\\News\\NewsDetail.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAawA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-07T02:11:45.644Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\News\\Index.cshtml",
@@ -235,21 +247,7 @@
               "RelativeToolTip": "Pages\\News\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:09:09.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ArticleDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Article\\ArticleDetail.cshtml",
-              "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
-              "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T02:10:51.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:09:09.085Z"
             },
             {
               "$type": "Document",
