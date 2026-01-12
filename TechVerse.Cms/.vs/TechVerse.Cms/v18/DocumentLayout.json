@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\article\\articledetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|solutionrelative:pages\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE4D4E59-02EF-4A70-AA98-ADEFA556CA46}|TechVerse.Cms.csproj|c:\\users\\public\\techverse\\techverse.cms\\pages\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -154,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -166,13 +166,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ArticleDetail.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
               "RelativeDocumentMoniker": "Pages\\Article\\ArticleDetail.cshtml",
               "ToolTip": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\ArticleDetail.cshtml",
               "RelativeToolTip": "Pages\\Article\\ArticleDetail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAADYAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-01-07T02:10:51.861Z",
               "EditorCaption": ""
@@ -199,8 +199,7 @@
               "RelativeToolTip": "Pages\\News\\Index.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAUwB4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-07T04:09:09.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T04:09:09.085Z"
             },
             {
               "$type": "Document",
@@ -212,12 +211,11 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_ProductHighlight.cshtml",
               "ViewState": "AgIAABAAAAAAAAAAAAAAACkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T08:14:03.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T08:14:03.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\Pages\\Article\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Article\\Index.cshtml",
@@ -262,8 +260,7 @@
               "RelativeToolTip": "Pages\\Widgets\\Partials\\_NewsWidget.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-05T07:58:19.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-05T07:58:19.1Z"
             },
             {
               "$type": "Document",
