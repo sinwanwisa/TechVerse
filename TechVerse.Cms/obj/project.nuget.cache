@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yZ4dwSMb/aA=",
+  "dgSpecHash": "9KrziUXl5G4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
+  "projectFilePath": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wanwi\\.nuget\\packages\\acornima\\1.1.0\\acornima.1.1.0.nupkg.sha512",
     "C:\\Users\\Wanwi\\.nuget\\packages\\anglesharp\\1.1.2\\anglesharp.1.1.2.nupkg.sha512",

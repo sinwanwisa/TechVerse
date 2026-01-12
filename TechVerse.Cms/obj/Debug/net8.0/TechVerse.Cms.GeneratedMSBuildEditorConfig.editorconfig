@@ -11,85 +11,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TechVerse.Cms
 build_property.RootNamespace = TechVerse.Cms
-build_property.ProjectDir = C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms\
+build_property.ProjectDir = C:\Users\Public\TechVerse\TechVerse.Cms\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Wanwi\OneDrive\Desktop\TechVerse\TechVerse.Cms
+build_property.MSBuildProjectDirectory = C:\Users\Public\TechVerse\TechVerse.Cms
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Article/ArticleDetail.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Article/ArticleDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZVxBcnRpY2xlRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Article/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Article/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Home/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/News/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/News/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/News/NewsDetail.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/News/NewsDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3c1xOZXdzRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Product/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Product/ProductDetail.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Product/ProductDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Search/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Search/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhcmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Shared/_Footer.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Shared/_Layout.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Shared/_Navbar.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Shared/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Video/Index.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Video/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlkZW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/SearchForm.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/SearchForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xTZWFyY2hGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_NewsWidget.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_NewsWidget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xfTmV3c1dpZGdldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_ProductHighlight.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_ProductHighlight.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xfUHJvZHVjdEhpZ2hsaWdodC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_PromotionWidget.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_PromotionWidget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xfUHJvbW90aW9uV2lkZ2V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_VideoReviewWidget.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/Widgets/Partials/_VideoReviewWidget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2lkZ2V0c1xQYXJ0aWFsc1xfVmlkZW9SZXZpZXdXaWRnZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Wanwi/OneDrive/Desktop/TechVerse/TechVerse.Cms/Pages/_ViewStart.cshtml]
+[C:/Users/Public/TechVerse/TechVerse.Cms/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

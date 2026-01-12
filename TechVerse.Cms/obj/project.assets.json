@@ -27259,11 +27259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
+      "projectUniqueName": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
       "projectName": "TechVerse.Cms",
-      "projectPath": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
+      "projectPath": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\TechVerse.Cms.csproj",
       "packagesPath": "C:\\Users\\Wanwi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wanwi\\OneDrive\\Desktop\\TechVerse\\TechVerse.Cms\\obj\\",
+      "outputPath": "C:\\Users\\Public\\TechVerse\\TechVerse.Cms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
