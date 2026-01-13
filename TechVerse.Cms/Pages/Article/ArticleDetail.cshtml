@@ -3,15 +3,13 @@
 
 @functions {
     [FromRoute]
-    public string Slug { get; set; }
+    public string? Slug { get; set; }
 }
 @{
-    // 1. ดึงข้อมูลบทความตาม Slug
     var article = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
     if (article == null || article.ContentType != "Article")
     {
-        // ถ้าไม่พบ ให้แสดง 404
         Response.StatusCode = 404;
         return;
     }
@@ -39,7 +37,6 @@
             }
         </header>
 
-        @* ส่วนสรุป (Summary) *@
         @if (!string.IsNullOrEmpty(summary))
         {
             <div class="article-summary-box p-4 bg-light rounded mb-5 italic">

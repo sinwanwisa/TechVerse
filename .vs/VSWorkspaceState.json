@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\TechVerse.Cms",
-    "\\TechVerse.Cms\\Pages",
-    "\\TechVerse.Cms\\Pages\\Product"
+    ""
   ],
-  "SelectedNode": "\\TechVerse.Cms\\Pages\\Product\\Index.cshtml",
+  "SelectedNode": "\\TechVerse.Cms.sln",
   "PreviewInSolutionExplorer": false
 }

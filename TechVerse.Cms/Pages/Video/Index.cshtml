@@ -4,7 +4,6 @@
 @using System.Linq
 @inject OrchardCore.IOrchardHelper Orchard
 @{
-    // ดึงข้อมูลวิดีโอทั้งหมดจาก Query
     var videoreviews = await Orchard.ContentQueryAsync("AllVideoReviewList");
 }
 

@@ -18,8 +18,7 @@
         var detail = product.Content.MarkdownBodyPart?.Markdown?.ToString();
             var path = product.Content.AliasPart?.Alias ?? "#";
             <div class="product-card">
-            <div class="product-image">
-                @if (!string.IsNullOrEmpty(imagePath))
+            <div class="product-image">                @if (!string.IsNullOrEmpty(imagePath))
                 {
                     <img src="@Orchard.AssetUrl(imagePath)"
                          alt="@product.DisplayText" />

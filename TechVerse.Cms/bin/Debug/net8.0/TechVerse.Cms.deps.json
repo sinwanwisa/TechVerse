@@ -10,6 +10,7 @@
         "dependencies": {
           "OrchardCore.Application.Cms.Targets": "2.2.1",
           "OrchardCore.ContentManagement.Abstractions": "2.2.1",
+          "OrchardCore.DynamicCache": "2.2.1",
           "OrchardCore.Logging.NLog": "2.2.1",
           "OrchardCoreContrib.Apis.Swagger": "1.6.0"
         },

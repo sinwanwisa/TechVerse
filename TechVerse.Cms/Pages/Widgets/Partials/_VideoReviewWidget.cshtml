@@ -1,62 +1,56 @@
 ﻿@inject OrchardCore.IOrchardHelper Orchard
 @using OrchardCore
 @using OrchardCore.ContentManagement
-@using OrchardCore.ContentManagement.Metadata
+@using OrchardCore.ContentManagement.Metadata 
+@addTagHelper *, OrchardCore.DynamicCache
 
-@functions {
-    public class VideoReviewWidgetModel
-    {
-        public ContentItem ContentItem { get; set; }
+<dynamic-cache cache-id="@($"video-review-{Model.ContentItem.ContentItemId}")"
+               cache-dependency="
+        contentitemid:@Model.ContentItem.ContentItemId;
+        contenttype:VideoReview"
+               fixed-duration="03:00:00">
+
+
+    @{
+        var widget = Model.ContentItem as ContentItem;
+        var content = widget?.Content.VideoReviewWidget;
+        var title = content?.Title.Text;
+        var subtitle = content?.Subtitle?.Markdown;
+        var maxItem = (int?)content?.MaxItem?.Value ?? 6;
+
+        string[] videoReviewIds = content?.VideoReview?.ContentItemIds?.ToObject<string[]>() ?? Array.Empty<string>();
+
+        var videoReviewItems = videoReviewIds.Any()
+        ? (await Orchard.GetContentItemsByIdAsync(videoReviewIds)).Take(maxItem)
+        : Enumerable.Empty<ContentItem>();
     }
-}
-@{
-    var widget = Model.ContentItem as ContentItem;
-    var title = widget.Content.VideoReviewWidget.Title.Text;
-    var subtitle = widget.Content.VideoReviewWidget.Subtitle?.Markdown;
 
-    var maxItem = (int?)widget.Content.VideoReviewWidget.MaxItem?.Value ?? 6;
+    <section class="video-review-section container my-5">
+        <div class="section-header mb-4 text-center">
+            <h2 class="section-title">@title</h2>
+            <p class="section-subtitle">@(subtitle ?? "รีวิววิดีโอ")</p>
+        </div>
 
-    var videoReviewIds = (widget?.Content["VideoReviewWidget"]?["VideoReview"]?["ContentItemIds"]?.ToObject<string[]>()
-                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
-
-    var videoReviewItems = videoReviewIds.Any()
-            ? (await Orchard.GetContentItemsByIdAsync(videoReviewIds)).Take(maxItem)
-            : Enumerable.Empty<ContentItem>();
-}
-<link rel="stylesheet" href="~/css/widgets/video-review.css" asp-append-version="true" />
-
-<section class="video-review-section container my-5">
-    <div class="section-header mb-4 text-center">
-        <h2 class="section-title">@title</h2>
-
-        @if (subtitle != null)
+        @if (videoReviewItems.Any())
         {
-            <p class="section-subtitle">@subtitle</p>
-        }
-        else
-        {
-            <p class="section-subtitle">รีวิววิดีโอ</p>
-        }
-    </div>
-
-    @if (videoReviewItems.Any())
-    {
-        <div class="row g-4">
-            @foreach (var item in videoReviewItems)
-            {
-                var embedUrl = item.Content.VideoReview.YouTubeLink.EmbeddedAddress;
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="video-card h-100">
-                        <div class="ratio ratio-16x9">
-                            <iframe src="@embedUrl" title="@item.DisplayText" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-card-body mt-2">
-                            <h5 class="video-title">@item.DisplayText</h5>
+            <div class="row g-4">
+                @foreach (var item in videoReviewItems)
+                {
+                    var embedUrl = item.Content.VideoReview.YouTubeLink.EmbeddedAddress;
+                    <div class="col-lg-4 col-md-6">
+                        <div class="video-card h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="@embedUrl" title="@item.DisplayText" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-card-body mt-2">
+                                <h5 class="video-title">@item.DisplayText</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
-        </div>
-    }
-</section>
+                }
+            </div>
+        }
+
+    </section>
+
+</dynamic-cache>

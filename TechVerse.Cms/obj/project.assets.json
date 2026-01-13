@@ -27248,6 +27248,7 @@
     "net8.0": [
       "OrchardCore.Application.Cms.Targets >= 2.2.1",
       "OrchardCore.ContentManagement.Abstractions >= 2.2.1",
+      "OrchardCore.DynamicCache >= 2.2.1",
       "OrchardCore.Logging.NLog >= 2.2.1",
       "OrchardCoreContrib.Apis.Swagger >= 1.6.0"
     ]
@@ -27307,6 +27308,10 @@
             "version": "[2.2.1, )"
           },
           "OrchardCore.ContentManagement.Abstractions": {
+            "target": "Package",
+            "version": "[2.2.1, )"
+          },
+          "OrchardCore.DynamicCache": {
             "target": "Package",
             "version": "[2.2.1, )"
           },
