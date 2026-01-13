@@ -3,6 +3,7 @@
 @using OrchardCore.ContentManagement
 @model TechVerse.Cms.Pages.Search.IndexModel
 
+@using OrchardCore.Alias.Models
 @{
     var searchFormModel = new SearchFormModel
     {
@@ -50,11 +51,12 @@
                 {
                     @foreach (var item in Model.Results)
                     {
-                        // 1. ดึง Alias (ล้อตาม JSON: item.AliasPart.Alias)
-                        string alias = item.Content.AliasPart?.Alias;
-                        var linkUrl = !string.IsNullOrEmpty(alias) ? $"/{alias}" : $"/Contents/ContentItems/{item.ContentItemId}";
-
-                        // 2. ดึงรูปภาพ (ล้อตาม JSON: item.News.Image.Paths[0])
+                        var aliasPart = item.As<AliasPart>();
+                        string alias = aliasPart?.Alias;
+                        string contentType = item.ContentType.ToLower();
+                        var linkUrl = !string.IsNullOrEmpty(alias)
+                        ? $"/{contentType}/{alias}"
+                        : $"/Contents/ContentItems/{item.ContentItemId}";
                         string imagePath = item.Content.News?.Image?.Paths?[0];
 
                         <div class="card mb-3 shadow-sm border-0">

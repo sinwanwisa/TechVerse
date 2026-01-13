@@ -1,0 +1,173 @@
+2026-01-14 00:24:40.2164|Default|00-3077c5eed56f9addf9a7550cb6d2fac5-d82319aed8d559b5-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:24:40.3034|Default|00-3077c5eed56f9addf9a7550cb6d2fac5-d82319aed8d559b5-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:24:44.3304|Default|00-38920f0a53b12ae6577e2e3bd3ef3ca2-5b38644830a1d714-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:24:44.3304|Default|00-38920f0a53b12ae6577e2e3bd3ef3ca2-5b38644830a1d714-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:27:03.5908|Default|00-cac3c2a815136dfe73bcadd2f935951e-f2757e39a77807a8-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. OrchardCore.Data.Documents.DocumentStoreCommitException: The 'ContentDefinitionRecord' could not be persisted and cached as it has been changed by another process.
+ ---> YesSql.ConcurrencyException: The document with Id '42' and type 'OrchardCore.ContentManagement.Metadata.Records.ContentDefinitionRecord, OrchardCore.ContentManagement.Abstractions' could not be updated as it has been changed by another process.
+   at YesSql.Commands.UpdateDocumentCommand.ExecuteAsync(DbConnection connection, DbTransaction transaction, ISqlDialect dialect, ILogger logger, CancellationToken cancellationToken)
+   at YesSql.Session.FlushInternalAsync(Boolean saving, CancellationToken cancellationToken)
+   at YesSql.Session.FlushInternalAsync(Boolean saving, CancellationToken cancellationToken)
+   at YesSql.Session.SaveChangesAsync(CancellationToken cancellationToken)
+   at YesSql.Session.SaveChangesAsync(CancellationToken cancellationToken)
+   at OrchardCore.Data.Documents.DocumentStore.CommitAsync()
+   --- End of inner exception stack trace ---
+   at OrchardCore.Data.Documents.DocumentStore.<>c__10`1.<UpdateAsync>b__10_1(Exception exception)
+   at OrchardCore.Data.Documents.DocumentStore.CommitAsync()
+   at OrchardCore.Environment.Shell.Scope.ShellScope.BeforeDisposeAsync()
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)    at OrchardCore.Data.Documents.DocumentStore.<>c__10`1.<UpdateAsync>b__10_1(Exception exception)
+   at OrchardCore.Data.Documents.DocumentStore.CommitAsync()
+   at OrchardCore.Environment.Shell.Scope.ShellScope.BeforeDisposeAsync()
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute, Boolean activateShell)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-14 00:27:55.7400||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-14 00:27:55.7878||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-14 00:27:55.7953||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Public\TechVerse\TechVerse.Cms 
+2026-01-14 00:28:18.0003|Default|00-4c7205a26d445fb7c78c7aa165e7ea16-dc34103608fc1115-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:28:18.0003|Default|00-4c7205a26d445fb7c78c7aa165e7ea16-dc34103608fc1115-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:31:54.1329|Default|00-0ef61ef8389b0530e14a9c5226e7b8cb-c0fa87fa2af4ca9c-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:31:54.1374|Default|00-0ef61ef8389b0530e14a9c5226e7b8cb-c0fa87fa2af4ca9c-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:33:07.5422|Default|00-21b4ada5a554887f76f2f52529696cd0-fba9264f5ad19238-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:33:07.5486|Default|00-21b4ada5a554887f76f2f52529696cd0-fba9264f5ad19238-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:33:18.7669||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-14 00:33:18.8052||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-14 00:33:18.8190||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Public\TechVerse\TechVerse.Cms 
+2026-01-14 00:33:38.6989|Default|00-54003626ab1737ad29eaa707094a1446-a137d81e556b5339-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:33:38.7107|Default|00-54003626ab1737ad29eaa707094a1446-a137d81e556b5339-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:38:42.4782|Default|00-5956bf644f65091c53fc9980fd18c7d9-3aaf4a967a9efd08-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:38:42.4851|Default|00-5956bf644f65091c53fc9980fd18c7d9-3aaf4a967a9efd08-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:40:25.0959||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-14 00:40:25.1428||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-14 00:40:25.1428||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Public\TechVerse\TechVerse.Cms 
+2026-01-14 00:40:49.9414|Default|00-9e3fc70ec8bd420c9d276991c2d2e559-348ccc38079203db-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:40:49.9571|Default|00-9e3fc70ec8bd420c9d276991c2d2e559-348ccc38079203db-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:44:41.9598||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-14 00:44:42.0174||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-14 00:44:42.0174||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Public\TechVerse\TechVerse.Cms 
+2026-01-14 00:46:15.4904|None|00-7dc586959b9492a789bc4b86b018029e-303fff08149278fa-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=0; handshake=14995; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at YesSql.Services.DbBlockIdGenerator.InitializeCollectionAsync(IConfiguration configuration, String collection, CancellationToken cancellationToken)
+   at YesSql.Services.DbBlockIdGenerator.InitializeCollectionAsync(IConfiguration configuration, String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeCollectionAsync(String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeCollectionAsync(String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.DependencyInjection.OrchardCoreBuilderExtensions.<>c.<<AddDataAccess>b__0_2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.CreateDescribedContextAsync(ShellSettings settings, ShellDescriptor shellDescriptor)
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.OrchardCore.Environment.Shell.Builders.IShellContextFactory.CreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetOrCreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetScopeAsync(ShellSettings settings)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:94db36b3-4260-4b77-9982-12b21b8a2fb5
+Error Number:-2,State:0,Class:11    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at YesSql.Services.DbBlockIdGenerator.InitializeCollectionAsync(IConfiguration configuration, String collection, CancellationToken cancellationToken)
+   at YesSql.Services.DbBlockIdGenerator.InitializeCollectionAsync(IConfiguration configuration, String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeCollectionAsync(String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeCollectionAsync(String collection, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.DependencyInjection.OrchardCoreBuilderExtensions.<>c.<<AddDataAccess>b__0_2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.CreateDescribedContextAsync(ShellSettings settings, ShellDescriptor shellDescriptor)
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.OrchardCore.Environment.Shell.Builders.IShellContextFactory.CreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetOrCreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetScopeAsync(ShellSettings settings)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-14 00:46:15.8879|None|00-47de45059742764840d1dc8fa6c9c282-ce27f9b194568a35-00|1|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|ERROR|An unhandled exception has occurred while executing the request. Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=0; handshake=14995; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(SqlConnectionOverrides overrides, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at YesSql.Services.DbBlockIdGenerator.InitializeAsync(IStore store, CancellationToken cancellationToken)
+   at YesSql.Services.DbBlockIdGenerator.InitializeAsync(IStore store, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.DependencyInjection.OrchardCoreBuilderExtensions.<>c.<<AddDataAccess>b__0_2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.CreateDescribedContextAsync(ShellSettings settings, ShellDescriptor shellDescriptor)
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.OrchardCore.Environment.Shell.Builders.IShellContextFactory.CreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetOrCreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetScopeAsync(ShellSettings settings)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:94db36b3-4260-4b77-9982-12b21b8a2fb5
+Error Number:-2,State:0,Class:11    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(SqlConnectionOverrides overrides, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at YesSql.Services.DbBlockIdGenerator.InitializeAsync(IStore store, CancellationToken cancellationToken)
+   at YesSql.Services.DbBlockIdGenerator.InitializeAsync(IStore store, CancellationToken cancellationToken)
+   at YesSql.Store.InitializeAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.DependencyInjection.OrchardCoreBuilderExtensions.<>c.<<AddDataAccess>b__0_2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.CreateDescribedContextAsync(ShellSettings settings, ShellDescriptor shellDescriptor)
+   at OrchardCore.Environment.Shell.Builders.ShellContextFactory.OrchardCore.Environment.Shell.Builders.IShellContextFactory.CreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetOrCreateShellContextAsync(ShellSettings settings)
+   at OrchardCore.Environment.Shell.ShellHost.GetScopeAsync(ShellSettings settings)
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-14 00:47:41.1206||||Microsoft.Hosting.Lifetime|INFO|Application started. Press Ctrl+C to shut down. 
+2026-01-14 00:47:41.1765||||Microsoft.Hosting.Lifetime|INFO|Hosting environment: Development 
+2026-01-14 00:47:41.1765||||Microsoft.Hosting.Lifetime|INFO|Content root path: C:\Users\Public\TechVerse\TechVerse.Cms 
+2026-01-14 00:50:18.6381|Default|00-8d231994218e730efabe47a9d3b8cc34-d977de8a38eaeed4-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:50:18.6492|Default|00-8d231994218e730efabe47a9d3b8cc34-d977de8a38eaeed4-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:50:23.9315|Default|00-4c6667be753f81154e024de5ef4af11f-0b7b2d92e3a28be9-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:50:23.9363|Default|00-4c6667be753f81154e024de5ef4af11f-0b7b2d92e3a28be9-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 
+2026-01-14 00:53:49.6518|Default|00-983cdba9ef0ffedd4ded085111c74617-6a8deb8e35d97266-00|3|Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware|WARN|Unable to configure Browser Link script injection on the response.  
+2026-01-14 00:53:49.6571|Default|00-983cdba9ef0ffedd4ded085111c74617-6a8deb8e35d97266-00|3|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|WARN|Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. 

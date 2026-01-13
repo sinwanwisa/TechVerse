@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="~/css/pages/product-detail.css" asp-append-version="true" />
 
 @{
+    var path = $"product/{Slug}";
+
     var product = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
     if (product == null || product.ContentType != "Product")
