@@ -14,15 +14,16 @@
     var NewsActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-news-active");
     var VideoReviewActive = await Orchard.GetContentItemByHandleAsync("alias:homepage-video-review-active");
     var SearchContent = await Orchard.GetContentItemByHandleAsync("alias:search-widget");
-    
-    if (SearchContent != null)
+    @if (SearchContent != null)
     {
-        var searchformModel = new SearchFormModel
-        {
-        };
+        <form method="get" action="/search">
+            @await Html.PartialAsync(
+            "/Pages/Widgets/Partials/SearchForm.cshtml",
+        new SearchFormModel()
+        )
+</form>
+}
 
-        @await Html.PartialAsync("/Pages/Widgets/Partials/SearchForm.cshtml", searchformModel)
-    }
 
     if (Promotion != null)
     {

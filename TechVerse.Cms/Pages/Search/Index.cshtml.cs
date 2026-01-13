@@ -5,7 +5,9 @@ using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.Search.Abstractions;
 using OrchardCore.Search.Lucene;
-using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace TechVerse.Cms.Pages.Search
 {
@@ -17,10 +19,10 @@ namespace TechVerse.Cms.Pages.Search
         private readonly LuceneIndexSettingsService _luceneIndexSettingsService;
 
         public IndexModel(
-              ISearchService searchService,
-              IOrchardHelper orchard,
-              IContentDefinitionManager contentDefinitionManager,
-              LuceneIndexSettingsService luceneIndexSettingsService) // ฉีดเพิ่ม
+            ISearchService searchService,
+            IOrchardHelper orchard,
+            IContentDefinitionManager contentDefinitionManager,
+            LuceneIndexSettingsService luceneIndexSettingsService)
         {
             _searchService = searchService;
             _orchard = orchard;
@@ -29,29 +31,25 @@ namespace TechVerse.Cms.Pages.Search
         }
 
         [BindProperty(SupportsGet = true)]
-        public string Terms { get; set; }
+        public string? Terms { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public List<string> SelectedTypes { get; set; } = new List<string>();
+        public List<string> SelectedTypes { get; set; } = new();
 
         public IEnumerable<ContentItem> Results { get; set; } = Enumerable.Empty<ContentItem>();
-        public List<ContentTypeDisplay> AvailableTypes { get; set; } = new List<ContentTypeDisplay>();
+        public List<ContentTypeDisplay> AvailableTypes { get; set; } = new();
 
         public async Task OnGetAsync()
         {
-            // 1. ดึงการตั้งค่าของ Index ทั้งหมด
-            var allSettings = await _luceneIndexSettingsService.GetSettingsAsync();
+            // 1. โหลด Content Types ที่ถูกเลือกไว้ใน Lucene Index
+            var settings = await _luceneIndexSettingsService.GetSettingsAsync();
+            var indexSettings = settings.FirstOrDefault(x => x.IndexName == "SearchAllIndex");
 
-            // ค้นหา Index ที่ชื่อ "SearchAllIndex"
-            var indexSettings = allSettings.FirstOrDefault(x => x.IndexName == "SearchAllIndex");
-
-            if (indexSettings != null && indexSettings.IndexedContentTypes != null)
+            if (indexSettings?.IndexedContentTypes != null)
             {
-                var indexedTypes = indexSettings.IndexedContentTypes;
-                var allDefinitions = await _contentDefinitionManager.ListTypeDefinitionsAsync();
-
-                AvailableTypes = allDefinitions
-                    .Where(t => indexedTypes.Contains(t.Name))
+                var defs = await _contentDefinitionManager.ListTypeDefinitionsAsync();
+                AvailableTypes = defs
+                    .Where(t => indexSettings.IndexedContentTypes.Contains(t.Name))
                     .Select(t => new ContentTypeDisplay
                     {
                         Name = t.Name,
@@ -61,35 +59,36 @@ namespace TechVerse.Cms.Pages.Search
                     .ToList();
             }
 
+            // 2. ถ้าไม่มีคำค้นและไม่ได้เลือก Filter ให้แสดงหน้าว่าง หรือคุณอาจจะใส่ logic ให้ดึงเนื้อหาล่าสุดมาโชว์ก็ได้
+            if (string.IsNullOrWhiteSpace(Terms) && !SelectedTypes.Any())
+                return;
 
-            // 2. ค้นหาข้อมูล
-            if (!string.IsNullOrWhiteSpace(Terms))
+            // 3. เตรียมคำค้น (ถ้า Terms ว่างให้ใช้ "*" เพื่อค้นหาทั้งหมดภายใต้ filter)
+            var searchQuery = string.IsNullOrWhiteSpace(Terms) ? "*" : Terms;
+
+            var result = await _searchService.SearchAsync(
+                "SearchAllIndex",
+                searchQuery,
+                start: 0,
+                size: 50
+            );
+
+            if (result.Success)
             {
-                // ตรวจสอบชื่อ Index ใน Admin Dashboard (Search -> Indexes)
-                var searchResult = await _searchService.SearchAsync("SearchAllIndex", Terms, start: 0, size: 50);
+                // ดึง ContentItems แบบตัวเต็ม (Full Content) เพื่อให้ได้ข้อมูล AliasPart และ MarkdownBodyPart
+                var items = await _orchard.GetContentItemsByIdAsync(result.ContentItemIds);
 
-                if (searchResult.Success)
-                {
-                    var items = await _orchard.GetContentItemsByIdAsync(searchResult.ContentItemIds);
-
-                    // 3. กรองตามประเภทที่เลือก (Client-side filtering)
-                    if (SelectedTypes != null && SelectedTypes.Any())
-                    {
-                        Results = items.Where(x => SelectedTypes.Contains(x.ContentType));
-                    }
-                    else
-                    {
-                        Results = items;
-                    }
-                }
+                // Filter ตามประเภทที่ผู้ใช้เลือกใน Sidebar
+                Results = SelectedTypes.Any()
+                    ? items.Where(x => SelectedTypes.Contains(x.ContentType))
+                    : items;
             }
         }
     }
 
     public class ContentTypeDisplay
     {
-        public string Name { get; set; }
-        public string DisplayName { get; set; }
+        public string Name { get; set; } = "";
+        public string DisplayName { get; set; } = "";
     }
-
 }

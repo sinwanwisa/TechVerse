@@ -1,7 +1,6 @@
 ﻿@page "/product/{slug}"
 @inject OrchardCore.IOrchardHelper Orchard
-@addTagHelper *, OrchardCore.DynamicCache
-
+ 
 @functions {
     [FromRoute]
     public string? Slug { get; set; }
@@ -23,11 +22,7 @@
     <h3 class="text-center mt-5">ไม่พบสินค้า</h3>
 }
 else
-{
-    <dynamic-cache cache-id="@($"product-detail-{product.ContentItemId}")"
-                   dependencies="@($"contentitemid:{product.ContentItemId}")"
-                   expires-after="@TimeSpan.FromHours(1)">
-
+{}
         @{
             string? image = product.Content.Product?.Image?.Paths?[0];
             decimal? price = product.Content.Product?.Price?.Value;
@@ -92,5 +87,4 @@ else
             </div>
         </section>
 
-    </dynamic-cache>
 }

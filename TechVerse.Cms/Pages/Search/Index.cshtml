@@ -1,77 +1,105 @@
 ﻿@page
+@using TechVerse.Cms.Pages.Widgets.Partials
+@using OrchardCore.ContentManagement
 @model TechVerse.Cms.Pages.Search.IndexModel
 
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <i class="fa fa-filter"></i> ตัวกรอง
-                </div>
-                <div class="card-body">
-                    <form method="get">
-                        @* เก็บค่าค้นหาไว้เมื่อกด Filter *@
-                        <input type="hidden" name="Terms" value="@Model.Terms" />
+@{
+    var searchFormModel = new SearchFormModel
+    {
+        Terms = Model.Terms
+    };
+}
 
-                        <h6>ประเภทเนื้อหา</h6>
+<form method="get" action="/search">
+    @await Html.PartialAsync("/Pages/Widgets/Partials/SearchForm.cshtml", searchFormModel)
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fa fa-filter"></i> ตัวกรอง
+                    </div>
+                    <div class="card-body">
+                        <h6 class="fw-bold">ประเภทเนื้อหา</h6>
                         @foreach (var type in Model.AvailableTypes)
                         {
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="checkbox"
+                                <input class="form-check-input"
+                                       type="checkbox"
                                        name="SelectedTypes"
-                                       value="@type.Name" @* ส่ง Name (Technical Name) ไปยัง Server *@
+                                       value="@type.Name"
                                        id="type-@type.Name"
-                                       @(Model.SelectedTypes.Contains(type.Name) ? "checked" : "")>
+                                       onchange="this.form.submit()"
+                                       @(Model.SelectedTypes.Contains(type.Name) ? "checked" : "") />
                                 <label class="form-check-label" for="type-@type.Name">
-                                    @type.DisplayName @* แสดงชื่อที่เป็นมิตรกับผู้ใช้ *@
+                                    @type.DisplayName
                                 </label>
                             </div>
                         }
-
-                        <button type="submit" class="btn btn-sm btn-primary w-100 mt-3">
-                            นำไปใช้
-                        </button>
-
-                        @if (Model.SelectedTypes.Any())
-                        {
-                            <a asp-page="./Index" asp-route-Terms="@Model.Terms" class="btn btn-sm btn-link w-100 mt-1 text-decoration-none">ล้างตัวกรอง</a>
-                        }
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-9">
-            <h2>ผลการค้นหา: "@Model.Terms"</h2>
-            <p class="text-muted">พบ @Model.Results.Count() รายการ</p>
-            <hr />
+            <div class="col-md-9">
+                <h2 class="h4">ผลการค้นหา: <span class="text-primary">"@Model.Terms"</span></h2>
+                <p class="text-muted small">พบ @Model.Results.Count() รายการ</p>
+                <hr />
 
-            @if (Model.Results.Any())
-            {
-                @foreach (var item in Model.Results)
+                @if (Model.Results.Any())
                 {
-                    <div class="card mb-3 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title mb-1">
-                                <a href="/Contents/ContentItems/@item.ContentItemId" class="text-decoration-none">
-                                    @item.DisplayText
-                                </a>
-                            </h5>
-                            <div class="d-flex align-items-center">
-                                <span class="badge bg-secondary me-2">@item.ContentType</span>
-                                <small class="text-muted">ID: @item.ContentItemId</small>
+                    @foreach (var item in Model.Results)
+                    {
+                        // 1. ดึง Alias (ล้อตาม JSON: item.AliasPart.Alias)
+                        string alias = item.Content.AliasPart?.Alias;
+                        var linkUrl = !string.IsNullOrEmpty(alias) ? $"/{alias}" : $"/Contents/ContentItems/{item.ContentItemId}";
+
+                        // 2. ดึงรูปภาพ (ล้อตาม JSON: item.News.Image.Paths[0])
+                        string imagePath = item.Content.News?.Image?.Paths?[0];
+
+                        <div class="card mb-3 shadow-sm border-0">
+                            <div class="row g-0">
+                                @if (!string.IsNullOrEmpty(imagePath))
+                                {
+                                    <div class="col-md-3">
+                                        <img src="/media/@imagePath" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="@item.DisplayText">
+                                    </div>
+                                }
+                                <div class="@(string.IsNullOrEmpty(imagePath) ? "col-12" : "col-md-9")">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="@linkUrl" class="text-decoration-none text-dark fw-bold">
+                                                @item.DisplayText
+                                            </a>
+                                        </h5>
+                                        <div class="mb-2">
+                                            <span class="badge bg-secondary">@item.ContentType</span>
+                                        </div>
+
+                                        @if (item.Content.MarkdownBodyPart != null)
+                                        {
+                                            <p class="card-text text-muted small">
+                                                @{
+                                                    string rawText = item.Content.MarkdownBodyPart.Markdown?.ToString() ?? "";
+                                                    var preview = rawText.Length > 180 ? rawText.Substring(0, 180) + "..." : rawText;
+                                                }
+                                                @preview
+                                            </p>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    }
+                }
+                else if (!string.IsNullOrEmpty(Model.Terms))
+                {
+                    <div class="alert alert-light border text-center py-5">
+                        <i class="fa fa-search fa-2x mb-3 text-muted"></i>
+                        <p>ไม่พบข้อมูลที่ตรงกับการค้นหา</p>
                     </div>
                 }
-            }
-            else
-            {
-                <div class="alert alert-light border shadow-sm text-center py-5">
-                    <i class="fa fa-search fa-3x mb-3 text-muted"></i>
-                    <p>ไม่พบข้อมูลที่ตรงตามเงื่อนไขที่คุณค้นหา</p>
-                </div>
-            }
+            </div>
         </div>
     </div>
-</div>
+</form>
