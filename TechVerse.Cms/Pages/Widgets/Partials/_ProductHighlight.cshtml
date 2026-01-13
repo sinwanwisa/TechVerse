@@ -2,82 +2,98 @@
 @using OrchardCore
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
-@functions {
-    public class ProductHighlightModel
-    {
-        public ContentItem ContentItem { get; set; }
-    }
-}
+@using OrchardCore.Media.Processing
+@addTagHelper *, OrchardCore.DynamicCache
+@addTagHelper *, OrchardCore.Media
+
 @{
-    var widget = Model?.ContentItem;
-    var title = widget.Content.ProductHighlightWidget.Title.Text;
-    var subtitle = widget.Content.ProductHighlightWidget.Subtitle?.Markdown;
+    var widget = Model?.ContentItem as ContentItem;
+    var content = widget?.Content.ProductHighlightWidget;
 
-    var productIds = (widget?.Content["ProductHighlightWidget"]?["Product"]?["ContentItemIds"]?.ToObject<string[]>()
-                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
+    string[] productIds = content?.Product?.ContentItemIds?.ToObject<string[]>()
+                          ?? Array.Empty<string>();
 
-    var productItems = await Orchard.GetContentItemsByIdAsync(productIds);
+    var productDependencies = string.Join(",", productIds.Select(id => $"contentitemid:{id}"));
+    var allDependencies = $"contentitemid:{widget?.ContentItemId},{productDependencies}";
 }
-<link rel="stylesheet" href="~/css/widgets/product-highlight.css" asp-append-version="true" />
 
-<div class="product-highlight-widget container my-5">
-    <div class="section-header text-center mb-4">
-        <h3 class="widget-title">@title</h3>
-        @if (!string.IsNullOrEmpty(subtitle))
+<dynamic-cache cache-id="@($"product-highlight-{widget?.ContentItemId}")"
+               dependencies="@allDependencies"
+               expires-after="@TimeSpan.FromHours(1)">
+    @{
+        var title = content?.Title?.Text;
+        var subtitle = content?.Subtitle?.Markdown;
+
+        var productItems = productIds.Any()
+        ? await Orchard.GetContentItemsByIdAsync(productIds)
+        : Enumerable.Empty<ContentItem>();
+    }
+
+    <link rel="stylesheet" href="~/css/widgets/product-highlight.css" asp-append-version="true" />
+
+    <div class="product-highlight-widget container my-5">
+        <div class="section-header text-center mb-4">
+            <h3 class="widget-title">@title</h3>
+            @if (!string.IsNullOrEmpty(subtitle))
+            {
+                <p class="widget-subtitle text-muted">@subtitle</p>
+            }
+        </div>
+
+        @if (productItems.Any())
         {
-            <p class="widget-subtitle">@subtitle</p>
+            <div class="product-bg">
+                <div class="product-scroll-container position-relative">
+                    <button class="scroll-btn left" onclick="scrollProducts(-1)">‹</button>
+
+                    <div class="product-scroll-wrapper" id="productScrollWrapper">
+                        <div class="product-scroll d-flex">
+                            @foreach (var product in productItems)
+                            {
+                                var imagePaths = product.Content.Product?.MainImage?.Paths?.ToObject<string[]>() ?? Array.Empty<string>();
+
+                                var price = (double?)product.Content.Product?.Price?.Value;
+                                var path = product.Content.AliasPart?.Alias ?? product.ContentItemId;
+
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        @if (imagePaths.Length > 0)
+                                        {
+                                            <img src="@Orchard.AssetUrl((string)imagePaths[0], width: 300, height: 300, resizeMode: ResizeMode.Crop)"
+                                                 alt="@product.DisplayText"
+                                                 loading="lazy" />
+                                        }
+                                        else
+                                        {
+                                            <div class="no-image d-flex align-items-center justify-content-center bg-light">
+                                                <small>ไม่มีรูปภาพ</small>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="product-info p-3">
+                                        <h5 class="product-title h6">@product.DisplayText</h5>
+                                        @if (price.HasValue)
+                                        {
+                                            <div class="product-price text-danger fw-bold">
+                                                @price.Value.ToString("N0") บาท
+                                            </div>
+                                        }
+                                        <a href="/product/@path"
+                                           class="btn btn-outline-dark btn-sm mt-3 w-100">
+                                            ดูรายละเอียด
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <button class="scroll-btn right" onclick="scrollProducts(1)">›</button>
+                </div>
+            </div>
         }
     </div>
 
-    @if (productItems.Any())
-    {
-        <div class="product-bg">
-            <div class="product-scroll-container">
-                <button class="scroll-btn left" onclick="scrollProducts(-1)">‹</button>
-
-                <div class="product-scroll-wrapper" id="productScrollWrapper">
-                    <div class="product-scroll">
-                        @foreach (var product in productItems)
-                        {
-                            var imagePath = product.Content.Product?.MainImage?.Paths[0]
-                            ?? product.Content.ProductHighlightWidget?.MainImage?.Paths[0];
-                            var price = product.Content.Product?.Price?.Value;
-                            var path = product.Content.AliasPart?.Alias ?? "#";
-
-                            <div class="product-card">
-                                <div class="product-image">
-                                    @if (!string.IsNullOrEmpty((string)imagePath))
-                                    {
-                                        <img src="@Orchard.AssetUrl((string)imagePath)" alt="@product.DisplayText" />
-                                    }
-                                    else
-                                    {
-                                        <div class="no-image">ไม่มีรูปภาพ</div>
-                                    }
-                                </div>
-
-                                <div class="product-info">
-                                    <h5 class="product-title">@product.DisplayText</h5>
-                                    @if (price != null)
-                                    {
-                                        <div class="product-price">
-                                            @(((double)price).ToString("N0")) บาท
-                                        </div>
-                                    }
-                                    <a href="/product/@path"
-                                       class="btn btn-outline-dark btn-sm mt-3 w-100">
-                                        ดูรายละเอียด
-                                    </a>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-
-                <button class="scroll-btn right" onclick="scrollProducts(1)">›</button>
-            </div>
-        </div>
-    }
-</div>
-<script src="~/js/widgets/product-highlight.js" asp-append-version="true"></script>
-
+    <script src="~/js/widgets/product-highlight.js" asp-append-version="true"></script>
+</dynamic-cache>

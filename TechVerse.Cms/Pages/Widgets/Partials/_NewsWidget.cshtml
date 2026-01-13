@@ -1,82 +1,92 @@
-﻿@using OrchardCore
+﻿@inject OrchardCore.IOrchardHelper Orchard
+@using OrchardCore
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
-@inject OrchardCore.IOrchardHelper Orchard
-@functions {
-    public class NewsWidgetModel
-    {
-        public ContentItem ContentItem { get; set; }
-    }
-}
+@using OrchardCore.Media.Processing
+@addTagHelper *, OrchardCore.DynamicCache
+@addTagHelper *, OrchardCore.Media
+
 @{
-    var widget = Model?.ContentItem;
-    var title = widget.Content.NewsWidget.Title.Text;
-    var subtitle = widget.Content.NewsWidget.Subtitle?.Markdown;
-    var maxItem = (int?)widget.Content.NewsWidget.MaxItem?.Value ?? 4;
+    var widget = Model.ContentItem as ContentItem;
+    var content = widget?.Content.NewsWidget;
 
-    var newsIds = (widget?.Content["NewsWidget"]?["News"]?["ContentItemIds"]?.ToObject<string[]>()
-                          as IEnumerable<string>) ?? Enumerable.Empty<string>();
+    string[] newsIds = content?.News?.ContentItemIds?.ToObject<string[]>()
+                            ?? Array.Empty<string>();
 
-    var newsItems = newsIds.Any()
-         ? (await Orchard.GetContentItemsByIdAsync(newsIds)).Take(maxItem)
-         : Enumerable.Empty<ContentItem>();
+    var newsDependencies = string.Join(",", newsIds.Select(id => $"contentitemid:{id}"));
+    var allDependencies = $"contentitemid:{widget?.ContentItemId},{newsDependencies}";
 }
-}
-<link rel="stylesheet" href="~/css/widgets/news-widget.css" asp-append-version="true" />
 
-<div class="news-widget container my-5">
-    <h3 class="news-title mb-4">@title</h3>
+<dynamic-cache cache-id="@($"news-{widget?.ContentItemId}")"
+               dependencies="@allDependencies"
+               expires-after="@TimeSpan.FromHours(1)">
 
-    @if (newsItems != null && newsItems.Any())
-    {
-        <div class="news-list">
-            @foreach (var item in newsItems)
-            {
-                var imagePaths = item.Content.News?.Image?.Paths;
-                string imagePath = (imagePaths != null && imagePaths.Count > 0)
-                ? (string)imagePaths[0]
-                : null;
+    @{
+        var title = content?.Title?.Text;
+        var description = content?.Description?.Markdown;
+        var maxItem = (int?)content?.MaxItem?.Value ?? 4;
 
-                var path = item.Content.AliasPart?.Alias ?? "#" ;
+        var newsItems = newsIds.Any()
+        ? (await Orchard.GetContentItemsByIdAsync(newsIds)).Take(maxItem)
+        : Enumerable.Empty<ContentItem>();
+    }
 
-                <a href="/news/@path" class="news-item">
-                <div class="news-thumb">
-                        @if (!string.IsNullOrEmpty(imagePath))
-                        {
-                            <img src="@Orchard.AssetUrl(imagePath)"
-                                 alt="@item.DisplayText" />
-                        }
-                        else
-                        {
-                            <div class="no-image bg-light text-center py-5">No Image</div>
-                        }
-                    </div>
+    <link rel="stylesheet" href="~/css/widgets/news-widget.css" asp-append-version="true" />
 
-                    <div class="news-content">
-                        <h5 class="news-item-title">
-                            @item.DisplayText
-                        </h5>
+    <div class="news-widget container my-5">
+        <h3 class="news-title mb-2">@title</h3>
+        <p class="section-subtitle mb-4 text-muted">@(description ?? "ข่าวสารล่าสุด")</p>
 
-                        <div class="news-meta text-muted small mb-2">
-                            @if (item.PublishedUtc.HasValue)
+        @if (newsItems.Any())
+        {
+            <div class="news-list">
+                @foreach (var item in newsItems)
+                {
+                    var imagePaths = item.Content.News?.Image?.Paths?.ToObject<string[]>()
+                    ?? Array.Empty<string>();
+
+                    var path = item.Content.AliasPart?.Alias ?? item.ContentItemId;
+
+                    <a href="/news/@path" class="news-item d-flex align-items-center mb-3 text-decoration-none text-dark">
+                        <div class="news-thumb">
+                            @if (imagePaths.Length > 0)
                             {
-                                <i class="far fa-calendar-alt"></i>
-                                @item.PublishedUtc.Value.ToString("dd MMM yyyy")
+                                <img src="@Orchard.AssetUrl((string)imagePaths[0], width: 240, height: 160, resizeMode: ResizeMode.Crop)"
+                                     alt="@item.DisplayText"
+                                     loading="lazy" />
+                            }
+                            else
+                            {
+                                <div class="no-image bg-light d-flex align-items-center justify-content-center h-100">
+                                    <small class="text-muted">No Image</small>
+                                </div>
                             }
                         </div>
 
-                        <span class="read-more text-primary" >อ่านต่อ →</span>
-                    </div>
-                </a>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="alert alert-light border">ไม่พบข่าวสารในขณะนี้</div>
-    }
+                        <div class="news-content ms-3">
+                            <h5 class="news-item-title mb-1">@item.DisplayText</h5>
 
-    <div class="text-center mt-4">
-        <a href="/news" class="btn btn-outline-dark btn-sm px-4">ดูข่าวทั้งหมด</a>
+                            <div class="news-meta text-muted small mb-2">
+                                @if (item.PublishedUtc.HasValue)
+                                {
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    @item.PublishedUtc.Value.ToString("dd MMM yyyy")
+                                }
+                            </div>
+
+                            <span class="read-more text-primary small">อ่านต่อ →</span>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-light border">ไม่พบข่าวสารในขณะนี้</div>
+        }
+
+        <div class="text-center mt-4">
+            <a href="/news" class="btn btn-outline-dark btn-sm px-4">ดูข่าวทั้งหมด</a>
+        </div>
     </div>
-</div>
+</dynamic-cache>

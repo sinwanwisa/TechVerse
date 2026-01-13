@@ -2,54 +2,90 @@
 @using OrchardCore
 @using OrchardCore.ContentManagement
 @using OrchardCore.ContentManagement.Metadata
-@functions {
-    public class PromotionWidgetViewModel
-    {
-        public ContentItem ContentItem { get; set; }
-    }
-}
+@using OrchardCore.Media.Processing
+@addTagHelper *, OrchardCore.DynamicCache
+@addTagHelper *, OrchardCore.Media
+
+
 @{
-    var widget = Model?.ContentItem;
-    var promotionIds = (widget?.Content["PromotionWidget"]?["SelectedPromotion"]?["ContentItemIds"]?.ToObject<string[]>() as IEnumerable<string>)
-                       ?? Enumerable.Empty<string>();
-    var promoItems = await Orchard.GetContentItemsByIdAsync(promotionIds);
+    var widget = Model.ContentItem as ContentItem;
+    var content = widget?.Content.PromotionWidget;
+
+    string[] promotionIds = content?.SelectedPromotion?.ContentItemIds?.ToObject<string[]>()
+                            ?? Array.Empty<string>();
+
+    var promotionDependencies = string.Join(",", promotionIds.Select(id => $"contentitemid:{id}"));
+
+    var allDependencies = $"contentitemid:{widget?.ContentItemId},{promotionDependencies}";
 }
 
+<dynamic-cache cache-id="@($"banner-{widget?.ContentItemId}")"
+               dependencies="@allDependencies"
+               expires-after="@TimeSpan.FromHours(3)">
+    @{
+        var promoItems = promotionIds.Any()
+        ? await Orchard.GetContentItemsByIdAsync(promotionIds)
+        : Enumerable.Empty<ContentItem>();
+    }
 <link rel="stylesheet" href="~/css/widgets/promotion-banner.css" asp-append-version="true" />
 
 <div class="promotion-banner-container position-relative">
     @if (promoItems.Any())
     {
         <div class="banner-slider overflow-hidden position-relative" style="max-width:1920px; margin:0 auto;">
-            <div class="banner-track d-flex transition-slide" id="bannerTrack" data-total="@promoItems.Count()">
+            <div class="banner-track d-flex transition-slide"
+                 id="bannerTrack"
+                 data-total="@promoItems.Count()">
 
                 @foreach (var promoItem in promoItems)
                 {
-                    var imagePaths = promoItem.Content.Promotion?.Image?.Paths
-                    ?? promoItem.Content.PromotionWidget?.Image?.Paths;
+                    var imagePaths =
+                    promoItem.Content?
+                    .Promotion?
+                    .Image?
+                    .Paths?
+                    .ToObject<string[]>()
+                    ?? Array.Empty<string>();
 
                     <div class="banner-item">
                         <div class="banner-image">
-                            @if (imagePaths != null && imagePaths.Count > 0)
+                            @if (imagePaths.Length > 0)
                             {
-                                <img src="@Orchard.AssetUrl((string)imagePaths[0])"
-                                     alt="@promoItem.DisplayText" />
-                            }
+                                <img src="@Orchard.AssetUrl(
+                                                  (string)imagePaths[0],
+                                                  width: 1920,
+                                                  height: 600,
+                                                  resizeMode: ResizeMode.Crop,
+                                                  appendVersion: true
+                                              )"
+                         alt="@promoItem.DisplayText"
+                         class="banner-img" />
+
+                                        }
                             else
                             {
-                                <div class="no-image bg-light text-center" style="height: 600px; display:flex; align-items:center; justify-content:center;">
+                                <div class="no-image bg-light text-center"
+                                     style="height:600px;display:flex;align-items:center;justify-content:center;">
                                     <span class="text-muted">ไม่มีรูปภาพ</span>
                                 </div>
                             }
                         </div>
                     </div>
                 }
+
             </div>
 
-            <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(-1)">❮</button>
-            <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm" onclick="slideBanner(1)">❯</button>
+            <button class="banner-prev position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-sm"
+                    onclick="slideBanner(-1)">
+                ❮
+            </button>
+            <button class="banner-next position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-sm"
+                    onclick="slideBanner(1)">
+                ❯
+            </button>
         </div>
     }
 </div>
-<script src="~/js/widgets/promotion-banner.js" asp-append-version="true"></script>
 
+<script src="~/js/widgets/promotion-banner.js" asp-append-version="true"></script>
+</dynamic-cache>

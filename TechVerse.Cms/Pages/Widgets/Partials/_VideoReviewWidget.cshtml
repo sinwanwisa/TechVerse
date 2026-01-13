@@ -4,26 +4,29 @@
 @using OrchardCore.ContentManagement.Metadata 
 @addTagHelper *, OrchardCore.DynamicCache
 
-<dynamic-cache cache-id="@($"video-review-{Model.ContentItem.ContentItemId}")"
-               cache-dependency="
-        contentitemid:@Model.ContentItem.ContentItemId;
-        contenttype:VideoReview"
-               fixed-duration="03:00:00">
+@{
+    var widget = Model.ContentItem as ContentItem;
+    var content = widget?.Content.VideoReviewWidget;
+    string[] videoReviewIds = content?.VideoReview?.ContentItemIds?.ToObject<string[]>() ?? Array.Empty<string>();
 
+    var videoDependencies = string.Join(",", videoReviewIds.Select(id => $"contentitemid:{id}"));
 
+    var allDependencies = $"contentitemid:{widget.ContentItemId},{videoDependencies}";
+}
+
+<dynamic-cache cache-id="@($"video-review-{widget.ContentItemId}")"
+               dependencies="@allDependencies"
+               expires-after="@TimeSpan.FromHours(3)">
     @{
-        var widget = Model.ContentItem as ContentItem;
-        var content = widget?.Content.VideoReviewWidget;
         var title = content?.Title.Text;
         var subtitle = content?.Subtitle?.Markdown;
         var maxItem = (int?)content?.MaxItem?.Value ?? 6;
-
-        string[] videoReviewIds = content?.VideoReview?.ContentItemIds?.ToObject<string[]>() ?? Array.Empty<string>();
 
         var videoReviewItems = videoReviewIds.Any()
         ? (await Orchard.GetContentItemsByIdAsync(videoReviewIds)).Take(maxItem)
         : Enumerable.Empty<ContentItem>();
     }
+    <link rel="stylesheet" href="~/css/widgets/video-review.css" asp-append-version="true" />
 
     <section class="video-review-section container my-5">
         <div class="section-header mb-4 text-center">
@@ -37,6 +40,7 @@
                 @foreach (var item in videoReviewItems)
                 {
                     var embedUrl = item.Content.VideoReview.YouTubeLink.EmbeddedAddress;
+
                     <div class="col-lg-4 col-md-6">
                         <div class="video-card h-100">
                             <div class="ratio ratio-16x9">
