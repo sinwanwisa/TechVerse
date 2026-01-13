@@ -1,57 +1,60 @@
-﻿@page 
+﻿@page
 @model TechVerse.Cms.Pages.Product.IndexModel
 @using OrchardCore.ContentManagement
 @using System.Linq
-@inject OrchardCore.IOrchardHelper Orchard
-@{
-    var products = await Orchard.ContentQueryAsync("AllProductList");
-
-}
 <link rel="stylesheet" href="~/css/pages/product-list.css" asp-append-version="true" />
 
-<div class="product-page-container">
-<div class="product-list-grid">
-    @foreach (var product in products)
-    {
-        var imagePath = (string)product.Content.Product?.Image?.Paths[0];
-        var price = product.Content.Product?.Price?.Value;
-        var detail = product.Content.MarkdownBodyPart?.Markdown?.ToString();
+@{
+    var products = await Orchard.ContentQueryAsync("AllProductList");
+}
+
+
+
+<div class="container product-page-container">
+    <div class="mb-5">
+        <h2 class="fw-bold">Product <span style="color: #e10600;">Store</span></h2>
+        <p class="text-muted">เลือกซื้อสินค้าไอทีและอุปกรณ์เสริมจาก TechVerse</p>
+    </div>
+
+    <div class="product-list-grid">
+        @foreach (var product in products)
+        {
+            var imagePath = (string)product.Content.Product?.Image?.Paths[0];
+            var price = product.Content.Product?.Price?.Value;
+            var detail = product.Content.MarkdownBodyPart?.Markdown?.ToString();
             var path = product.Content.AliasPart?.Alias ?? "#";
+
             <div class="product-card">
-            <div class="product-image">                @if (!string.IsNullOrEmpty(imagePath))
-                {
-                    <img src="@Orchard.AssetUrl(imagePath)"
-                         alt="@product.DisplayText" />
-                }
-                else
-                {
-                    <div class="no-image">ไม่มีรูปภาพ</div>
-                }
-            </div>
-
-            <div class="product-info">
-                <h5 class="product-title">@product.DisplayText</h5>
-
-                @if (price != null)
-                {
-                    <div class="product-price">
-                        @(((double)price).ToString("N0")) บาท
-                    </div>
-                }
-
-                <div class="product-detail">
-                    @Html.Raw(detail)
+                <div class="product-image">
+                    @if (!string.IsNullOrEmpty(imagePath))
+                    {
+                        <img src="@Orchard.AssetUrl(imagePath)" alt="@product.DisplayText" />
+                    }
+                    else
+                    {
+                        <div class="no-image">ไม่มีรูปภาพ</div>
+                    }
                 </div>
 
-                    <a href="/product/@path"
-                    class="btn btn-outline-dark btn-sm mt-3 w-100">
-                    ดูรายละเอียด
-                </a>
+                <div class="product-info">
+                    <h5 class="product-title">@product.DisplayText</h5>
+
+                    @if (price != null)
+                    {
+                        <div class="product-price">
+                            ฿@(((double)price).ToString("N0"))
+                        </div>
+                    }
+
+                    <div class="product-detail">
+                        @Html.Raw(detail)
+                    </div>
+
+                    <a href="/product/@path" class="btn-detail-red">
+                        ดูรายละเอียด
+                    </a>
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
-</div>
-
-
-

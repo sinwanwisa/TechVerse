@@ -3,83 +3,79 @@
 @using OrchardCore.ContentManagement
 @using System.Linq
 @inject OrchardCore.IOrchardHelper Orchard
+<link rel="stylesheet" href="~/css/pages/news-list.css" asp-append-version="true" />
 
 @{
     var newsList = await Orchard.ContentQueryAsync("AllNewsList");
 }
-<link rel="stylesheet" href="~/css/pages/news-list.css" asp-append-version="true" />
+
 
 <div class="container py-5">
-    <h2 class="mb-5 border-bottom pb-3">News</h2>
+    <h2 class="news-section-title mb-5">Tech News</h2>
 
-    <div class="row g-4">
+    <div class="row">
         @foreach (var item in newsList)
         {
             string title = item.DisplayText;
-            string imagePath = item.Content.News?.Image?.Paths?[0] ?? "#";
-
+            string imagePath = item.Content.News?.Image?.Paths?[0] ?? "";
             var sourceUrl = item.Content.News?.SourceUrl?.Url?.ToString();
             var sourceText = item.Content.News?.SourceUrl?.Text?.ToString() ?? "อ่านต้นฉบับ";
             var target = item.Content.News?.SourceUrl?.Target?.ToString() ?? "_blank";
-
             var categoryIds = item.Content.News?.NewsCategory?.TermContentItemIds;
-
-            string markdownContent = item.Content?.MarkdownBodyPart?.Markdown?.ToString() ?? "#";
-
+            string markdownContent = item.Content?.MarkdownBodyPart?.Markdown?.ToString() ?? "";
             string path = item.Content?.AliasPart?.Alias ?? "#";
             var publishDate = item.PublishedUtc;
 
-            <div class="col-12 mb-4">
-                <div class="card shadow-sm">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            @if (!string.IsNullOrEmpty((string)imagePath))
-                            {
-                                <img src="@Orchard.AssetUrl((string)imagePath)" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="@title">
-                            }
-                            else
-                            {
-                                <div class="bg-light h-100 d-flex align-items-center justify-content-center">No Image</div>
-                            }
+            <div class="col-12">
+                <div class="news-item-row">
+                    <div class="row g-4">
+                        <div class="col-md-4 col-lg-3">
+                            <div class="news-image-wrapper shadow-sm">
+                                @if (!string.IsNullOrEmpty(imagePath))
+                                {
+                                    <img src="@Orchard.AssetUrl(imagePath)" alt="@title">
+                                }
+                                else
+                                {
+                                    <div class="bg-light h-100 d-flex align-items-center justify-content-center text-muted small">No Image</div>
+                                }
+                            </div>
                         </div>
 
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                   
-                                    <small class="text-muted">Published: @publishDate?.ToString("dd/MM/yyyy HH:mm")</small>
+                        <div class="col-md-8 col-lg-9">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <span class="tech-tag">News</span>
+                                <small class="text-muted"><i class="far fa-clock me-1"></i> @publishDate?.ToString("dd MMM yyyy")</small>
+                            </div>
+
+                            <a href="/news/@path" class="news-item-title">@title</a>
+
+                            @if (categoryIds != null)
+                            {
+                                <div class="mb-3">
+                                    @foreach (var catId in categoryIds)
+                                    {
+                                        <span class="text-muted small me-2"><i class="fa fa-tag me-1"></i> @catId</span>
+                                    }
                                 </div>
+                            }
 
-                                <h3 class="card-title h4 fw-bold">@title</h3>
-
-                                @if (categoryIds != null)
+                            <div class="content-preview-text">
+                                @if (!string.IsNullOrEmpty(markdownContent))
                                 {
-                                    <div class="mb-2">
-                                        @foreach (var catId in categoryIds)
-                                        {
-                                            <span class="badge border text-dark fw-light">ID: @catId</span>
-                                        }
-                                    </div>
+                                    @(markdownContent.Length > 200 ? markdownContent.Substring(0, 200) + "..." : markdownContent)
                                 }
+                            </div>
 
-                                <div class="card-text text-muted mb-3" style="font-size: 0.9rem;">
-                                    <strong>Content Preview:</strong><br />
-                                    @if (!string.IsNullOrEmpty(markdownContent))
-                                    {
-                                        @(markdownContent.Length > 200 ? markdownContent.Substring(0, 200) + "..." : markdownContent)
-                                    }
-                                </div>
+                            <div class="d-flex gap-3">
+                                <a href="/news/@path" class="btn btn-read-more">อ่านต่อ</a>
 
-                                <div class="d-flex gap-2 mt-auto">
-                                    <a href="/news/@path" class="btn btn-primary btn-sm">อ่านข่าวในเว็บ</a>
-
-                                    @if (!string.IsNullOrEmpty(sourceUrl))
-                                    {
-                                        <a href="@sourceUrl" target="@target" class="btn btn-outline-secondary btn-sm">
-                                            <i class="bi bi-box-arrow-up-right"></i> @sourceText
-                                        </a>
-                                    }
-                                </div>
+                                @if (!string.IsNullOrEmpty(sourceUrl))
+                                {
+                                    <a href="@sourceUrl" target="@target" class="btn btn-source-link text-decoration-none">
+                                        <i class="fa fa-external-link-alt me-1"></i> @sourceText
+                                    </a>
+                                }
                             </div>
                         </div>
                     </div>

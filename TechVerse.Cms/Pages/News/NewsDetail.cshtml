@@ -7,8 +7,8 @@
     [FromRoute]
     public string Slug { get; set; } = default!;
 }
-
 <link rel="stylesheet" href="~/css/pages/news-detail.css" asp-append-version="true" />
+
 
 @{
     var newsItem = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
@@ -21,7 +21,13 @@
 
 @if (newsItem == null || newsItem.ContentType != "News")
 {
-    <h3 class="text-center mt-5">ไม่พบข่าว</h3>
+    <div class="container py-5 text-center">
+        <div class="py-5">
+            <i class="bi bi-exclamation-circle display-1 text-muted"></i>
+            <h3 class="mt-4">ขออภัย ไม่พบข่าวที่คุณกำลังเรียกดู</h3>
+            <a href="/news" class="btn btn-primary mt-3">กลับไปหน้าข่าวสาร</a>
+        </div>
+    </div>
 }
 else
 {
@@ -35,74 +41,73 @@ else
             string? markdownBody = newsItem.Content.MarkdownBodyPart?.Markdown;
 
             string? sourceUrl = newsItem.Content.News?.SourceUrl?.Url;
-            string sourceText = newsItem.Content.News?.SourceUrl?.Text ?? "เข้าชมเว็บไซต์แหล่งข่าว";
+            string sourceText = newsItem.Content.News?.SourceUrl?.Text ?? "Visit Source";
             string sourceTarget = newsItem.Content.News?.SourceUrl?.Target ?? "_blank";
 
-            var publishDate = newsItem.PublishedUtc?.ToString("dd MMMM yyyy HH:mm");
+            var publishDate = newsItem.PublishedUtc?.ToString("dd MMMM yyyy");
         }
 
-        <div class="container py-5">
+        <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
 
-                    <header class="mb-5 text-center">
-                        <h1 class="display-4 fw-bold mb-3">@title</h1>
-                        <div class="text-muted">
-                            <i class="bi bi-clock"></i> เผยแพร่เมื่อ: @publishDate
-                            | โดย: @newsItem.Author
+                    <header class="news-detail-header text-center">
+                        <span class="news-badge">Tech News</span>
+                        <h1 class="display-title mb-4">@title</h1>
+                        <div class="meta-info">
+                            <span><i class="bi bi-calendar3 me-2"></i>@publishDate</span>
+                            <span><i class="bi bi-person me-2"></i>By @newsItem.Author</span>
                         </div>
                     </header>
 
                     @if (!string.IsNullOrEmpty(imagePath))
                     {
-                        <div class="mb-5 shadow-sm rounded overflow-hidden">
+                        <div class="mb-5">
                             <img src="@Orchard.AssetUrl(imagePath)"
-                                 class="img-fluid w-100"
+                                 class="img-fluid w-100 main-news-image"
                                  alt="@title" />
                         </div>
                     }
 
-                    <article class="news-content fs-5 lh-lg mb-5">
+                    <article class="news-content-area mb-5">
                         @if (!string.IsNullOrEmpty(markdownBody))
                         {
                             @Html.Raw(markdownBody)
                         }
                         else
                         {
-                            <p class="text-muted fst-italic">ไม่มีรายละเอียดเนื้อหาข่าว</p>
+                            <div class="alert alert-light border-0 text-center py-5">
+                                <p class="text-muted fst-italic mb-0">ไม่มีรายละเอียดเนื้อหาข่าวเพิ่มเติมในขณะนี้</p>
+                            </div>
                         }
                     </article>
 
                     @if (!string.IsNullOrEmpty(sourceUrl))
                     {
-                        <div class="source-container p-4 bg-light rounded-3 d-flex align-items-center justify-content-between">
-                            <div>
-                                <h5 class="mb-1 fw-bold">แหล่งข้อมูลอ้างอิง</h5>
-                                <p class="text-muted mb-0 small">ติดตามรายละเอียดเพิ่มเติมได้ที่ลิงก์ต้นฉบับ</p>
+                        <div class="source-card p-4 d-flex flex-column flex-md-row align-items-center justify-content-between mb-5">
+                            <div class="mb-3 mb-md-0">
+                                <h5 class="mb-1 fw-bold">อ้างอิงแหล่งที่มา</h5>
+                                <p class="text-muted mb-0 small">อ่านเนื้อหาต้นฉบับอย่างละเอียดได้ที่นี่</p>
                             </div>
                             <a href="@sourceUrl"
                                target="@sourceTarget"
-                               class="btn btn-primary px-4">
-                                <i class="bi bi-box-arrow-up-right me-2"></i> @sourceText
+                               class="btn btn-source">
+                                <i class="bi bi-box-arrow-up-right me-2 "></i> @sourceText
                             </a>
                         </div>
                     }
 
-                    <hr class="my-5" />
-
-                    <div class="d-flex justify-content-center">
-                        <a href="/news" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i> กลับไปหน้ารวมข่าว
+                    <div class="border-top pt-5 pb-4 text-center">
+                        <a href="/news" class="btn btn-back text-decoration-none">
+                            <i class="bi bi-arrow-left me-2"></i> กลับสู่หน้ารวมข่าวสาร
                         </a>
-                    </div>
 
-                    <p class="text-muted small text-center mt-4">
-                        Rendered at: @DateTime.Now.ToString("HH:mm:ss")
-                    </p>
+                    </div>
 
                 </div>
             </div>
         </div>
+
 
     </dynamic-cache>
 }

@@ -1,15 +1,81 @@
 ﻿@model TechVerse.Cms.Pages.Widgets.Partials.SearchFormModel
 
-<div class="search-widget mb-4">
-    <div class="input-group">
+
+<div class="search-container">
+    <div class="search-box">
+        <i class="fa fa-search search-icon"></i>
         <input type="text"
                name="Terms"
-               class="form-control"
-               placeholder="ค้นหาข้อมูล..."
-               value="@Model?.Terms" />
-
-        <button class="btn btn-primary" type="submit">
-            <i class="fa fa-search"></i> ค้นหา
-        </button>
+               placeholder="ค้นหาข่าว บทความ หรือสินค้า..."
+               value="@Model?.Terms"
+               autocomplete="off" />
+        <button type="submit">ค้นหา</button>
     </div>
 </div>
+
+<style>
+    /* คุมระยะห่างและความกว้างให้อยู่ตรงกลาง (ไม่ชิดขอบ) */
+    .search-container {
+        max-width: 700px; /* จำกัดความกว้าง */
+        margin: 40px auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
+        padding: 0 15px;
+    }
+
+    /* กล่องค้นหาทรงมนโทนเข้ม */
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: #111;
+        border: 1px solid #333;
+        border-radius: 50px;
+        padding: 5px 5px 5px 20px;
+        transition: all 0.3s ease;
+    }
+
+        /* เมื่อคลิกพิมพ์จะเปลี่ยนสีขอบและมีแสง Glow */
+        .search-box:focus-within {
+            border-color: #e10600;
+            background: #000;
+            box-shadow: 0 0 12px rgba(225, 6, 0, 0.25);
+        }
+
+    /* ไอคอนแว่นขยายสีแดง */
+    .search-icon {
+        color: #e10600;
+        font-size: 18px;
+    }
+
+    /* ช่อง Input (ห้ามเปลี่ยน name="Terms") */
+    .search-box input {
+        flex: 1;
+        background: none;
+        border: none;
+        color: white;
+        padding: 12px 15px;
+        outline: none;
+        font-size: 16px;
+    }
+
+        /* Placeholder สีเทาเข้ม */
+        .search-box input::placeholder {
+            color: #666;
+            opacity: 1;
+        }
+
+    /* ปุ่มกดสีแดง TechVerse */
+    .search-box button {
+        background: #e10600;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 25px;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+        .search-box button:hover {
+            background: #ff0700;
+            transform: scale(1.02);
+        }
+</style>

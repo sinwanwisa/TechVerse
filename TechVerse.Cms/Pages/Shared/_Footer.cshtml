@@ -1,5 +1,111 @@
-﻿<footer class="tv-footer">
+﻿<footer class="tv-footer mt-auto">
     <div class="container">
-        <p>© @DateTime.Now.Year TechVerse</p>
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-12">
+                <a class="footer-brand fw-bold" href="/">
+                    Tech<span class="text-red">Verse</span>
+                </a>
+                <strong>Assignment พิเศษ:</strong> เว็บรวมข่าวเทคโนโลยีและรีวิวสินค้าไอที
+                สร้างด้วย <strong>Orchard Core CMS</strong>
+                เน้นระบบจัดการเนื้อหาและการค้นหาข้อมูล
+                <div class="social-links mt-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6 ms-lg-auto">
+                <h6 class="footer-title">เมนูหลัก</h6>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="/news">ข่าวไอที</a></li>
+                    <li><a href="/products">สินค้า</a></li>
+                    <li><a href="/articles">บทความ</a></li>
+                    <li><a href="/reviews">คลิปรีวิว</a></li>
+                </ul>
+            </div>
+
+         
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">© @DateTime.Now.Year **TechVerse**. All rights reserved.</p>
+            <p class="small text-muted mb-0">Powered by Orchard Core</p>
+        </div>
     </div>
 </footer>
+<style>
+    .tv-footer {
+        background-color: #0b0b0b;
+        color: #e0e0e0;
+        padding: 60px 0 30px;
+        border-top: 1px solid rgba(225, 6, 0, 0.2); /* เส้นขอบแดงจางๆ */
+    }
+
+    .footer-brand {
+        font-size: 24px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .footer-brand .text-red {
+            color: #e10600;
+        }
+
+    .footer-title {
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #a0a0a0;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+        .footer-links a:hover {
+            color: #e10600;
+            padding-left: 5px;
+        }
+
+    /* Social Icons */
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+        .social-links a:hover {
+            background: #e10600;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(225, 6, 0, 0.4);
+        }
+
+    .footer-divider {
+        margin: 40px 0 25px;
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+        color: #707070;
+    }
+</style>

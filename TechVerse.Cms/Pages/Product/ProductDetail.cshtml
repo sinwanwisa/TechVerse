@@ -1,16 +1,14 @@
 ﻿@page "/product/{slug}"
 @inject OrchardCore.IOrchardHelper Orchard
- 
+<link rel="stylesheet" href="~/css/pages/product-detail.css" asp-append-version="true" />
+
 @functions {
     [FromRoute]
     public string? Slug { get; set; }
 }
 
-<link rel="stylesheet" href="~/css/pages/product-detail.css" asp-append-version="true" />
 
 @{
-    var path = $"product/{Slug}";
-
     var product = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
     if (product == null || product.ContentType != "Product")
@@ -19,74 +17,87 @@
     }
 }
 
-@if (product == null || product.ContentType != "Product")
+@if (product == null)
 {
-    <h3 class="text-center mt-5">ไม่พบสินค้า</h3>
+    <div class="container text-center py-5"><h3>ไม่พบข้อมูลสินค้า</h3></div>
 }
-else
-{}
-        @{
-            string? image = product.Content.Product?.Image?.Paths?[0];
-            decimal? price = product.Content.Product?.Price?.Value;
-            string? brand = product.Content.Product?.Brand?.Text;
-            string? detail = product.Content.MarkdownBodyPart?.Markdown;
+else{}
+
+    @{
+        var allImages = new List<string>();
+        if (product.Content.Product?.Image?.Paths != null) {
+            foreach(var p in product.Content.Product.Image.Paths) { allImages.Add((string)p); }
+        }
+        if (product.Content.Product?.MainImage?.Paths != null) {
+            foreach(var p in product.Content.Product.MainImage.Paths) { allImages.Add((string)p); }
         }
 
-        <section class="product-detail container my-5">
-            <div class="row g-5 align-items-center">
+        decimal? price = product.Content.Product?.Price?.Value;
+        string? brand = product.Content.Product?.Brand?.Text;
+        string? detail = product.Content.MarkdownBodyPart?.Markdown;
+    }
 
-                <!-- Images -->
-                <div class="col-md-6">
-                    <div class="product-image shadow-sm rounded p-2 bg-white">
-                        @if (!string.IsNullOrEmpty(image))
-                        {
-                            <img src="@Orchard.AssetUrl(image)"
-                                 alt="@product.DisplayText"
-                                 class="img-fluid rounded" />
-                        }
-                        else
-                        {
-                            <div class="placeholder-image text-center py-5 bg-light rounded">
-                                ไม่มีรูปภาพ
+    <section class="catalog-container container">
+        <div class="row g-5">
+            <div class="col-md-6">
+                <div id="productCarousel" class="carousel slide catalog-image-box shadow-sm" data-bs-ride="carousel">
+                    
+                    @if (allImages.Count > 1) {
+                        <div class="carousel-indicators">
+                            @for (int i = 0; i < allImages.Count; i++) {
+                                <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")"></button>
+                            }
+                        </div>
+                    }
+
+                    <div class="carousel-inner">
+                        @if (allImages.Any()) {
+                            @for (int i = 0; i < allImages.Count; i++) {
+                                <div class="carousel-item @(i == 0 ? "active" : "")">
+                                    <img src="@Orchard.AssetUrl(allImages[i])" class="d-block" alt="@product.DisplayText">
+                                </div>
+                            }
+                        } else {
+                            <div class="carousel-item active">
+                                <div class="h-100 d-flex align-items-center justify-content-center text-muted">ไม่มีรูปภาพ</div>
                             </div>
                         }
                     </div>
-                </div>
 
-                <!-- Info -->
-                <div class="col-md-6">
-                    <h1 class="fw-bold">@product.DisplayText</h1>
-
-                    @if (!string.IsNullOrEmpty(brand))
-                    {
-                        <p class="text-muted mb-2">
-                            แบรนด์: <span class="fw-medium">@brand</span>
-                        </p>
-                    }
-
-                    @if (price != null)
-                    {
-                        <h3 class="text-danger fw-bold">
-                            @price.Value.ToString("N0") บาท
-                        </h3>
-                    }
-
-                    <button class="btn btn-primary btn-lg mt-3">
-                        เพิ่มลงตะกร้า
-                    </button>
-
-                    @if (!string.IsNullOrEmpty(detail))
-                    {
-                        <div class="mt-4">
-                            <h4>รายละเอียดสินค้า</h4>
-                            <div class="product-description border-top pt-3">
-                                @Html.Raw(detail)
-                            </div>
-                        </div>
+                    @if (allImages.Count > 1) {
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
                     }
                 </div>
-
             </div>
-        </section>
 
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(brand)) {
+                    <span class="catalog-brand-label">@brand</span>
+                }
+                <h1 class="catalog-title">@product.DisplayText</h1>
+
+                @if (price != null) {
+                    <div class="catalog-price-tag">฿@price.Value.ToString("N0")</div>
+                }
+
+                @if (!string.IsNullOrEmpty(detail)) {
+                    <div class="catalog-detail-section shadow-sm">
+                        <h4>รายละเอียดสินค้า</h4>
+                        <div class="markdown-content">@Html.Raw(detail)</div>
+                    </div>
+                }
+
+                <div class="mt-4">
+                    <a href="/product" class="btn btn-outline-secondary rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i> กลับหน้ารวมสินค้า
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 }

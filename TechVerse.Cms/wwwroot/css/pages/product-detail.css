@@ -1,28 +1,78 @@
-﻿.product-image img {
-    max-height: 450px;
-    object-fit: cover;
+﻿
+body {
+    background-color: #ffffff;
+    color: #333;
 }
 
-.placeholder-image {
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-weight: 500;
+.catalog-container {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
 }
 
-.product-description p {
-    line-height: 1.6;
+/* ปรับแต่ง Carousel */
+.catalog-image-box {
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
 }
 
-.product-detail h1,
-.product-detail h3,
-.product-detail h4 {
-    margin-bottom: 1rem;
+.carousel-item {
+    height: 500px; /* กำหนดความสูงให้เท่ากันทุกรูป */
+    background-color: #fdfdfd;
 }
 
-.product-detail button {
-    border-radius: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* ให้รูปแสดงครบถ้วน ไม่โดนตัด */
+        padding: 20px;
+    }
+
+/* ปุ่มเลื่อนรูปภาพสไตล์แดง */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #e10600;
+    border-radius: 50%;
+    padding: 15px;
+    background-size: 50%;
 }
+
+/* ตัวบอกตำแหน่งรูป (Indicators) */
+.carousel-indicators [data-bs-target] {
+    background-color: #e10600;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* รายละเอียดสินค้า */
+.catalog-brand-label {
+    color: #e10600;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.catalog-title {
+    font-weight: 800;
+    color: #111;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+.catalog-price-tag {
+    color: #e10600;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.catalog-detail-section {
+    background-color: #fafafa;
+    border-radius: 15px;
+    padding: 30px;
+    border-top: 4px solid #e10600;
+}
+
+

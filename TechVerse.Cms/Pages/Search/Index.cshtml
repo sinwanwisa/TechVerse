@@ -1,9 +1,9 @@
 ﻿@page
 @using TechVerse.Cms.Pages.Widgets.Partials
 @using OrchardCore.ContentManagement
+@using OrchardCore.Alias.Models
 @model TechVerse.Cms.Pages.Search.IndexModel
 
-@using OrchardCore.Alias.Models
 @{
     var searchFormModel = new SearchFormModel
     {
@@ -11,18 +11,19 @@
     };
 }
 
+
 <form method="get" action="/search">
     @await Html.PartialAsync("/Pages/Widgets/Partials/SearchForm.cshtml", searchFormModel)
 
     <div class="container my-5">
         <div class="row">
             <div class="col-md-3">
-                <div class="card shadow-sm border-0 mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <i class="fa fa-filter"></i> ตัวกรอง
+                <div class="card filter-section shadow-sm mb-4">
+                    <div class="card-header filter-title-bg py-3">
+                        <i class="fa fa-filter me-2"></i> ตัวกรอง
                     </div>
                     <div class="card-body">
-                        <h6 class="fw-bold">ประเภทเนื้อหา</h6>
+                        <h6 class="fw-bold mb-3 small text-muted text-uppercase">ประเภทเนื้อหา</h6>
                         @foreach (var type in Model.AvailableTypes)
                         {
                             <div class="form-check mb-2">
@@ -43,9 +44,10 @@
             </div>
 
             <div class="col-md-9">
-                <h2 class="h4">ผลการค้นหา: <span class="text-primary">"@Model.Terms"</span></h2>
-                <p class="text-muted small">พบ @Model.Results.Count() รายการ</p>
-                <hr />
+                <div class="mb-4">
+                    <h2 class="h4 fw-bold">ผลการค้นหาสำหรับ: <span style="color: #e10600;">"@Model.Terms"</span></h2>
+                    <p class="text-muted small">พบ @Model.Results.Count() รายการ</p>
+                </div>
 
                 @if (Model.Results.Any())
                 {
@@ -57,33 +59,35 @@
                         var linkUrl = !string.IsNullOrEmpty(alias)
                         ? $"/{contentType}/{alias}"
                         : $"/Contents/ContentItems/{item.ContentItemId}";
-                        string imagePath = item.Content.News?.Image?.Paths?[0];
 
-                        <div class="card mb-3 shadow-sm border-0">
-                            <div class="row g-0">
+                        // Logic ดึงรูปเหมือนเดิม
+                        string imagePath = item.Content.News?.Image?.Paths?[0] ?? item.Content.Product?.Image?.Paths?[0];
+
+                        <div class="card result-item mb-2">
+                            <div class="row g-0 align-items-center">
                                 @if (!string.IsNullOrEmpty(imagePath))
                                 {
-                                    <div class="col-md-3">
-                                        <img src="/media/@imagePath" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="@item.DisplayText">
+                                    <div class="col-md-3 p-3">
+                                        <img src="/media/@imagePath" class="img-fluid img-rounded w-100" style="height: 140px;" alt="@item.DisplayText">
                                     </div>
                                 }
                                 <div class="@(string.IsNullOrEmpty(imagePath) ? "col-12" : "col-md-9")">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <a href="@linkUrl" class="text-decoration-none text-dark fw-bold">
+                                    <div class="card-body py-4">
+                                        <div class="mb-2">
+                                            <span class="badge badge-tech">@item.ContentType</span>
+                                        </div>
+                                        <h5 class="card-title mb-2">
+                                            <a href="@linkUrl" class="result-link fw-bold">
                                                 @item.DisplayText
                                             </a>
                                         </h5>
-                                        <div class="mb-2">
-                                            <span class="badge bg-secondary">@item.ContentType</span>
-                                        </div>
 
                                         @if (item.Content.MarkdownBodyPart != null)
                                         {
-                                            <p class="card-text text-muted small">
+                                            <p class="text-preview small mb-0">
                                                 @{
                                                     string rawText = item.Content.MarkdownBodyPart.Markdown?.ToString() ?? "";
-                                                    var preview = rawText.Length > 180 ? rawText.Substring(0, 180) + "..." : rawText;
+                                                    var preview = rawText.Length > 160 ? rawText.Substring(0, 160) + "..." : rawText;
                                                 }
                                                 @preview
                                             </p>
@@ -96,12 +100,87 @@
                 }
                 else if (!string.IsNullOrEmpty(Model.Terms))
                 {
-                    <div class="alert alert-light border text-center py-5">
-                        <i class="fa fa-search fa-2x mb-3 text-muted"></i>
-                        <p>ไม่พบข้อมูลที่ตรงกับการค้นหา</p>
+                    <div class="text-center py-5 border rounded-3 bg-light">
+                        <i class="fa fa-search-minus fa-3x mb-3 text-muted"></i>
+                        <p class="text-muted">ไม่พบข้อมูลที่ตรงกับการค้นหา</p>
                     </div>
                 }
             </div>
         </div>
     </div>
 </form>
+
+<style>
+    /* ปรับโทนสีพื้นหลังหน้าเว็บเป็นสีขาวสว่าง */
+    body {
+        background-color: #ffffff;
+        color: #333;
+    }
+
+    /* ตัวกรอง (Sidebar) แบบสะอาดตา */
+    .filter-section {
+        border: 1px solid #eee;
+        border-radius: 15px;
+        background: #fff;
+    }
+
+    .filter-title-bg {
+        background-color: #fcfcfc;
+        border-bottom: 1px solid #eee;
+        color: #e10600;
+        font-weight: 700;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .form-check-input:checked {
+        background-color: #e10600;
+        border-color: #e10600;
+    }
+
+    /* การ์ดแสดงผลการค้นหาแบบไร้เส้นขอบหนา */
+    .result-item {
+        border: none;
+        border-bottom: 1px solid #f0f0f0;
+        transition: 0.3s;
+        border-radius: 0;
+    }
+
+        .result-item:hover {
+            background-color: #fafafa;
+        }
+
+    .result-link {
+        color: #111;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+        .result-link:hover {
+            color: #e10600;
+        }
+
+    /* รูปภาพประกอบ */
+    .img-rounded {
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    /* Badge สีแดง TechVerse */
+    .badge-tech {
+        background-color: rgba(225, 6, 0, 0.1);
+        color: #e10600;
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        border-radius: 50px;
+    }
+
+    .text-preview {
+        color: #666;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

@@ -3,29 +3,27 @@
 @using OrchardCore.ContentManagement
 @using System.Linq
 @inject OrchardCore.IOrchardHelper Orchard
+<link rel="stylesheet" href="~/css/pages/article-list.css" asp-append-version="true" />
 @{
-    // ดึงข้อมูลบทความทั้งหมดจาก Query "AllArticleList"
     var articles = await Orchard.ContentQueryAsync("AllArticleList");
 }
 
-<link rel="stylesheet" href="~/css/pages/article-list.css" asp-append-version="true" />
 
-<div class="article-page-container">
+<div class="container article-page-container">
     <h2 class="page-title">บทความและสาระน่ารู้</h2>
 
     <div class="article-list-grid">
         @foreach (var article in articles)
         {
-            // ดึงข้อมูลจากโครงสร้าง JSON ของ Article
             var mainImage = (string)article.Content.Article?.MainImage?.Paths?[0];
-            var summary = article.Content.Article?.Summary?.Markdown.ToString(); ;
+            var summary = article.Content.Article?.Summary?.Markdown.ToString();
             var path = article.Content?.AliasPart?.Alias ?? "#";
             var publishedDate = article.PublishedUtc.HasValue
             ? article.PublishedUtc.Value.ToString("dd MMM yyyy")
             : "No date";
 
             <div class="article-card">
-                <div class="article-image">
+                <div class="article-image shadow-sm">
                     @if (!string.IsNullOrEmpty(mainImage))
                     {
                         <img src="@Orchard.AssetUrl(mainImage)" alt="@article.DisplayText" />
@@ -39,14 +37,13 @@
                 <div class="article-content">
                     <span class="publish-date">@publishedDate</span>
                     <h3 class="article-title">
-                        <a href="/@path">@article.DisplayText</a>
+                        <a href="/article/@path">@article.DisplayText</a>
                     </h3>
 
                     @if (!string.IsNullOrEmpty(summary))
                     {
                         <div class="article-summary">
-                            @* แสดงข้อความสรุปแบบสั้นๆ *@
-                            @(summary.Length > 100 ? summary.Substring(0, 100) + "..." : summary)
+                            @(summary.Length > 150 ? summary.Substring(0, 150) + "..." : summary)
                         </div>
                     }
 
