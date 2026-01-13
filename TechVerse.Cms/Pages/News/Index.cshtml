@@ -5,7 +5,6 @@
 @inject OrchardCore.IOrchardHelper Orchard
 
 @{
-    // ดึงข้อมูลข่าวทั้งหมด
     var newsList = await Orchard.ContentQueryAsync("AllNewsList");
 }
 <link rel="stylesheet" href="~/css/pages/news-list.css" asp-append-version="true" />
@@ -22,7 +21,6 @@
             var sourceUrl = item.Content.News?.SourceUrl?.Url?.ToString();
             var sourceText = item.Content.News?.SourceUrl?.Text?.ToString() ?? "อ่านต้นฉบับ";
             var target = item.Content.News?.SourceUrl?.Target?.ToString() ?? "_blank";
-            bool isActive = item.Content.News?.Active?.Value ?? false;
 
             var categoryIds = item.Content.News?.NewsCategory?.TermContentItemIds;
 

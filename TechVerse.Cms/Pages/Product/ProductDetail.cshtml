@@ -1,28 +1,18 @@
 ﻿@page "/product/{slug}"
 @inject OrchardCore.IOrchardHelper Orchard
+@addTagHelper *, OrchardCore.DynamicCache
 
 @functions {
     [FromRoute]
     public string? Slug { get; set; }
 }
+
 <link rel="stylesheet" href="~/css/pages/product-detail.css" asp-append-version="true" />
 
 @{
-    string? images = null;
-    decimal? price = null;
-    string? brand = null;
-    string? detail = null;
-
     var product = await Orchard.GetContentItemByAliasAsync($"alias:{Slug}", latest: true);
 
-    if (product != null && product.ContentType == "Product")
-    {
-        images = product.Content.Product?.Image?.Paths?[0];
-        price = product.Content.Product?.Price?.Value;
-        brand = product.Content.Product?.Brand?.Text;
-        detail = product.Content.MarkdownBodyPart?.Markdown;
-    }
-    else
+    if (product == null || product.ContentType != "Product")
     {
         Response.StatusCode = 404;
     }
@@ -33,57 +23,74 @@
     <h3 class="text-center mt-5">ไม่พบสินค้า</h3>
 }
 else
-
 {
-    <section class="product-detail container my-5">
-        <div class="row g-5 align-items-center">
-            <!-- Images -->
-            <div class="col-md-6">
-                <div class="product-image shadow-sm rounded p-2 bg-white">
-                    @if (!string.IsNullOrEmpty(images))
+    <dynamic-cache cache-id="@($"product-detail-{product.ContentItemId}")"
+                   dependencies="@($"contentitemid:{product.ContentItemId}")"
+                   expires-after="@TimeSpan.FromHours(1)">
+
+        @{
+            string? image = product.Content.Product?.Image?.Paths?[0];
+            decimal? price = product.Content.Product?.Price?.Value;
+            string? brand = product.Content.Product?.Brand?.Text;
+            string? detail = product.Content.MarkdownBodyPart?.Markdown;
+        }
+
+        <section class="product-detail container my-5">
+            <div class="row g-5 align-items-center">
+
+                <!-- Images -->
+                <div class="col-md-6">
+                    <div class="product-image shadow-sm rounded p-2 bg-white">
+                        @if (!string.IsNullOrEmpty(image))
+                        {
+                            <img src="@Orchard.AssetUrl(image)"
+                                 alt="@product.DisplayText"
+                                 class="img-fluid rounded" />
+                        }
+                        else
+                        {
+                            <div class="placeholder-image text-center py-5 bg-light rounded">
+                                ไม่มีรูปภาพ
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="col-md-6">
+                    <h1 class="fw-bold">@product.DisplayText</h1>
+
+                    @if (!string.IsNullOrEmpty(brand))
                     {
-                        <img src="@Orchard.AssetUrl(images)" alt="@product.DisplayText" class="img-fluid rounded" />
+                        <p class="text-muted mb-2">
+                            แบรนด์: <span class="fw-medium">@brand</span>
+                        </p>
                     }
-                    else
+
+                    @if (price != null)
                     {
-                        <div class="placeholder-image text-center py-5 bg-light rounded">
-                            ไม่มีรูปภาพ
+                        <h3 class="text-danger fw-bold">
+                            @price.Value.ToString("N0") บาท
+                        </h3>
+                    }
+
+                    <button class="btn btn-primary btn-lg mt-3">
+                        เพิ่มลงตะกร้า
+                    </button>
+
+                    @if (!string.IsNullOrEmpty(detail))
+                    {
+                        <div class="mt-4">
+                            <h4>รายละเอียดสินค้า</h4>
+                            <div class="product-description border-top pt-3">
+                                @Html.Raw(detail)
+                            </div>
                         </div>
                     }
                 </div>
+
             </div>
+        </section>
 
-            <!-- Info -->
-            <div class="col-md-6">
-                <h1 class="fw-bold">@product.DisplayText</h1>
-
-                @if (!string.IsNullOrEmpty(brand))
-                {
-                    <p class="text-muted mb-2">แบรนด์: <span class="fw-medium">@brand</span></p>
-                }
-
-                @if (price != null)
-                {
-                    <h3 class="text-danger fw-bold">@price?.ToString("N0") บาท</h3>
-                }
-
-                <button class="btn btn-primary btn-lg mt-3">
-                    เพิ่มลงตะกร้า
-                </button>
-
-                <!-- Description -->
-                @if (!string.IsNullOrEmpty(detail))
-                {
-                    <div class="mt-4">
-                        <h4>รายละเอียดสินค้า</h4>
-                        <div class="product-description border-top pt-3">
-                            @Html.Raw(detail)
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </section>
+    </dynamic-cache>
 }
-
-

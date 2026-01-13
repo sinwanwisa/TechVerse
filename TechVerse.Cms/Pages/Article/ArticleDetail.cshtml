@@ -1,5 +1,7 @@
 ﻿@page "/article/{slug}"
 @inject OrchardCore.IOrchardHelper Orchard
+@addTagHelper *, OrchardCore.DynamicCache
+
 
 @functions {
     [FromRoute]
@@ -14,6 +16,8 @@
         return;
     }
 
+  
+
     var title = article.DisplayText;
     var mainImage = article.Content.Article?.MainImage?.Paths?[0] ?? "#";
     var summary = article.Content.Article?.Summary?.Markdown?.ToString();
@@ -24,6 +28,10 @@
 <link rel="stylesheet" href="~/css/pages/article-detail.css" asp-append-version="true" />
 
 <div class="container mt-5 mb-5">
+    <dynamic-cache cache-id="@($"article-detail-{article.ContentItemId}")"
+                   dependencies="@($"contentitemid:{article.ContentItemId}")"
+                   expires-after="@TimeSpan.FromHours(1)">
+
     <article class="article-detail-wrapper">
         <header class="article-header mb-4">
             <h1 class="display-4 fw-bold">@title</h1>
@@ -50,7 +58,7 @@
             {
                 var subHeading = section.SectionArticle?.SubHeading?.Text?.ToString() ?? "#";
                 var subBody = section.SectionArticle?.SubBody?.Markdown?.ToString() ?? "#"; ;
-                var subImage = section.SectionArticle?.SubImage?.Paths?[0] ?? "#"; ;
+                var subImage = section.SectionArticle?.SubImage?.Paths?[0]; ;
 
                 <section class="mb-5">
                     @if (!string.IsNullOrEmpty(subHeading))
@@ -76,4 +84,5 @@
             }
         </div>
     </article>
+    </dynamic-cache>
 </div>
